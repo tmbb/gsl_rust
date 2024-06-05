@@ -16,70 +16,69 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-use crate::bindings::*;
-use crate::*;
-use num_complex::Complex64;
+pub mod special_function_test;
 
-pub fn gamma(x: f64) -> Result<ValWithError<f64>> {
-    unsafe {
-        let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
-        GSLError::from_raw(gsl_sf_gamma_e(x, &mut result))?;
-        Ok(result.into())
-    }
-}
+mod gamma;
+mod coulomb;
+mod airy;
+mod bessel;
+mod clausen;
+mod coupling;
+mod dawson;
+mod debye;
+mod dilog;
+mod elementary;
+mod ellint;
+mod elljac;
+mod erf;
+mod exp;
+mod expint;
+mod fermi_dirac;
+mod gegenbauer;
+mod hermite;
+mod hyperg;
+mod laguerre;
+mod lambert;
+mod legendre;
+mod log;
+mod mathieu;
+mod pow_int;
+mod psi;
+mod sincos_pi;
+mod synchrotron;
+mod transport;
+mod trig;
+mod zeta;
 
-pub fn ln_gamma_complex(z: Complex64) -> Result<ValWithError<Complex64>> {
-    unsafe {
-        let mut ln_r = gsl_sf_result { val: 0.0, err: 0.0 };
-        let mut arg = gsl_sf_result { val: 0.0, err: 0.0 };
-        GSLError::from_raw(gsl_sf_lngamma_complex_e(z.re, z.im, &mut ln_r, &mut arg))?;
 
-        Ok(ValWithError {
-            val: Complex64::from_polar(ln_r.val, arg.val),
-            err: Complex64::from_polar(ln_r.err, arg.err),
-        })
-    }
-}
-
-pub fn gamma_complex(z: Complex64) -> Result<ValWithError<Complex64>> {
-    unsafe {
-        let mut ln_r = gsl_sf_result { val: 0.0, err: 0.0 };
-        let mut arg = gsl_sf_result { val: 0.0, err: 0.0 };
-        GSLError::from_raw(gsl_sf_lngamma_complex_e(z.re, z.im, &mut ln_r, &mut arg))?;
-
-        Ok(ValWithError {
-            val: Complex64::from_polar(ln_r.val.exp(), arg.val),
-            err: Complex64::from_polar(ln_r.err.exp(), arg.err),
-        })
-    }
-}
-
-pub fn hurwitz_zeta(s: f64, a: f64) -> Result<ValWithError<f64>> {
-    unsafe {
-        let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
-        GSLError::from_raw(gsl_sf_hzeta_e(s, a, &mut result))?;
-        Ok(result.into())
-    }
-}
-
-#[test]
-fn test_gamma() {
-    disable_error_handler();
-
-    approx::assert_abs_diff_eq!(
-        gamma(5.0).unwrap().val,
-        gamma_complex(Complex64::from(5.0)).unwrap().val.re,
-        epsilon = 1.0e-9
-    );
-
-    approx::assert_abs_diff_eq!(
-        gamma_complex(Complex64::new(1.0, 1.0)).unwrap().val.re,
-        0.49801566811835,
-        epsilon = 1.0e-9
-    );
-    approx::assert_abs_diff_eq!(
-        gamma_complex(Complex64::new(1.0, 1.0)).unwrap().val.im,
-        -0.1549498283018,
-        epsilon = 1.0e-9
-    );
-}
+pub use gamma::*;
+pub use coulomb::*;
+pub use airy::*;
+pub use bessel::*;
+pub use clausen::*;
+pub use coupling::*;
+pub use dawson::*;
+pub use debye::*;
+pub use dilog::*;
+pub use elementary::*;
+pub use ellint::*;
+pub use elljac::*;
+pub use erf::*;
+pub use exp::*;
+pub use expint::*;
+pub use fermi_dirac::*;
+pub use gegenbauer::*;
+pub use hermite::*;
+pub use hyperg::*;
+pub use laguerre::*;
+pub use lambert::*;
+pub use legendre::*;
+pub use log::*;
+pub use mathieu::*;
+pub use pow_int::*;
+pub use psi::*;
+pub use sincos_pi::*;
+pub use synchrotron::*;
+pub use transport::*;
+pub use trig::*;
+pub use zeta::*;

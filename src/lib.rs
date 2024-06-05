@@ -33,6 +33,7 @@ pub mod nonlinear_fit;
 pub mod sorting;
 pub mod special;
 pub mod stats;
+pub mod machine;
 
 mod data;
 pub use data::*;
