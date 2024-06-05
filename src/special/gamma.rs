@@ -20,11 +20,14 @@ use crate::bindings::*;
 use crate::*;
 use num_complex::Complex64;
 
-/// These routines compute the Gamma function $`\Gamma(x)`$, subject to $`x`$
+#[cfg_attr(doc, katexit::katexit)]
+/// These routines compute the Gamma function $\Gamma(x)$, subject to $x$
 /// not being a negative integer or zero. The function is computed using the real
-/// Lanczos method. The maximum value of $`x`$ such that $`\Gamma(x)`$ is not
+/// Lanczos method. The maximum value of $x$ such that $\Gamma(x)$ is not
 /// considered an overflow is given by the macro `GSL_SF_GAMMA_XMAX`
 /// and is 171.0.
+///
+/// Binds the [`gsl_sf_gamma_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gamma_e).
 pub fn gamma(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -33,14 +36,17 @@ pub fn gamma(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// This routine computes $`\log(\Gamma(z))`$ for complex $`z = z\_r + i z\_i`$
-/// and $`z`$ not a negative integer or zero, using the complex Lanczos
-/// method. The returned parameters are $`lnr = \log|\Gamma(z)|`$ and
-/// $`arg = \arg(\Gamma(z))`$ in $`(-\pi,\pi]`$. Note that the phase
-/// part (`arg`) is not well-determined when $`|z|`$ is very large,
-/// due to inevitable roundoff in restricting to $`(-\pi,\pi]`$. This
+#[cfg_attr(doc, katexit::katexit)]
+/// This routine computes $\log(\Gamma(z))$ for complex $z = z\_r + i z\_i$
+/// and $z$ not a negative integer or zero, using the complex Lanczos
+/// method. The returned parameters are $lnr = \log|\Gamma(z)|$ and
+/// $arg = \arg(\Gamma(z))$ in $(-\pi,\pi]$. Note that the phase
+/// part (`arg`) is not well-determined when $|z|$ is very large,
+/// due to inevitable roundoff in restricting to $(-\pi,\pi]$. This
 /// will result in a `GSL_ELOSS` error when it occurs. The absolute
 /// value part (`lnr`), however, never suffers from loss of precision.
+///
+/// Binds the [`gsl_sf_lngamma_complex_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lngamma_complex_e).
 pub fn ln_gamma_complex(z: Complex64) -> Result<ValWithError<Complex64>> {
     unsafe {
         let mut ln_r = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -54,11 +60,16 @@ pub fn ln_gamma_complex(z: Complex64) -> Result<ValWithError<Complex64>> {
     }
 }
 
-/// These routines compute the regulated Gamma Function $`\Gamma^\*(x)`$
-/// for $`x > 0`$. The regulated gamma function is given by,
-/// ![\Gamma^*(x) &= \Gamma(x)/(\sqrt{2\pi} x^{(x-1/2)} \exp(-x))\cr
-///             &= \left(1 + {1 \over 12x} + ...\right) \quad\hbox{for~} x\to \infty\cr](_images/math/a9612317ef7e8ec76d3dcbad8935a7bbd0b2b9b7.png)
+#[cfg_attr(doc, katexit::katexit)]
+/// These routines compute the regulated Gamma Function $\Gamma^\*(x)$
+/// for $x > 0$. The regulated gamma function is given by,
+/// $$
+/// \Gamma^\*(x) = \Gamma(x)/(\sqrt{2\pi} x^{(x-1/2)} \exp(-x))
+///              = \left(1 + {1 \over 12x} + ...\right) \quad\hbox{for~} x\to \infty
+/// $$
 /// and is a useful suggestion of Temme.
+///
+/// Binds the [`gsl_gamma_star`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gammastar_e) function.
 pub fn gamma_star(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result {val: 0.0, err: 0.0};
@@ -67,8 +78,11 @@ pub fn gamma_star(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
 /// These routines compute the reciprocal of the gamma function,
-/// $`1/\Gamma(x)`$ using the real Lanczos method.
+/// $1/\Gamma(x)$ using the real Lanczos method.
+///
+/// Binds the [`gsl_sf_gammainv_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gammainv_e).
 pub fn gamma_inv(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result {val: 0.0, err: 0.0};
@@ -90,8 +104,11 @@ pub fn gamma_complex(z: Complex64) -> Result<ValWithError<Complex64>> {
     }
 }
 
-/// These routines compute the Taylor coefficient $`x^n / n!`$ for
-/// $`x \ge 0`$, $`n \ge 0`$
+#[cfg_attr(doc, katexit::katexit)]
+/// These routines compute the Taylor coefficient $x^n / n!$ for
+/// $x \ge 0$, $n \ge 0$
+///
+/// Binds the [`gsl_sf_taylorcoeff_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_taylorcoeff_e).
 pub fn taylor_coefficient(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -100,11 +117,14 @@ pub fn taylor_coefficient(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the factorial $`n!`$. The factorial is
-/// related to the Gamma function by $`n! = \Gamma(n+1)`$.
-/// The maximum value of $`n`$ such that $`n!`$ is not
+#[cfg_attr(doc, katexit::katexit)]
+/// These routines compute the factorial $n!$. The factorial is
+/// related to the Gamma function by $n! = \Gamma(n+1)$.
+/// The maximum value of $n$ such that $n!$ is not
 /// considered an overflow is given by the macro `GSL_SF_FACT_NMAX`
 /// and is 170.
+///
+/// Binds the [`gsl_sf_fact_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_fact_e).
 pub fn factorial(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -113,10 +133,13 @@ pub fn factorial(n: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the double factorial $`n!! = n(n-2)(n-4) \dots`$.
-/// The maximum value of $`n`$ such that $`n!!`$ is not
+#[cfg_attr(doc, katexit::katexit)]
+/// These routines compute the double factorial $n!! = n(n-2)(n-4) \dots$.
+/// The maximum value of $n$ such that $n!!$ is not
 /// considered an overflow is given by the macro `GSL_SF_DOUBLEFACT_NMAX`
 /// and is 297.
+///
+/// Binds the [`gsl_sf_doublefact_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_doublefact_e).
 pub fn double_factorial(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -125,10 +148,13 @@ pub fn double_factorial(n: u32) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
 /// These routines compute the logarithm of the factorial of `n`,
-/// $`\log(n!)`$. The algorithm is faster than computing
-/// $`\ln(\Gamma(n+1))`$ via `gsl_sf_lngamma()` for $`n < 170`$,
+/// $\log(n!)$. The algorithm is faster than computing
+/// $\ln(\Gamma(n+1))$ via `gsl_sf_lngamma()` for $n < 170$,
 /// but defers for larger `n`.
+///
+/// Binds the [`gsl_sf_lnfact_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lnfact_e).
 pub fn ln_factorial(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -137,8 +163,11 @@ pub fn ln_factorial(n: u32) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
 /// These routines compute the logarithm of `n choose m`. This is
-/// equivalent to the sum $`\log(n!) - \log(m!) - \log((n-m)!)`$.
+/// equivalent to the sum $\log(n!) - \log(m!) - \log((n-m)!)$.
+///
+/// Binds the [`gsl_sf_lnchoose_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lnchoose_e).
 pub fn ln_choose(n: u32, m: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -147,8 +176,11 @@ pub fn ln_choose(n: u32, m: u32) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
 /// These routines compute the combinatorial factor `n choose m`
-/// $`= n!/(m!(n-m)!)`$
+/// $= n!/(m!(n-m)!)$
+///
+/// Binds the [`gsl_sf_choose_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_choose_e).
 pub fn choose(n: u32, m: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -157,8 +189,11 @@ pub fn choose(n: u32, m: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Hurwitz zeta function $`\zeta(s,q)`$ for
-/// $`s > 1`$, $`q > 0`$.
+#[cfg_attr(doc, katexit::katexit)]
+/// These routines compute the Hurwitz zeta function $\zeta(s,q)$ for
+/// $s > 1$, $q > 0$.
+///
+/// Binds the [`gsl_sf_hzeta_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_hzeta_e).
 pub fn hurwitz_zeta(s: f64, a: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -392,6 +427,59 @@ mod test {
     }
     
     #[test]
+    fn test_taylor_coefficient() {
+        disable_error_handler();
+
+        check_result(
+            taylor_coefficient(10, 1.0/1048576.0),
+            1.7148961854776073928e-67,
+            TEST_TOL0
+        );
+
+        check_result(
+            taylor_coefficient(10, 1.0/1024.0),
+            2.1738891788497900281e-37,
+            TEST_TOL0
+        );
+
+        check_result(
+            taylor_coefficient(10, 1.0),
+            2.7557319223985890653e-07,
+            TEST_TOL0
+        );
+
+        check_result(
+            taylor_coefficient(10, 5.0),
+            2.6911444554673721340,
+            TEST_TOL0
+        );
+
+        check_result(
+            taylor_coefficient(10, 500.0),
+            2.6911444554673721340e+20,
+            TEST_TOL0
+        );
+
+        check_result(
+            taylor_coefficient(100, 100.0),
+            1.0715102881254669232e+42,
+            TEST_TOL1
+        );
+
+        check_result(
+            taylor_coefficient(1000, 200.0),
+            2.6628790558154746898e-267,
+            TEST_TOL1
+        );
+
+        check_result(
+            taylor_coefficient(1000, 500.0),
+            2.3193170139740855074e+131,
+            TEST_TOL1
+        );
+    }
+    
+    #[test]
     fn test_factorial() {
         disable_error_handler();
 
@@ -421,6 +509,35 @@ mod test {
     }
     
     #[test]
+    fn test_double_factorial() {
+        disable_error_handler();
+
+        check_result(
+            double_factorial(0),
+            1.0,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(1),
+            1.0,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(7),
+            105.0,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(33),
+            6.332659870762850625e+18,
+            TEST_TOL0
+        );
+    }
+    
+    #[test]
     fn test_ln_factorial() {
         disable_error_handler();
 
@@ -445,6 +562,47 @@ mod test {
         check_result(
             ln_factorial(33),
             85.05446701758151741,
+            TEST_TOL0
+        );
+    }
+    
+    #[test]
+    fn test_double_factorial() {
+        disable_error_handler();
+
+        check_result(
+            double_factorial(0),
+            0.0,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(7),
+            4.653960350157523371,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(33),
+            43.292252022541719660,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(34),
+            45.288575519655959140,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(1034),
+            3075.6383796271197707,
+            TEST_TOL0
+        );
+
+        check_result(
+            double_factorial(1035),
+            3078.8839081731809169,
             TEST_TOL0
         );
     }

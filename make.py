@@ -102,14 +102,16 @@ def inject_docs(path, functions_map, fdocs):
 
         fdoc = docs_map.get(normalized_gsl_func)
 
+        link_to_gsl = "\n///\n/// Binds the [`{}`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.{}).".format(gsl_func, gsl_func)
+
         if fdoc and ("\n" + marker) in contents:
             logger.info("{}: added docs for `{}`".format(path, normalized_gsl_func))
             # Convert markdown text into rust docs (with 3 slashes)
             doc = "\n".join("/// " + line for line in fdoc.doc.split("\n"))
             # Split the contents in the right place
             [before, after] = contents.split("\n" + marker)
-            # Update the contents
-            contents = "".join([before, "\n\n", doc, marker, after])
+            # Update the contents (adding support for KaTeX!)
+            contents = "".join([before, "\n\n#[cfg_attr(doc, katexit::katexit)]\n", doc, link_to_gsl, marker, after])
 
     with open(path, 'w') as f:
         f.write(contents)
@@ -165,9 +167,9 @@ from bs4 import BeautifulSoup
 from markdownify import markdownify
 
 def process_node_contents(node):
-    for child_node in node.select('img.math'):
+    for child_node in node.select('img'):
         # Replace an image that represents math
-        child_node.insert_before("$`" + child_node['alt'] + "`$")
+        child_node.insert_before("$" + child_node['alt'] + "$")
         child_node.extract()
     
     for child_node in node.select('a'):
@@ -363,6 +365,8 @@ def build_sf_templates():
             f.write(new_contents)
 
 def main():
+    logging.basicConfig(level=logging.INFO)
+    
     build_sf_templates()
 
     for module in SF_MODULES:
@@ -377,6 +381,14 @@ def main():
         'src/special.rs',
         dict(modules=SF_MODULES)
     )
+
+    
+    function_docs = sf_docs_from_html('gsl_manual/specfunc.html')
+    inject_docs("src/special/gamma.rs", SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP, function_docs)
+    
+    generate_machine_rs()
+    generate_special_gamma_test()
+
 
     # translate_function_heads(
     #     'gsl/specfunc/gsl_sf_debye.h',
