@@ -20,6 +20,13 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These functions evaluate the Gegenbauer polynomials
+/// $C^{(\lambda)}\_n(x)$ using explicit
+/// representations for $n = 1, 2, 3$.
+///
+/// Binds the [`gsl_sf_gegenpoly_1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gegenpoly_1_e).
 pub fn gegenpoly_1(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -28,6 +35,13 @@ pub fn gegenpoly_1(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These functions evaluate the Gegenbauer polynomials
+/// $C^{(\lambda)}\_n(x)$ using explicit
+/// representations for $n = 1, 2, 3$.
+///
+/// Binds the [`gsl_sf_gegenpoly_2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gegenpoly_2_e).
 pub fn gegenpoly_2(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,6 +50,13 @@ pub fn gegenpoly_2(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These functions evaluate the Gegenbauer polynomials
+/// $C^{(\lambda)}\_n(x)$ using explicit
+/// representations for $n = 1, 2, 3$.
+///
+/// Binds the [`gsl_sf_gegenpoly_3_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gegenpoly_3_e).
 pub fn gegenpoly_3(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -44,6 +65,13 @@ pub fn gegenpoly_3(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These functions evaluate the Gegenbauer polynomial $C^{(\lambda)}\_n(x)$
+/// for a specific value of `n`,
+/// `lambda`, `x` subject to $\lambda > -1/2$, $n \ge 0$.
+///
+/// Binds the [`gsl_sf_gegenpoly_n_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_gegenpoly_n_e).
 pub fn gegenpoly_n(n: i32, lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

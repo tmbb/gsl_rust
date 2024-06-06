@@ -20,6 +20,13 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines evaluate the generalized Laguerre polynomials
+/// $L^a\_1(x)$, $L^a\_2(x)$, $L^a\_3(x)$ using explicit
+/// representations.
+///
+/// Binds the [`gsl_sf_laguerre_1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_laguerre_1_e).
 pub fn laguerre_1(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -28,6 +35,13 @@ pub fn laguerre_1(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines evaluate the generalized Laguerre polynomials
+/// $L^a\_1(x)$, $L^a\_2(x)$, $L^a\_3(x)$ using explicit
+/// representations.
+///
+/// Binds the [`gsl_sf_laguerre_2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_laguerre_2_e).
 pub fn laguerre_2(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,6 +50,13 @@ pub fn laguerre_2(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines evaluate the generalized Laguerre polynomials
+/// $L^a\_1(x)$, $L^a\_2(x)$, $L^a\_3(x)$ using explicit
+/// representations.
+///
+/// Binds the [`gsl_sf_laguerre_3_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_laguerre_3_e).
 pub fn laguerre_3(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -44,6 +65,13 @@ pub fn laguerre_3(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines evaluate the generalized Laguerre polynomials
+/// $L^a\_n(x)$ for $a > -1$,
+/// $n \ge 0$.
+///
+/// Binds the [`gsl_sf_laguerre_n_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_laguerre_n_e).
 pub fn laguerre_n(n: i32, a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

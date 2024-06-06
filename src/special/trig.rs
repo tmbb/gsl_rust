@@ -20,6 +20,11 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the sine function $\sin(x)$.
+///
+/// Binds the [`gsl_sf_sin_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_sin_e).
 pub fn sin(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -28,6 +33,11 @@ pub fn sin(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the cosine function $\cos(x)$.
+///
+/// Binds the [`gsl_sf_cos_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_cos_e).
 pub fn cos(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,6 +46,12 @@ pub fn cos(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the hypotenuse function $\sqrt{x^2 + y^2}$
+/// avoiding overflow and underflow.
+///
+/// Binds the [`gsl_sf_hypot_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_hypot_e).
 pub fn hypot(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -44,6 +60,12 @@ pub fn hypot(x: f64, y: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute $\sinc(x) = \sin(\pi x) / (\pi x)$ for any
+/// value of `x`.
+///
+/// Binds the [`gsl_sf_sinc_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_sinc_e).
 pub fn sinc(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -52,6 +74,11 @@ pub fn sinc(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute $\log(\sinh(x))$ for $x > 0$.
+///
+/// Binds the [`gsl_sf_lnsinh_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lnsinh_e).
 pub fn lnsinh(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -60,6 +87,11 @@ pub fn lnsinh(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute $\log(\cosh(x))$ for any `x`.
+///
+/// Binds the [`gsl_sf_lncosh_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lncosh_e).
 pub fn lncosh(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

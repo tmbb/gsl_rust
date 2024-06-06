@@ -20,6 +20,11 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the value of Dawson’s integral for `x`.
+///
+/// Binds the [`gsl_sf_dawson_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_dawson_e).
 pub fn dawson(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

@@ -14,20 +14,27 @@ CMacroDefinition = namedtuple('CMacroDefinition', ['name', 'type', 'value'])
 
 SpecialFuncTest = namedtuple('SpecialFunctionTest', ['func_c', 'func_rust', 'args', 'expected', 'tolerance'])
 
+# SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP = dict(
+#     gsl_sf_taylorcoeff_e='taylor_coefficient',
+#     gsl_sf_gamma_e='gamma',
+#     gsl_sf_lngamma_complex_e='ln_gamma_complex',
+#     gsl_sf_gammastar_e='gamma_star',
+#     gsl_sf_gammainv_e='gamma_inv',
+#     gsl_sf_gamma_complex_e='gamma_complex',
+#     gsl_sf_fact_e='factorial',
+#     gsl_sf_lnfact_e='ln_factorial',
+#     gsl_sf_doublefact_e='double_factorial',
+#     gsl_sf_lndoublefact_e='double_factorial',
+#     gsl_sf_hzeta_e='hurwitz_zeta',
+#     gsl_sf_choose_e='choose',
+#     gsl_sf_lnchoose_e='ln_choose'
+# )
+
+import json
+
 SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP = dict(
-    gsl_sf_taylorcoeff_e='taylor_coefficient',
-    gsl_sf_gamma_e='gamma',
-    gsl_sf_lngamma_complex_e='ln_gamma_complex',
-    gsl_sf_gammastar_e='gamma_star',
-    gsl_sf_gammainv_e='gamma_inv',
-    gsl_sf_gamma_complex_e='gamma_complex',
-    gsl_sf_fact_e='factorial',
-    gsl_sf_lnfact_e='ln_factorial',
-    gsl_sf_doublefact_e='double_factorial',
-    gsl_sf_lndoublefact_e='double_factorial',
-    gsl_sf_hzeta_e='hurwitz_zeta',
-    gsl_sf_choose_e='choose',
-    gsl_sf_lnchoose_e='ln_choose'
+    (func['c_func'], func['rust_func'])
+    for func in json.load(open('gsl_functions.json'))
 )
 
 def inject_tests(path, tests_content):
@@ -98,20 +105,33 @@ def inject_docs(path, functions_map, fdocs):
         else:
             normalized_gsl_func = gsl_func
 
-        marker = "\npub fn {}(".format(rust_func)
+        marker_with_warning_suppression = "\n#[allow(non_snake_case)]\npub fn {}(".format(rust_func)
+
+        if marker_with_warning_suppression in contents:
+            marker = marker_with_warning_suppression
+        else:
+            marker = "\npub fn {}(".format(rust_func)
 
         fdoc = docs_map.get(normalized_gsl_func)
 
         link_to_gsl = "\n///\n/// Binds the [`{}`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.{}).".format(gsl_func, gsl_func)
 
         if fdoc and ("\n" + marker) in contents:
-            logger.info("{}: added docs for `{}`".format(path, normalized_gsl_func))
             # Convert markdown text into rust docs (with 3 slashes)
             doc = "\n".join("/// " + line for line in fdoc.doc.split("\n"))
             # Split the contents in the right place
             [before, after] = contents.split("\n" + marker)
             # Update the contents (adding support for KaTeX!)
-            contents = "".join([before, "\n\n#[cfg_attr(doc, katexit::katexit)]\n", doc, link_to_gsl, marker, after])
+            
+            contents = "".join([
+                before,
+                "\n\n#[cfg_attr(doc, katexit::katexit)]\n",
+                "/// <style>p { overflow-y: hidden; }</style>\n",
+                doc,
+                link_to_gsl,
+                marker,
+                after
+            ])
 
     with open(path, 'w') as f:
         f.write(contents)
@@ -165,6 +185,8 @@ def generate_special_gamma_test():
 
 from bs4 import BeautifulSoup
 from markdownify import markdownify
+import latex2mathml.converter
+import hashlib
 
 def process_node_contents(node):
     for child_node in node.select('img'):
@@ -182,6 +204,11 @@ def process_node_contents(node):
     
 FunctionDoc = namedtuple('FunctionDoc', ['name', 'doc'])
 
+def canonical_c_func_name(name):
+    if name.endswith('_e'): name = name[:-2]
+    if name.startswith('c.'): name = name[2:]
+    return name
+
 def sf_docs_from_html(path):
     with open(path) as f:
         contents = f.read()
@@ -193,30 +220,24 @@ def sf_docs_from_html(path):
     docs = []
 
     for function in functions:
-        name = next(iter(function.select('dt.sig.sig-object.c')), None)['id']
-        if name.endswith('_e'): name = name[:-2]
-        if name.startswith('c.'): name = name[2:]
+        for sig_object in function.select('dt.sig.sig-object.c'):
+            name = sig_object['id']
+            if not name.endswith('_e'):
+                if name.startswith('c.'): name = name[2:]
 
-        docstring_html = "".join(str(child) for child in process_node_contents(function.find('dd')))
-        docstring_md = markdownify(docstring_html).strip()
-        trimmed_docstring_md = re.sub(r'\n(\s*\n)+', '\n', docstring_md)
+                processed_contents = process_node_contents(function.find('dd'))
 
-        function_doc = FunctionDoc(name=name, doc=trimmed_docstring_md)
+                docstring_html = "".join([str(child) for child in processed_contents])
+                docstring_md = markdownify(docstring_html).strip()
 
-        docs.append(function_doc)
+                trimmed_docstring_md = re.sub(r'\n(\s*\n)+', '\n', docstring_md)
+
+                function_doc = FunctionDoc(name=name, doc=trimmed_docstring_md)
+
+                docs.append(function_doc)
 
     return docs
 
-
-
-def main_():
-    logging.basicConfig(level=logging.INFO)
-    
-    function_docs = sf_docs_from_html('gsl_manual/specfunc.html')
-    inject_docs("src/special/gamma.rs", SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP, function_docs)
-    
-    generate_machine_rs()
-    generate_special_gamma_test()
 
 SpecialFunctionHead = namedtuple('SfHead', [
     'c_func',
@@ -284,17 +305,16 @@ def decompose_head(head):
                 sf_arg = SpecialFunctionHeadArg(name=name, type=typ)
                 final_args.append(sf_arg)
 
-
         else:
             raise Exception("{} is an invalid arg!".format(arg))
         
     
-
     gsl_sf_results = [True for arg in final_args if arg.type == 'gsl_sf_result*' ]
 
     has_single_gsl_sf_result = len(gsl_sf_results) == 1
 
-    takes_arrays = any(arg.type == 'double*' or arg.type == 'int*' for arg in final_args)
+    takes_arrays = any(arg.type == 'double*' or arg.type == 'int*' or arg.type == '*sgn'
+                       for arg in final_args)
         
     return SpecialFunctionHead(
                 gsl_name,
@@ -314,12 +334,16 @@ def function_heads(path):
     heads = [decompose_head(match) for match in matches]
 
     # Remove heads with problematic types
-    heads = [head for head in heads if not any('gsl_mode_t' in typ for typ in head.args)]
+    heads = [
+        head for head in heads if
+        not any('gsl_mode_t' in arg.type or '*' in arg.name for arg in head.args)
+    ]
 
     return heads
 
 def translate_function_heads(input_path, output_path, template_path):
     heads = function_heads(input_path)
+
     render_template_into_file(template_path, output_path, dict(sf_heads=heads))
     return heads
 
@@ -328,7 +352,7 @@ SF_MODULES = [
     "bessel",
     "clausen",
     "coupling",
-    # "coulomb",
+    "coulomb",
     "dawson",
     "debye",
     "dilog",
@@ -339,7 +363,7 @@ SF_MODULES = [
     "exp",
     "expint",
     "fermi_dirac",
-    # "gamma",
+    "gamma",
     "gegenbauer",
     "hermite",
     "hyperg",
@@ -357,6 +381,40 @@ SF_MODULES = [
     "zeta"
 ]
 
+
+def gather_function_heads(modules):
+    heads = []
+    
+    for module in modules:
+        new_heads = function_heads('gsl/specfunc/gsl_sf_{}.h'.format(module))
+        heads.extend(new_heads)
+
+    return heads
+
+import json
+
+def update_gsl_functions_database(modules):
+    gsl_functions = json.load(open('gsl_functions.json'))
+    gsl_functions_set = set(f['c_func'] for f in gsl_functions)
+
+    heads = gather_function_heads(modules)
+
+    for head in heads:
+        if head.c_func not in gsl_functions_set:
+            new_func = {
+                'c_func': head.c_func,
+                'c_func_canonical': canonical_c_func_name(head.c_func),
+                'rust_func': head.rust_func,
+                'exclude': False
+            }
+
+            gsl_functions.append(new_func)
+
+    gsl_functions = sorted(gsl_functions, key=lambda f: f['c_func'])
+
+    json.dump(gsl_functions, open('gsl_functions.json', 'w'), indent=4)
+    
+
 def build_sf_templates():
     default = open('rs_file_templates/special/coulomb.rs').read()
     for module in SF_MODULES:
@@ -364,16 +422,27 @@ def build_sf_templates():
             new_contents = default.replace('coulomb', module)
             f.write(new_contents)
 
+
 def main():
     logging.basicConfig(level=logging.INFO)
     
+    function_docs = sf_docs_from_html('gsl_manual/specfunc.html')
+
     build_sf_templates()
+    update_gsl_functions_database(SF_MODULES)
 
     for module in SF_MODULES:
         translate_function_heads(
             'gsl/specfunc/gsl_sf_{}.h'.format(module),
             'src/special/{}.rs'.format(module),
             'rs_file_templates/special/{}.rs'.format(module)
+        )
+        
+    for module in SF_MODULES:
+        inject_docs(
+            "src/special/{}.rs".format(module),
+            SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP,
+            function_docs
         )
 
     render_template_into_file(
@@ -382,12 +451,12 @@ def main():
         dict(modules=SF_MODULES)
     )
 
-    
-    function_docs = sf_docs_from_html('gsl_manual/specfunc.html')
-    inject_docs("src/special/gamma.rs", SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP, function_docs)
-    
     generate_machine_rs()
-    generate_special_gamma_test()
+
+    
+    # inject_docs("src/special/gamma.rs", SPECIAL_FUNCTION_DICT_C_TO_RUST_MAP, function_docs)
+    
+    # generate_special_gamma_test()
 
 
     # translate_function_heads(

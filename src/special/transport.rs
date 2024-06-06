@@ -20,6 +20,11 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the transport function $J(2,x)$.
+///
+/// Binds the [`gsl_sf_transport_2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_transport_2_e).
 pub fn transport_2(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -28,6 +33,11 @@ pub fn transport_2(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the transport function $J(3,x)$.
+///
+/// Binds the [`gsl_sf_transport_3_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_transport_3_e).
 pub fn transport_3(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,6 +46,11 @@ pub fn transport_3(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the transport function $J(4,x)$.
+///
+/// Binds the [`gsl_sf_transport_4_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_transport_4_e).
 pub fn transport_4(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -44,6 +59,11 @@ pub fn transport_4(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the transport function $J(5,x)$.
+///
+/// Binds the [`gsl_sf_transport_5_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_transport_5_e).
 pub fn transport_5(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

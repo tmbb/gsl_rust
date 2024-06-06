@@ -20,6 +20,15 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the power $x^n$ for integer `n`. The
+/// power is computed using the minimum number of multiplications. For
+/// example, $x^8$ is computed as $((x^2)^2)^2$, requiring only 3
+/// multiplications. For reasons of efficiency, these functions do not
+/// check for overflow or underflow conditions. The following is a simple example:
+///
+/// Binds the [`gsl_sf_pow_int_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_pow_int_e).
 pub fn pow_int(x: f64, n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

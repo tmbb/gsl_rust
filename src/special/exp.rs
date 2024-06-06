@@ -20,6 +20,12 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines provide an exponential function $\exp(x)$ using GSL
+/// semantics and error checking.
+///
+/// Binds the [`gsl_sf_exp_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_exp_e).
 pub fn exp(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -28,6 +34,12 @@ pub fn exp(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines exponentiate `x` and multiply by the factor `y`
+/// to return the product $y \exp(x)$.
+///
+/// Binds the [`gsl_sf_exp_mult_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_exp_mult_e).
 pub fn exp_mult(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,6 +48,12 @@ pub fn exp_mult(x: f64, y: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the quantity $\exp(x)-1$ using an algorithm
+/// that is accurate for small $x$.
+///
+/// Binds the [`gsl_sf_expm1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_expm1_e).
 pub fn expm1(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -44,6 +62,14 @@ pub fn expm1(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the quantity $(\exp(x)-1)/x$ using an
+/// algorithm that is accurate for small `x`. For small `x` the
+/// algorithm is based on the expansion
+/// $(\exp(x)-1)/x = 1 + x/2 + x^2/(2\*3) + x^3/(2\*3\*4) + \dots$.
+///
+/// Binds the [`gsl_sf_exprel_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_exprel_e).
 pub fn exprel(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -52,6 +78,14 @@ pub fn exprel(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the quantity $2(\exp(x)-1-x)/x^2$ using an
+/// algorithm that is accurate for small `x`. For small `x` the
+/// algorithm is based on the expansion
+/// $2(\exp(x)-1-x)/x^2 = 1 + x/3 + x^2/(3\*4) + x^3/(3\*4\*5) + \dots$.
+///
+/// Binds the [`gsl_sf_exprel_2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_exprel_2_e).
 pub fn exprel_2(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -60,6 +94,17 @@ pub fn exprel_2(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the $N$-relative exponential, which is the
+/// `n`-th generalization of the functions `gsl_sf_exprel()` and
+/// `gsl_sf_exprel_2()`. The $N$-relative exponential is given by,
+/// $\hbox{exprel}\_N(x)
+///  &= N!/x^N \left(\exp(x) - \sum\_{k=0}^{N-1} x^k/k!\right)\cr
+///  &= 1 + x/(N+1) + x^2/((N+1)(N+2)) + \dots\cr
+///  &= {}\_1F\_1(1,1+N,x)\cr$
+///
+/// Binds the [`gsl_sf_exprel_n_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_exprel_n_e).
 pub fn exprel_n(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

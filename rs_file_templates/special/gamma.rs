@@ -1,5 +1,5 @@
 /*
-    special/dilog.rs
+    special/gamma.rs
     Copyright (C) 2021 Pim van den Berg
 
     This program is free software: you can redistribute it and/or modify
@@ -19,23 +19,14 @@
 use crate::bindings::*;
 use crate::*;
 
-
-#[cfg_attr(doc, katexit::katexit)]
-/// <style>p { overflow-y: hidden; }</style>
-/// These routines compute the dilogarithm for a real argument. In Lewin’s
-/// notation this is $Li\_2(x)$, the real part of the dilogarithm of a
-/// real $x$. It is defined by the integral representation
-/// $Li\_2(x) = - \Re \int\_0^x ds \log(1-s) / s$
-/// Note that $\Im(Li\_2(x)) = 0$ for
-/// $x \le 1$, and $-\pi\log(x)$ for $x > 1$.
-/// Note that Abramowitz & Stegun refer to the Spence integral
-/// $S(x) = Li\_2(1 - x)$ as the dilogarithm rather than $Li\_2(x)$.
-///
-/// Binds the [`gsl_sf_dilog_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_dilog_e).
-pub fn dilog(x: f64) -> Result<ValWithError<f64>> {
+{% for head in sf_heads if head.has_single_gsl_sf_result and not head.takes_arrays and not head.comments_in_args %}
+{% if head.rust_func.lower() != head.rust_func %}#[allow(non_snake_case)]
+{% endif -%}
+pub fn {{ head.rust_func }}({% for arg in head.args if arg.type != "gsl_sf_result*"  %}{{ arg.name }}: {{ arg.type }}{% if not loop.last %}, {% endif %}{% endfor %}) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
-        GSLError::from_raw(gsl_sf_dilog_e(x, &mut result))?;
+        GSLError::from_raw({{ head.c_func }}({% for arg in head.args if arg.type != "gsl_sf_result*" %}{{ arg.name }}, {% endfor %}&mut result))?;
         Ok(result.into())
     }
 }
+{% endfor %}

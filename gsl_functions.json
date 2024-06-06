@@ -1,0 +1,1742 @@
+[
+    {
+        "c_func": "gsl_sf_Chi_e",
+        "c_func_canonical": "gsl_sf_Chi",
+        "rust_func": "Chi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_Ci_e",
+        "c_func_canonical": "gsl_sf_Ci",
+        "rust_func": "Ci",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_Shi_e",
+        "c_func_canonical": "gsl_sf_Shi",
+        "rust_func": "Shi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_Si_e",
+        "c_func_canonical": "gsl_sf_Si",
+        "rust_func": "Si",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_airy_zero_Ai_deriv_e",
+        "c_func_canonical": "gsl_sf_airy_zero_Ai_deriv",
+        "rust_func": "airy_zero_Ai_deriv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_airy_zero_Ai_e",
+        "c_func_canonical": "gsl_sf_airy_zero_Ai",
+        "rust_func": "airy_zero_Ai",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_airy_zero_Bi_deriv_e",
+        "c_func_canonical": "gsl_sf_airy_zero_Bi_deriv",
+        "rust_func": "airy_zero_Bi_deriv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_airy_zero_Bi_e",
+        "c_func_canonical": "gsl_sf_airy_zero_Bi",
+        "rust_func": "airy_zero_Bi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_angle_restrict_pos_e",
+        "c_func_canonical": "gsl_sf_angle_restrict_pos",
+        "rust_func": "angle_restrict_pos",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_angle_restrict_pos_err_e",
+        "c_func_canonical": "gsl_sf_angle_restrict_pos_err",
+        "rust_func": "angle_restrict_pos_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_angle_restrict_symm_e",
+        "c_func_canonical": "gsl_sf_angle_restrict_symm",
+        "rust_func": "angle_restrict_symm",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_angle_restrict_symm_err_e",
+        "c_func_canonical": "gsl_sf_angle_restrict_symm_err",
+        "rust_func": "angle_restrict_symm_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_atanint_e",
+        "c_func_canonical": "gsl_sf_atanint",
+        "rust_func": "atanint",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_I0_e",
+        "c_func_canonical": "gsl_sf_bessel_I0",
+        "rust_func": "bessel_I0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_I0_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_I0_scaled",
+        "rust_func": "bessel_I0_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_I1_e",
+        "c_func_canonical": "gsl_sf_bessel_I1",
+        "rust_func": "bessel_I1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_I1_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_I1_scaled",
+        "rust_func": "bessel_I1_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_In_array",
+        "c_func_canonical": "gsl_sf_bessel_In_array",
+        "rust_func": "bessel_In_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_In_e",
+        "c_func_canonical": "gsl_sf_bessel_In",
+        "rust_func": "bessel_In",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_In_scaled_array",
+        "c_func_canonical": "gsl_sf_bessel_In_scaled_array",
+        "rust_func": "bessel_In_scaled_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_In_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_In_scaled",
+        "rust_func": "bessel_In_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Inu_e",
+        "c_func_canonical": "gsl_sf_bessel_Inu",
+        "rust_func": "bessel_Inu",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Inu_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_Inu_scaled",
+        "rust_func": "bessel_Inu_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_J0_e",
+        "c_func_canonical": "gsl_sf_bessel_J0",
+        "rust_func": "bessel_J0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_J1_e",
+        "c_func_canonical": "gsl_sf_bessel_J1",
+        "rust_func": "bessel_J1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Jn_array",
+        "c_func_canonical": "gsl_sf_bessel_Jn_array",
+        "rust_func": "bessel_Jn_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Jn_e",
+        "c_func_canonical": "gsl_sf_bessel_Jn",
+        "rust_func": "bessel_Jn",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Jnu_e",
+        "c_func_canonical": "gsl_sf_bessel_Jnu",
+        "rust_func": "bessel_Jnu",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_K0_e",
+        "c_func_canonical": "gsl_sf_bessel_K0",
+        "rust_func": "bessel_K0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_K0_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_K0_scaled",
+        "rust_func": "bessel_K0_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_K1_e",
+        "c_func_canonical": "gsl_sf_bessel_K1",
+        "rust_func": "bessel_K1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_K1_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_K1_scaled",
+        "rust_func": "bessel_K1_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Kn_array",
+        "c_func_canonical": "gsl_sf_bessel_Kn_array",
+        "rust_func": "bessel_Kn_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Kn_e",
+        "c_func_canonical": "gsl_sf_bessel_Kn",
+        "rust_func": "bessel_Kn",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Kn_scaled_array",
+        "c_func_canonical": "gsl_sf_bessel_Kn_scaled_array",
+        "rust_func": "bessel_Kn_scaled_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Kn_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_Kn_scaled",
+        "rust_func": "bessel_Kn_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Knu_e",
+        "c_func_canonical": "gsl_sf_bessel_Knu",
+        "rust_func": "bessel_Knu",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Knu_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_Knu_scaled",
+        "rust_func": "bessel_Knu_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Knu_scaled_e10_e",
+        "c_func_canonical": "gsl_sf_bessel_Knu_scaled_e10",
+        "rust_func": "bessel_Knu_scaled_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Y0_e",
+        "c_func_canonical": "gsl_sf_bessel_Y0",
+        "rust_func": "bessel_Y0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Y1_e",
+        "c_func_canonical": "gsl_sf_bessel_Y1",
+        "rust_func": "bessel_Y1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Yn_array",
+        "c_func_canonical": "gsl_sf_bessel_Yn_array",
+        "rust_func": "bessel_Yn_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Yn_e",
+        "c_func_canonical": "gsl_sf_bessel_Yn",
+        "rust_func": "bessel_Yn",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_Ynu_e",
+        "c_func_canonical": "gsl_sf_bessel_Ynu",
+        "rust_func": "bessel_Ynu",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_i0_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_i0_scaled",
+        "rust_func": "bessel_i0_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_i1_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_i1_scaled",
+        "rust_func": "bessel_i1_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_i2_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_i2_scaled",
+        "rust_func": "bessel_i2_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_il_scaled_array",
+        "c_func_canonical": "gsl_sf_bessel_il_scaled_array",
+        "rust_func": "bessel_il_scaled_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_il_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_il_scaled",
+        "rust_func": "bessel_il_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_j0_e",
+        "c_func_canonical": "gsl_sf_bessel_j0",
+        "rust_func": "bessel_j0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_j1_e",
+        "c_func_canonical": "gsl_sf_bessel_j1",
+        "rust_func": "bessel_j1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_j2_e",
+        "c_func_canonical": "gsl_sf_bessel_j2",
+        "rust_func": "bessel_j2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_jl_array",
+        "c_func_canonical": "gsl_sf_bessel_jl_array",
+        "rust_func": "bessel_jl_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_jl_e",
+        "c_func_canonical": "gsl_sf_bessel_jl",
+        "rust_func": "bessel_jl",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_jl_steed_array",
+        "c_func_canonical": "gsl_sf_bessel_jl_steed_array",
+        "rust_func": "bessel_jl_steed_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_k0_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_k0_scaled",
+        "rust_func": "bessel_k0_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_k1_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_k1_scaled",
+        "rust_func": "bessel_k1_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_k2_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_k2_scaled",
+        "rust_func": "bessel_k2_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_kl_scaled_array",
+        "c_func_canonical": "gsl_sf_bessel_kl_scaled_array",
+        "rust_func": "bessel_kl_scaled_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_kl_scaled_e",
+        "c_func_canonical": "gsl_sf_bessel_kl_scaled",
+        "rust_func": "bessel_kl_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_lnKnu_e",
+        "c_func_canonical": "gsl_sf_bessel_lnKnu",
+        "rust_func": "bessel_lnKnu",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_y0_e",
+        "c_func_canonical": "gsl_sf_bessel_y0",
+        "rust_func": "bessel_y0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_y1_e",
+        "c_func_canonical": "gsl_sf_bessel_y1",
+        "rust_func": "bessel_y1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_y2_e",
+        "c_func_canonical": "gsl_sf_bessel_y2",
+        "rust_func": "bessel_y2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_yl_array",
+        "c_func_canonical": "gsl_sf_bessel_yl_array",
+        "rust_func": "bessel_yl_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_yl_e",
+        "c_func_canonical": "gsl_sf_bessel_yl",
+        "rust_func": "bessel_yl",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_zero_J0_e",
+        "c_func_canonical": "gsl_sf_bessel_zero_J0",
+        "rust_func": "bessel_zero_J0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_zero_J1_e",
+        "c_func_canonical": "gsl_sf_bessel_zero_J1",
+        "rust_func": "bessel_zero_J1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_bessel_zero_Jnu_e",
+        "c_func_canonical": "gsl_sf_bessel_zero_Jnu",
+        "rust_func": "bessel_zero_Jnu",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_beta_e",
+        "c_func_canonical": "gsl_sf_beta",
+        "rust_func": "beta",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_beta_inc_e",
+        "c_func_canonical": "gsl_sf_beta_inc",
+        "rust_func": "beta_inc",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_choose_e",
+        "c_func_canonical": "gsl_sf_choose",
+        "rust_func": "choose",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_clausen_e",
+        "c_func_canonical": "gsl_sf_clausen",
+        "rust_func": "clausen",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_cos_e",
+        "c_func_canonical": "gsl_sf_complex_cos",
+        "rust_func": "complex_cos",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_dilog_e",
+        "c_func_canonical": "gsl_sf_complex_dilog",
+        "rust_func": "complex_dilog",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_dilog_xy_e",
+        "c_func_canonical": "gsl_sf_complex_dilog_xy",
+        "rust_func": "complex_dilog_xy",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_log_e",
+        "c_func_canonical": "gsl_sf_complex_log",
+        "rust_func": "complex_log",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_logsin_e",
+        "c_func_canonical": "gsl_sf_complex_logsin",
+        "rust_func": "complex_logsin",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_psi_e",
+        "c_func_canonical": "gsl_sf_complex_psi",
+        "rust_func": "complex_psi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_sin_e",
+        "c_func_canonical": "gsl_sf_complex_sin",
+        "rust_func": "complex_sin",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_complex_spence_xy_e",
+        "c_func_canonical": "gsl_sf_complex_spence_xy",
+        "rust_func": "complex_spence_xy",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_conicalP_0_e",
+        "c_func_canonical": "gsl_sf_conicalP_0",
+        "rust_func": "conicalP_0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_conicalP_1_e",
+        "c_func_canonical": "gsl_sf_conicalP_1",
+        "rust_func": "conicalP_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_conicalP_cyl_reg_e",
+        "c_func_canonical": "gsl_sf_conicalP_cyl_reg",
+        "rust_func": "conicalP_cyl_reg",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_conicalP_half_e",
+        "c_func_canonical": "gsl_sf_conicalP_half",
+        "rust_func": "conicalP_half",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_conicalP_mhalf_e",
+        "c_func_canonical": "gsl_sf_conicalP_mhalf",
+        "rust_func": "conicalP_mhalf",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_conicalP_sph_reg_e",
+        "c_func_canonical": "gsl_sf_conicalP_sph_reg",
+        "rust_func": "conicalP_sph_reg",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_cos_e",
+        "c_func_canonical": "gsl_sf_cos",
+        "rust_func": "cos",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_cos_err_e",
+        "c_func_canonical": "gsl_sf_cos_err",
+        "rust_func": "cos_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_cos_pi_e",
+        "c_func_canonical": "gsl_sf_cos_pi",
+        "rust_func": "cos_pi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_CL_array",
+        "c_func_canonical": "gsl_sf_coulomb_CL_array",
+        "rust_func": "coulomb_CL_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_CL_e",
+        "c_func_canonical": "gsl_sf_coulomb_CL",
+        "rust_func": "coulomb_CL",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_wave_FG_array",
+        "c_func_canonical": "gsl_sf_coulomb_wave_FG_array",
+        "rust_func": "coulomb_wave_FG_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_wave_FG_e",
+        "c_func_canonical": "gsl_sf_coulomb_wave_FG",
+        "rust_func": "coulomb_wave_FG",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_wave_FGp_array",
+        "c_func_canonical": "gsl_sf_coulomb_wave_FGp_array",
+        "rust_func": "coulomb_wave_FGp_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_wave_F_array",
+        "c_func_canonical": "gsl_sf_coulomb_wave_F_array",
+        "rust_func": "coulomb_wave_F_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coulomb_wave_sphF_array",
+        "c_func_canonical": "gsl_sf_coulomb_wave_sphF_array",
+        "rust_func": "coulomb_wave_sphF_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coupling_3j_e",
+        "c_func_canonical": "gsl_sf_coupling_3j",
+        "rust_func": "coupling_3j",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coupling_6j_INCORRECT_e",
+        "c_func_canonical": "gsl_sf_coupling_6j_INCORRECT",
+        "rust_func": "coupling_6j_INCORRECT",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coupling_6j_e",
+        "c_func_canonical": "gsl_sf_coupling_6j",
+        "rust_func": "coupling_6j",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coupling_9j_e",
+        "c_func_canonical": "gsl_sf_coupling_9j",
+        "rust_func": "coupling_9j",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_coupling_RacahW_e",
+        "c_func_canonical": "gsl_sf_coupling_RacahW",
+        "rust_func": "coupling_RacahW",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_dawson_e",
+        "c_func_canonical": "gsl_sf_dawson",
+        "rust_func": "dawson",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_debye_1_e",
+        "c_func_canonical": "gsl_sf_debye_1",
+        "rust_func": "debye_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_debye_2_e",
+        "c_func_canonical": "gsl_sf_debye_2",
+        "rust_func": "debye_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_debye_3_e",
+        "c_func_canonical": "gsl_sf_debye_3",
+        "rust_func": "debye_3",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_debye_4_e",
+        "c_func_canonical": "gsl_sf_debye_4",
+        "rust_func": "debye_4",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_debye_5_e",
+        "c_func_canonical": "gsl_sf_debye_5",
+        "rust_func": "debye_5",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_debye_6_e",
+        "c_func_canonical": "gsl_sf_debye_6",
+        "rust_func": "debye_6",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_dilog_e",
+        "c_func_canonical": "gsl_sf_dilog",
+        "rust_func": "dilog",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_doublefact_e",
+        "c_func_canonical": "gsl_sf_doublefact",
+        "rust_func": "doublefact",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_elljac_e",
+        "c_func_canonical": "gsl_sf_elljac",
+        "rust_func": "elljac",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_erf_Q_e",
+        "c_func_canonical": "gsl_sf_erf_Q",
+        "rust_func": "erf_Q",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_erf_Z_e",
+        "c_func_canonical": "gsl_sf_erf_Z",
+        "rust_func": "erf_Z",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_erf_e",
+        "c_func_canonical": "gsl_sf_erf",
+        "rust_func": "erf",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_erfc_e",
+        "c_func_canonical": "gsl_sf_erfc",
+        "rust_func": "erfc",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_eta_e",
+        "c_func_canonical": "gsl_sf_eta",
+        "rust_func": "eta",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_eta_int_e",
+        "c_func_canonical": "gsl_sf_eta_int",
+        "rust_func": "eta_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_e",
+        "c_func_canonical": "gsl_sf_exp",
+        "rust_func": "exp",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_e10_e",
+        "c_func_canonical": "gsl_sf_exp_e10",
+        "rust_func": "exp_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_err_e",
+        "c_func_canonical": "gsl_sf_exp_err",
+        "rust_func": "exp_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_err_e10_e",
+        "c_func_canonical": "gsl_sf_exp_err_e10",
+        "rust_func": "exp_err_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_mult_e",
+        "c_func_canonical": "gsl_sf_exp_mult",
+        "rust_func": "exp_mult",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_mult_e10_e",
+        "c_func_canonical": "gsl_sf_exp_mult_e10",
+        "rust_func": "exp_mult_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_mult_err_e",
+        "c_func_canonical": "gsl_sf_exp_mult_err",
+        "rust_func": "exp_mult_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exp_mult_err_e10_e",
+        "c_func_canonical": "gsl_sf_exp_mult_err_e10",
+        "rust_func": "exp_mult_err_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_3_e",
+        "c_func_canonical": "gsl_sf_expint_3",
+        "rust_func": "expint_3",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_E1_e",
+        "c_func_canonical": "gsl_sf_expint_E1",
+        "rust_func": "expint_E1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_E1_scaled_e",
+        "c_func_canonical": "gsl_sf_expint_E1_scaled",
+        "rust_func": "expint_E1_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_E2_e",
+        "c_func_canonical": "gsl_sf_expint_E2",
+        "rust_func": "expint_E2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_E2_scaled_e",
+        "c_func_canonical": "gsl_sf_expint_E2_scaled",
+        "rust_func": "expint_E2_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_Ei_e",
+        "c_func_canonical": "gsl_sf_expint_Ei",
+        "rust_func": "expint_Ei",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_Ei_scaled_e",
+        "c_func_canonical": "gsl_sf_expint_Ei_scaled",
+        "rust_func": "expint_Ei_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_En_e",
+        "c_func_canonical": "gsl_sf_expint_En",
+        "rust_func": "expint_En",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expint_En_scaled_e",
+        "c_func_canonical": "gsl_sf_expint_En_scaled",
+        "rust_func": "expint_En_scaled",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_expm1_e",
+        "c_func_canonical": "gsl_sf_expm1",
+        "rust_func": "expm1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exprel_2_e",
+        "c_func_canonical": "gsl_sf_exprel_2",
+        "rust_func": "exprel_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exprel_e",
+        "c_func_canonical": "gsl_sf_exprel",
+        "rust_func": "exprel",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exprel_n_CF_e",
+        "c_func_canonical": "gsl_sf_exprel_n_CF",
+        "rust_func": "exprel_n_CF",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_exprel_n_e",
+        "c_func_canonical": "gsl_sf_exprel_n",
+        "rust_func": "exprel_n",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fact_e",
+        "c_func_canonical": "gsl_sf_fact",
+        "rust_func": "fact",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_0_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_0",
+        "rust_func": "fermi_dirac_0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_1_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_1",
+        "rust_func": "fermi_dirac_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_2_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_2",
+        "rust_func": "fermi_dirac_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_3half_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_3half",
+        "rust_func": "fermi_dirac_3half",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_half_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_half",
+        "rust_func": "fermi_dirac_half",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_inc_0_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_inc_0",
+        "rust_func": "fermi_dirac_inc_0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_int_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_int",
+        "rust_func": "fermi_dirac_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_m1_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_m1",
+        "rust_func": "fermi_dirac_m1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_fermi_dirac_mhalf_e",
+        "c_func_canonical": "gsl_sf_fermi_dirac_mhalf",
+        "rust_func": "fermi_dirac_mhalf",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gamma_e",
+        "c_func_canonical": "gsl_sf_gamma",
+        "rust_func": "gamma",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gamma_inc_P_e",
+        "c_func_canonical": "gsl_sf_gamma_inc_P",
+        "rust_func": "gamma_inc_P",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gamma_inc_Q_e",
+        "c_func_canonical": "gsl_sf_gamma_inc_Q",
+        "rust_func": "gamma_inc_Q",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gamma_inc_e",
+        "c_func_canonical": "gsl_sf_gamma_inc",
+        "rust_func": "gamma_inc",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gammainv_e",
+        "c_func_canonical": "gsl_sf_gammainv",
+        "rust_func": "gammainv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gammastar_e",
+        "c_func_canonical": "gsl_sf_gammastar",
+        "rust_func": "gammastar",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gegenpoly_1_e",
+        "c_func_canonical": "gsl_sf_gegenpoly_1",
+        "rust_func": "gegenpoly_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gegenpoly_2_e",
+        "c_func_canonical": "gsl_sf_gegenpoly_2",
+        "rust_func": "gegenpoly_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gegenpoly_3_e",
+        "c_func_canonical": "gsl_sf_gegenpoly_3",
+        "rust_func": "gegenpoly_3",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gegenpoly_array",
+        "c_func_canonical": "gsl_sf_gegenpoly_array",
+        "rust_func": "gegenpoly_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_gegenpoly_n_e",
+        "c_func_canonical": "gsl_sf_gegenpoly_n",
+        "rust_func": "gegenpoly_n",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hazard_e",
+        "c_func_canonical": "gsl_sf_hazard",
+        "rust_func": "hazard",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_array",
+        "c_func_canonical": "gsl_sf_hermite_array",
+        "rust_func": "hermite_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_array_deriv",
+        "c_func_canonical": "gsl_sf_hermite_array_deriv",
+        "rust_func": "hermite_array_deriv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_deriv_array",
+        "c_func_canonical": "gsl_sf_hermite_deriv_array",
+        "rust_func": "hermite_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_deriv_e",
+        "c_func_canonical": "gsl_sf_hermite_deriv",
+        "rust_func": "hermite_deriv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_e",
+        "c_func_canonical": "gsl_sf_hermite",
+        "rust_func": "hermite",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_func_array",
+        "c_func_canonical": "gsl_sf_hermite_func_array",
+        "rust_func": "hermite_func_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_func_der_e",
+        "c_func_canonical": "gsl_sf_hermite_func_der",
+        "rust_func": "hermite_func_der",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_func_e",
+        "c_func_canonical": "gsl_sf_hermite_func",
+        "rust_func": "hermite_func",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_func_fast_e",
+        "c_func_canonical": "gsl_sf_hermite_func_fast",
+        "rust_func": "hermite_func_fast",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_func_series_e",
+        "c_func_canonical": "gsl_sf_hermite_func_series",
+        "rust_func": "hermite_func_series",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_func_zero_e",
+        "c_func_canonical": "gsl_sf_hermite_func_zero",
+        "rust_func": "hermite_func_zero",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_array",
+        "c_func_canonical": "gsl_sf_hermite_phys_array",
+        "rust_func": "hermite_phys_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_array_der",
+        "c_func_canonical": "gsl_sf_hermite_phys_array_der",
+        "rust_func": "hermite_phys_array_der",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_der_array",
+        "c_func_canonical": "gsl_sf_hermite_phys_der_array",
+        "rust_func": "hermite_phys_der_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_der_e",
+        "c_func_canonical": "gsl_sf_hermite_phys_der",
+        "rust_func": "hermite_phys_der",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_e",
+        "c_func_canonical": "gsl_sf_hermite_phys",
+        "rust_func": "hermite_phys",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_series_e",
+        "c_func_canonical": "gsl_sf_hermite_phys_series",
+        "rust_func": "hermite_phys_series",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_phys_zero_e",
+        "c_func_canonical": "gsl_sf_hermite_phys_zero",
+        "rust_func": "hermite_phys_zero",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_array",
+        "c_func_canonical": "gsl_sf_hermite_prob_array",
+        "rust_func": "hermite_prob_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_array_der",
+        "c_func_canonical": "gsl_sf_hermite_prob_array_der",
+        "rust_func": "hermite_prob_array_der",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_array_deriv",
+        "c_func_canonical": "gsl_sf_hermite_prob_array_deriv",
+        "rust_func": "hermite_prob_array_deriv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_der_array",
+        "c_func_canonical": "gsl_sf_hermite_prob_der_array",
+        "rust_func": "hermite_prob_der_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_der_e",
+        "c_func_canonical": "gsl_sf_hermite_prob_der",
+        "rust_func": "hermite_prob_der",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_deriv_array",
+        "c_func_canonical": "gsl_sf_hermite_prob_deriv_array",
+        "rust_func": "hermite_prob_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_deriv_e",
+        "c_func_canonical": "gsl_sf_hermite_prob_deriv",
+        "rust_func": "hermite_prob_deriv",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_e",
+        "c_func_canonical": "gsl_sf_hermite_prob",
+        "rust_func": "hermite_prob",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_series_e",
+        "c_func_canonical": "gsl_sf_hermite_prob_series",
+        "rust_func": "hermite_prob_series",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_prob_zero_e",
+        "c_func_canonical": "gsl_sf_hermite_prob_zero",
+        "rust_func": "hermite_prob_zero",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_series_e",
+        "c_func_canonical": "gsl_sf_hermite_series",
+        "rust_func": "hermite_series",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hermite_zero_e",
+        "c_func_canonical": "gsl_sf_hermite_zero",
+        "rust_func": "hermite_zero",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hydrogenicR_1_e",
+        "c_func_canonical": "gsl_sf_hydrogenicR_1",
+        "rust_func": "hydrogenicR_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hydrogenicR_e",
+        "c_func_canonical": "gsl_sf_hydrogenicR",
+        "rust_func": "hydrogenicR",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_0F1_e",
+        "c_func_canonical": "gsl_sf_hyperg_0F1",
+        "rust_func": "hyperg_0F1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_1F1_e",
+        "c_func_canonical": "gsl_sf_hyperg_1F1",
+        "rust_func": "hyperg_1F1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_1F1_int_e",
+        "c_func_canonical": "gsl_sf_hyperg_1F1_int",
+        "rust_func": "hyperg_1F1_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_2F0_e",
+        "c_func_canonical": "gsl_sf_hyperg_2F0",
+        "rust_func": "hyperg_2F0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_2F1_conj_e",
+        "c_func_canonical": "gsl_sf_hyperg_2F1_conj",
+        "rust_func": "hyperg_2F1_conj",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_2F1_conj_renorm_e",
+        "c_func_canonical": "gsl_sf_hyperg_2F1_conj_renorm",
+        "rust_func": "hyperg_2F1_conj_renorm",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_2F1_e",
+        "c_func_canonical": "gsl_sf_hyperg_2F1",
+        "rust_func": "hyperg_2F1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_2F1_renorm_e",
+        "c_func_canonical": "gsl_sf_hyperg_2F1_renorm",
+        "rust_func": "hyperg_2F1_renorm",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_U_e",
+        "c_func_canonical": "gsl_sf_hyperg_U",
+        "rust_func": "hyperg_U",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_U_e10_e",
+        "c_func_canonical": "gsl_sf_hyperg_U_e10",
+        "rust_func": "hyperg_U_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_U_int_e",
+        "c_func_canonical": "gsl_sf_hyperg_U_int",
+        "rust_func": "hyperg_U_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hyperg_U_int_e10_e",
+        "c_func_canonical": "gsl_sf_hyperg_U_int_e10",
+        "rust_func": "hyperg_U_int_e10",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hypot_e",
+        "c_func_canonical": "gsl_sf_hypot",
+        "rust_func": "hypot",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_hzeta_e",
+        "c_func_canonical": "gsl_sf_hzeta",
+        "rust_func": "hzeta",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_laguerre_1_e",
+        "c_func_canonical": "gsl_sf_laguerre_1",
+        "rust_func": "laguerre_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_laguerre_2_e",
+        "c_func_canonical": "gsl_sf_laguerre_2",
+        "rust_func": "laguerre_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_laguerre_3_e",
+        "c_func_canonical": "gsl_sf_laguerre_3",
+        "rust_func": "laguerre_3",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_laguerre_n_e",
+        "c_func_canonical": "gsl_sf_laguerre_n",
+        "rust_func": "laguerre_n",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lambert_W0_e",
+        "c_func_canonical": "gsl_sf_lambert_W0",
+        "rust_func": "lambert_W0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lambert_Wm1_e",
+        "c_func_canonical": "gsl_sf_lambert_Wm1",
+        "rust_func": "lambert_Wm1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_H3d_0_e",
+        "c_func_canonical": "gsl_sf_legendre_H3d_0",
+        "rust_func": "legendre_H3d_0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_H3d_1_e",
+        "c_func_canonical": "gsl_sf_legendre_H3d_1",
+        "rust_func": "legendre_H3d_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_H3d_array",
+        "c_func_canonical": "gsl_sf_legendre_H3d_array",
+        "rust_func": "legendre_H3d_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_H3d_e",
+        "c_func_canonical": "gsl_sf_legendre_H3d",
+        "rust_func": "legendre_H3d",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_P1_e",
+        "c_func_canonical": "gsl_sf_legendre_P1",
+        "rust_func": "legendre_P1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_P2_e",
+        "c_func_canonical": "gsl_sf_legendre_P2",
+        "rust_func": "legendre_P2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_P3_e",
+        "c_func_canonical": "gsl_sf_legendre_P3",
+        "rust_func": "legendre_P3",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Pl_array",
+        "c_func_canonical": "gsl_sf_legendre_Pl_array",
+        "rust_func": "legendre_Pl_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Pl_deriv_array",
+        "c_func_canonical": "gsl_sf_legendre_Pl_deriv_array",
+        "rust_func": "legendre_Pl_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Pl_e",
+        "c_func_canonical": "gsl_sf_legendre_Pl",
+        "rust_func": "legendre_Pl",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Plm_array",
+        "c_func_canonical": "gsl_sf_legendre_Plm_array",
+        "rust_func": "legendre_Plm_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Plm_deriv_array",
+        "c_func_canonical": "gsl_sf_legendre_Plm_deriv_array",
+        "rust_func": "legendre_Plm_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Plm_e",
+        "c_func_canonical": "gsl_sf_legendre_Plm",
+        "rust_func": "legendre_Plm",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Q0_e",
+        "c_func_canonical": "gsl_sf_legendre_Q0",
+        "rust_func": "legendre_Q0",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Q1_e",
+        "c_func_canonical": "gsl_sf_legendre_Q1",
+        "rust_func": "legendre_Q1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_Ql_e",
+        "c_func_canonical": "gsl_sf_legendre_Ql",
+        "rust_func": "legendre_Ql",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_array",
+        "c_func_canonical": "gsl_sf_legendre_array",
+        "rust_func": "legendre_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_array_e",
+        "c_func_canonical": "gsl_sf_legendre_array",
+        "rust_func": "legendre_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_array_size",
+        "c_func_canonical": "gsl_sf_legendre_array_size",
+        "rust_func": "legendre_array_size",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv2_alt_array",
+        "c_func_canonical": "gsl_sf_legendre_deriv2_alt_array",
+        "rust_func": "legendre_deriv2_alt_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv2_alt_array_e",
+        "c_func_canonical": "gsl_sf_legendre_deriv2_alt_array",
+        "rust_func": "legendre_deriv2_alt_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv2_array",
+        "c_func_canonical": "gsl_sf_legendre_deriv2_array",
+        "rust_func": "legendre_deriv2_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv2_array_e",
+        "c_func_canonical": "gsl_sf_legendre_deriv2_array",
+        "rust_func": "legendre_deriv2_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv_alt_array",
+        "c_func_canonical": "gsl_sf_legendre_deriv_alt_array",
+        "rust_func": "legendre_deriv_alt_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv_alt_array_e",
+        "c_func_canonical": "gsl_sf_legendre_deriv_alt_array",
+        "rust_func": "legendre_deriv_alt_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv_array",
+        "c_func_canonical": "gsl_sf_legendre_deriv_array",
+        "rust_func": "legendre_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_deriv_array_e",
+        "c_func_canonical": "gsl_sf_legendre_deriv_array",
+        "rust_func": "legendre_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_sphPlm_array",
+        "c_func_canonical": "gsl_sf_legendre_sphPlm_array",
+        "rust_func": "legendre_sphPlm_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_sphPlm_deriv_array",
+        "c_func_canonical": "gsl_sf_legendre_sphPlm_deriv_array",
+        "rust_func": "legendre_sphPlm_deriv_array",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_legendre_sphPlm_e",
+        "c_func_canonical": "gsl_sf_legendre_sphPlm",
+        "rust_func": "legendre_sphPlm",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnbeta_e",
+        "c_func_canonical": "gsl_sf_lnbeta",
+        "rust_func": "lnbeta",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnbeta_sgn_e",
+        "c_func_canonical": "gsl_sf_lnbeta_sgn",
+        "rust_func": "lnbeta_sgn",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnchoose_e",
+        "c_func_canonical": "gsl_sf_lnchoose",
+        "rust_func": "lnchoose",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lncosh_e",
+        "c_func_canonical": "gsl_sf_lncosh",
+        "rust_func": "lncosh",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lndoublefact_e",
+        "c_func_canonical": "gsl_sf_lndoublefact",
+        "rust_func": "lndoublefact",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnfact_e",
+        "c_func_canonical": "gsl_sf_lnfact",
+        "rust_func": "lnfact",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lngamma_complex_e",
+        "c_func_canonical": "gsl_sf_lngamma_complex",
+        "rust_func": "lngamma_complex",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lngamma_e",
+        "c_func_canonical": "gsl_sf_lngamma",
+        "rust_func": "lngamma",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnpoch_e",
+        "c_func_canonical": "gsl_sf_lnpoch",
+        "rust_func": "lnpoch",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnpoch_sgn_e",
+        "c_func_canonical": "gsl_sf_lnpoch_sgn",
+        "rust_func": "lnpoch_sgn",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_lnsinh_e",
+        "c_func_canonical": "gsl_sf_lnsinh",
+        "rust_func": "lnsinh",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_log_1plusx_e",
+        "c_func_canonical": "gsl_sf_log_1plusx",
+        "rust_func": "log_1plusx",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_log_1plusx_mx_e",
+        "c_func_canonical": "gsl_sf_log_1plusx_mx",
+        "rust_func": "log_1plusx_mx",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_log_abs_e",
+        "c_func_canonical": "gsl_sf_log_abs",
+        "rust_func": "log_abs",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_log_e",
+        "c_func_canonical": "gsl_sf_log",
+        "rust_func": "log",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_log_erfc_e",
+        "c_func_canonical": "gsl_sf_log_erfc",
+        "rust_func": "log_erfc",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_mathieu_a_coeff",
+        "c_func_canonical": "gsl_sf_mathieu_a_coeff",
+        "rust_func": "mathieu_a_coeff",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_mathieu_b_coeff",
+        "c_func_canonical": "gsl_sf_mathieu_b_coeff",
+        "rust_func": "mathieu_b_coeff",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_multiply_e",
+        "c_func_canonical": "gsl_sf_multiply",
+        "rust_func": "multiply",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_multiply_err_e",
+        "c_func_canonical": "gsl_sf_multiply_err",
+        "rust_func": "multiply_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_poch_e",
+        "c_func_canonical": "gsl_sf_poch",
+        "rust_func": "poch",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_pochrel_e",
+        "c_func_canonical": "gsl_sf_pochrel",
+        "rust_func": "pochrel",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_polar_to_rect",
+        "c_func_canonical": "gsl_sf_polar_to_rect",
+        "rust_func": "polar_to_rect",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_pow_int_e",
+        "c_func_canonical": "gsl_sf_pow_int",
+        "rust_func": "pow_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_psi_1_e",
+        "c_func_canonical": "gsl_sf_psi_1",
+        "rust_func": "psi_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_psi_1_int_e",
+        "c_func_canonical": "gsl_sf_psi_1_int",
+        "rust_func": "psi_1_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_psi_1piy_e",
+        "c_func_canonical": "gsl_sf_psi_1piy",
+        "rust_func": "psi_1piy",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_psi_e",
+        "c_func_canonical": "gsl_sf_psi",
+        "rust_func": "psi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_psi_int_e",
+        "c_func_canonical": "gsl_sf_psi_int",
+        "rust_func": "psi_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_psi_n_e",
+        "c_func_canonical": "gsl_sf_psi_n",
+        "rust_func": "psi_n",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_rect_to_polar",
+        "c_func_canonical": "gsl_sf_rect_to_polar",
+        "rust_func": "rect_to_polar",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_sin_e",
+        "c_func_canonical": "gsl_sf_sin",
+        "rust_func": "sin",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_sin_err_e",
+        "c_func_canonical": "gsl_sf_sin_err",
+        "rust_func": "sin_err",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_sin_pi_e",
+        "c_func_canonical": "gsl_sf_sin_pi",
+        "rust_func": "sin_pi",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_sinc_e",
+        "c_func_canonical": "gsl_sf_sinc",
+        "rust_func": "sinc",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_synchrotron_1_e",
+        "c_func_canonical": "gsl_sf_synchrotron_1",
+        "rust_func": "synchrotron_1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_synchrotron_2_e",
+        "c_func_canonical": "gsl_sf_synchrotron_2",
+        "rust_func": "synchrotron_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_taylorcoeff_e",
+        "c_func_canonical": "gsl_sf_taylorcoeff",
+        "rust_func": "taylorcoeff",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_transport_2_e",
+        "c_func_canonical": "gsl_sf_transport_2",
+        "rust_func": "transport_2",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_transport_3_e",
+        "c_func_canonical": "gsl_sf_transport_3",
+        "rust_func": "transport_3",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_transport_4_e",
+        "c_func_canonical": "gsl_sf_transport_4",
+        "rust_func": "transport_4",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_transport_5_e",
+        "c_func_canonical": "gsl_sf_transport_5",
+        "rust_func": "transport_5",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_zeta_e",
+        "c_func_canonical": "gsl_sf_zeta",
+        "rust_func": "zeta",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_zeta_int_e",
+        "c_func_canonical": "gsl_sf_zeta_int",
+        "rust_func": "zeta_int",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_zetam1_e",
+        "c_func_canonical": "gsl_sf_zetam1",
+        "rust_func": "zetam1",
+        "exclude": false
+    },
+    {
+        "c_func": "gsl_sf_zetam1_int_e",
+        "c_func_canonical": "gsl_sf_zetam1_int",
+        "rust_func": "zetam1_int",
+        "exclude": false
+    }
+]

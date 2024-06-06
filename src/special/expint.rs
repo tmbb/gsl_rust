@@ -20,6 +20,12 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the exponential integral $E\_1(x)$,
+/// $E\_1(x) := \Re \int\_1^\infty dt \exp(-xt)/t.$
+///
+/// Binds the [`gsl_sf_expint_E1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_expint_E1_e).
 #[allow(non_snake_case)]
 pub fn expint_E1(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -29,6 +35,12 @@ pub fn expint_E1(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the second-order exponential integral $E\_2(x)$,
+/// $E\_2(x) := \Re \int\_1^\infty dt \exp(-xt)/t^2$
+///
+/// Binds the [`gsl_sf_expint_E2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_expint_E2_e).
 #[allow(non_snake_case)]
 pub fn expint_E2(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -38,6 +50,12 @@ pub fn expint_E2(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the exponential integral $E\_n(x)$ of order `n`,
+/// $E\_n(x) := \Re \int\_1^\infty dt \exp(-xt)/t^n.$
+///
+/// Binds the [`gsl_sf_expint_En_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_expint_En_e).
 #[allow(non_snake_case)]
 pub fn expint_En(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -74,6 +92,13 @@ pub fn expint_En_scaled(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the exponential integral $Ei(x)$,
+/// $\hbox{Ei}(x) = - PV \left( \int\_{-x}^\infty dt \exp(-t)/t \right)$
+/// where $PV$ denotes the principal value of the integral.
+///
+/// Binds the [`gsl_sf_expint_Ei_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_expint_Ei_e).
 #[allow(non_snake_case)]
 pub fn expint_Ei(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -92,6 +117,12 @@ pub fn expint_Ei_scaled(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the integral
+/// $\hbox{Shi}(x) = \int\_0^x dt \sinh(t)/t$
+///
+/// Binds the [`gsl_sf_Shi_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_Shi_e).
 #[allow(non_snake_case)]
 pub fn Shi(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -101,6 +132,13 @@ pub fn Shi(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the integral
+/// $\hbox{Chi}(x) := \Re \left[ \gamma\_E + \log(x) + \int\_0^x dt (\cosh(t)-1)/t \right]$
+/// where $\gamma\_E$ is the Euler constant (available as the macro `M_EULER`).
+///
+/// Binds the [`gsl_sf_Chi_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_Chi_e).
 #[allow(non_snake_case)]
 pub fn Chi(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -110,6 +148,13 @@ pub fn Chi(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the third-order exponential integral
+/// ${\rm Ei}\_3(x) = \int\_0^x dt \exp(-t^3)$
+/// for $x \ge 0$.
+///
+/// Binds the [`gsl_sf_expint_3_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_expint_3_e).
 pub fn expint_3(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -118,6 +163,12 @@ pub fn expint_3(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the Sine integral
+/// $\hbox{Si}(x) = \int\_0^x dt \sin(t)/t$
+///
+/// Binds the [`gsl_sf_Si_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_Si_e).
 #[allow(non_snake_case)]
 pub fn Si(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -127,6 +178,13 @@ pub fn Si(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the Cosine integral
+/// $\hbox{Ci}(x) = -\int\_x^\infty dt \cos(t)/t$
+/// for $x > 0$
+///
+/// Binds the [`gsl_sf_Ci_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_Ci_e).
 #[allow(non_snake_case)]
 pub fn Ci(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -136,6 +194,12 @@ pub fn Ci(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the Arctangent integral, which is defined as
+/// $\hbox{AtanInt}(x) = \int\_0^x dt \arctan(t)/t$
+///
+/// Binds the [`gsl_sf_atanint_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_atanint_e).
 pub fn atanint(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

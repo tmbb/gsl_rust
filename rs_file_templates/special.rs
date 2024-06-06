@@ -18,14 +18,10 @@
 
 pub mod special_function_test;
 
-mod gamma;
-mod coulomb;
 {% for module in modules -%}
 mod {{ module }};
 {% endfor %}
 
-pub use gamma::*;
-pub use coulomb::*;
 {% for module in modules -%}
 pub use {{ module }}::*;
 {% endfor %}

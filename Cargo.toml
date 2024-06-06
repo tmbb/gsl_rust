@@ -13,6 +13,7 @@ drop_guard = "0.3.0"
 num-complex = "0.4.0"
 num-traits = "0.2.14"
 katexit = "0.1.0"
+katex = "0.4"
 
 [dev-dependencies]
 approx = "0.5"

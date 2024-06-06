@@ -18,12 +18,11 @@
 
 pub mod special_function_test;
 
-mod gamma;
-mod coulomb;
 mod airy;
 mod bessel;
 mod clausen;
 mod coupling;
+mod coulomb;
 mod dawson;
 mod debye;
 mod dilog;
@@ -34,6 +33,7 @@ mod erf;
 mod exp;
 mod expint;
 mod fermi_dirac;
+mod gamma;
 mod gegenbauer;
 mod hermite;
 mod hyperg;
@@ -51,12 +51,11 @@ mod trig;
 mod zeta;
 
 
-pub use gamma::*;
-pub use coulomb::*;
 pub use airy::*;
 pub use bessel::*;
 pub use clausen::*;
 pub use coupling::*;
+pub use coulomb::*;
 pub use dawson::*;
 pub use debye::*;
 pub use dilog::*;
@@ -67,6 +66,7 @@ pub use erf::*;
 pub use exp::*;
 pub use expint::*;
 pub use fermi_dirac::*;
+pub use gamma::*;
 pub use gegenbauer::*;
 pub use hermite::*;
 pub use hyperg::*;

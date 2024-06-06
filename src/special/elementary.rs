@@ -20,6 +20,12 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// This function multiplies `x` and `y` storing the product and its
+/// associated error in `result`.
+///
+/// Binds the [`gsl_sf_multiply_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_multiply_e).
 pub fn multiply(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };

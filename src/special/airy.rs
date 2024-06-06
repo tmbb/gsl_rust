@@ -20,6 +20,12 @@ use crate::bindings::*;
 use crate::*;
 
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the location of the `s`-th zero of the Airy
+/// function $Ai(x)$.
+///
+/// Binds the [`gsl_sf_airy_zero_Ai_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_airy_zero_Ai_e).
 #[allow(non_snake_case)]
 pub fn airy_zero_Ai(s: u32) -> Result<ValWithError<f64>> {
     unsafe {
@@ -29,6 +35,12 @@ pub fn airy_zero_Ai(s: u32) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the location of the `s`-th zero of the Airy
+/// function $Bi(x)$.
+///
+/// Binds the [`gsl_sf_airy_zero_Bi_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_airy_zero_Bi_e).
 #[allow(non_snake_case)]
 pub fn airy_zero_Bi(s: u32) -> Result<ValWithError<f64>> {
     unsafe {
@@ -38,6 +50,12 @@ pub fn airy_zero_Bi(s: u32) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the location of the `s`-th zero of the Airy
+/// function derivative $Ai'(x)$.
+///
+/// Binds the [`gsl_sf_airy_zero_Ai_deriv_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_airy_zero_Ai_deriv_e).
 #[allow(non_snake_case)]
 pub fn airy_zero_Ai_deriv(s: u32) -> Result<ValWithError<f64>> {
     unsafe {
@@ -47,6 +65,12 @@ pub fn airy_zero_Ai_deriv(s: u32) -> Result<ValWithError<f64>> {
     }
 }
 
+#[cfg_attr(doc, katexit::katexit)]
+/// <style>p { overflow-y: hidden; }</style>
+/// These routines compute the location of the `s`-th zero of the Airy
+/// function derivative $Bi'(x)$.
+///
+/// Binds the [`gsl_sf_airy_zero_Bi_deriv_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_airy_zero_Bi_deriv_e).
 #[allow(non_snake_case)]
 pub fn airy_zero_Bi_deriv(s: u32) -> Result<ValWithError<f64>> {
     unsafe {
