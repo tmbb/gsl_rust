@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -24,7 +25,7 @@ use crate::*;
 /// <style>p { overflow-y: hidden; }</style>
 /// These routines compute the sine function $\sin(x)$.
 ///
-/// Binds the [`gsl_sf_sin_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_sin_e).
+/// Binds the [`gsl_sf_sin_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_sin_e) function.
 pub fn sin(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -37,7 +38,7 @@ pub fn sin(x: f64) -> Result<ValWithError<f64>> {
 /// <style>p { overflow-y: hidden; }</style>
 /// These routines compute the cosine function $\cos(x)$.
 ///
-/// Binds the [`gsl_sf_cos_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_cos_e).
+/// Binds the [`gsl_sf_cos_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_cos_e) function.
 pub fn cos(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -51,7 +52,7 @@ pub fn cos(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the hypotenuse function $\sqrt{x^2 + y^2}$
 /// avoiding overflow and underflow.
 ///
-/// Binds the [`gsl_sf_hypot_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_hypot_e).
+/// Binds the [`gsl_sf_hypot_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_hypot_e) function.
 pub fn hypot(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -65,7 +66,7 @@ pub fn hypot(x: f64, y: f64) -> Result<ValWithError<f64>> {
 /// These routines compute $\sinc(x) = \sin(\pi x) / (\pi x)$ for any
 /// value of `x`.
 ///
-/// Binds the [`gsl_sf_sinc_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_sinc_e).
+/// Binds the [`gsl_sf_sinc_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_sinc_e) function.
 pub fn sinc(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -78,7 +79,7 @@ pub fn sinc(x: f64) -> Result<ValWithError<f64>> {
 /// <style>p { overflow-y: hidden; }</style>
 /// These routines compute $\log(\sinh(x))$ for $x > 0$.
 ///
-/// Binds the [`gsl_sf_lnsinh_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lnsinh_e).
+/// Binds the [`gsl_sf_lnsinh_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lnsinh_e) function.
 pub fn lnsinh(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -91,7 +92,7 @@ pub fn lnsinh(x: f64) -> Result<ValWithError<f64>> {
 /// <style>p { overflow-y: hidden; }</style>
 /// These routines compute $\log(\cosh(x))$ for any `x`.
 ///
-/// Binds the [`gsl_sf_lncosh_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lncosh_e).
+/// Binds the [`gsl_sf_lncosh_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lncosh_e) function.
 pub fn lncosh(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -131,3 +132,7 @@ pub fn angle_restrict_pos_err(theta: f64) -> Result<ValWithError<f64>> {
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

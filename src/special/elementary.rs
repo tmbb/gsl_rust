@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -25,7 +26,7 @@ use crate::*;
 /// This function multiplies `x` and `y` storing the product and its
 /// associated error in `result`.
 ///
-/// Binds the [`gsl_sf_multiply_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_multiply_e).
+/// Binds the [`gsl_sf_multiply_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_multiply_e) function.
 pub fn multiply(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -41,3 +42,7 @@ pub fn multiply_err(x: f64, dx: f64, y: f64, dy: f64) -> Result<ValWithError<f64
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

@@ -16,10 +16,11 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+{% if sf_heads == [] %}{% else %}
 use crate::bindings::*;
 use crate::*;
 
-{% for head in sf_heads if head.has_single_gsl_sf_result and not head.takes_arrays and not head.comments_in_args %}
+{% for head in sf_heads %}
 {% if head.rust_func.lower() != head.rust_func %}#[allow(non_snake_case)]
 {% endif -%}
 pub fn {{ head.rust_func }}({% for arg in head.args if arg.type != "gsl_sf_result*"  %}{{ arg.name }}: {{ arg.type }}{% if not loop.last %}, {% endif %}{% endfor %}) -> Result<ValWithError<f64>> {
@@ -29,4 +30,7 @@ pub fn {{ head.rust_func }}({% for arg in head.args if arg.type != "gsl_sf_resul
         Ok(result.into())
     }
 }
-{% endfor %}
+{% endfor %}{% endif %}
+
+#[cfg(test)]
+mod test {}

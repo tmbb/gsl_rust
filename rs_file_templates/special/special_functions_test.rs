@@ -1,3 +1,7 @@
+{% if sf_test_groups == [] -%}
+#[cfg(test)]
+mod test {}
+{% else -%}
 #[cfg(test)]
 mod test {
     use super::*;
@@ -5,6 +9,8 @@ mod test {
     {%- for (key, sf_tests) in sf_test_groups %}
     
     #[test]
+    {% if key.lower() != key %}#[allow(non_snake_case)]
+    {% endif -%}
     fn test_{{key}}() {
         disable_error_handler();
         {%- for sf_test in sf_tests %}
@@ -18,3 +24,4 @@ mod test {
     }
     {%- endfor %}
 }
+{% endif %}

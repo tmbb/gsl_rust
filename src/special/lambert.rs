@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -24,7 +25,7 @@ use crate::*;
 /// <style>p { overflow-y: hidden; }</style>
 /// These compute the principal branch of the Lambert W function, $W\_0(x)$.
 ///
-/// Binds the [`gsl_sf_lambert_W0_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lambert_W0_e).
+/// Binds the [`gsl_sf_lambert_W0_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lambert_W0_e) function.
 #[allow(non_snake_case)]
 pub fn lambert_W0(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -39,7 +40,7 @@ pub fn lambert_W0(x: f64) -> Result<ValWithError<f64>> {
 /// These compute the secondary real-valued branch of the Lambert W function,
 /// $W\_{-1}(x)$.
 ///
-/// Binds the [`gsl_sf_lambert_Wm1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lambert_Wm1_e).
+/// Binds the [`gsl_sf_lambert_Wm1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_lambert_Wm1_e) function.
 #[allow(non_snake_case)]
 pub fn lambert_Wm1(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
@@ -48,3 +49,7 @@ pub fn lambert_Wm1(x: f64) -> Result<ValWithError<f64>> {
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

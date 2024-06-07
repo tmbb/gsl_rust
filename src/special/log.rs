@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -25,7 +26,7 @@ use crate::*;
 /// These routines compute the logarithm of `x`, $\log(x)$, for
 /// $x > 0$.
 ///
-/// Binds the [`gsl_sf_log_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_e).
+/// Binds the [`gsl_sf_log_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_e) function.
 pub fn log(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -39,7 +40,7 @@ pub fn log(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the logarithm of the magnitude of `x`,
 /// $\log(|x|)$, for $x \ne 0$.
 ///
-/// Binds the [`gsl_sf_log_abs_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_abs_e).
+/// Binds the [`gsl_sf_log_abs_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_abs_e) function.
 pub fn log_abs(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -53,7 +54,7 @@ pub fn log_abs(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute $\log(1 + x)$ for $x > -1$ using an
 /// algorithm that is accurate for small `x`.
 ///
-/// Binds the [`gsl_sf_log_1plusx_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_1plusx_e).
+/// Binds the [`gsl_sf_log_1plusx_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_1plusx_e) function.
 pub fn log_1plusx(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -67,7 +68,7 @@ pub fn log_1plusx(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute $\log(1 + x) - x$ for $x > -1$ using an
 /// algorithm that is accurate for small `x`.
 ///
-/// Binds the [`gsl_sf_log_1plusx_mx_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_1plusx_mx_e).
+/// Binds the [`gsl_sf_log_1plusx_mx_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_log_1plusx_mx_e) function.
 pub fn log_1plusx_mx(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -75,3 +76,7 @@ pub fn log_1plusx_mx(x: f64) -> Result<ValWithError<f64>> {
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

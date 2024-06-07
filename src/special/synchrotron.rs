@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -26,7 +27,7 @@ use crate::*;
 /// $x \int\_x^\infty dt K\_{5/3}(t)$
 /// for $x \ge 0$.
 ///
-/// Binds the [`gsl_sf_synchrotron_1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_synchrotron_1_e).
+/// Binds the [`gsl_sf_synchrotron_1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_synchrotron_1_e) function.
 pub fn synchrotron_1(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -40,7 +41,7 @@ pub fn synchrotron_1(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the second synchrotron function
 /// $x K\_{2/3}(x)$ for $x \ge 0$.
 ///
-/// Binds the [`gsl_sf_synchrotron_2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_synchrotron_2_e).
+/// Binds the [`gsl_sf_synchrotron_2_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_synchrotron_2_e) function.
 pub fn synchrotron_2(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -48,3 +49,7 @@ pub fn synchrotron_2(x: f64) -> Result<ValWithError<f64>> {
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

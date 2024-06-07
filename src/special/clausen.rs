@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -24,7 +25,7 @@ use crate::*;
 /// <style>p { overflow-y: hidden; }</style>
 /// These routines compute the Clausen integral $Cl\_2(x)$.
 ///
-/// Binds the [`gsl_sf_clausen_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_clausen_e).
+/// Binds the [`gsl_sf_clausen_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_clausen_e) function.
 pub fn clausen(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -32,3 +33,7 @@ pub fn clausen(x: f64) -> Result<ValWithError<f64>> {
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

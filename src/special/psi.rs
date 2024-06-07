@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
 use crate::bindings::*;
 use crate::*;
 
@@ -25,7 +26,7 @@ use crate::*;
 /// These routines compute the digamma function $\psi(n)$ for positive
 /// integer `n`. The digamma function is also called the Psi function.
 ///
-/// Binds the [`gsl_sf_psi_int_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_int_e).
+/// Binds the [`gsl_sf_psi_int_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_int_e) function.
 pub fn psi_int(n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -39,7 +40,7 @@ pub fn psi_int(n: i32) -> Result<ValWithError<f64>> {
 /// These routines compute the digamma function $\psi(x)$ for general
 /// `x`, $x \ne 0$.
 ///
-/// Binds the [`gsl_sf_psi_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_e).
+/// Binds the [`gsl_sf_psi_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_e) function.
 pub fn psi(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -53,7 +54,7 @@ pub fn psi(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the real part of the digamma function on the line
 /// $1 + i y$, $\Re[\psi(1 + i y)]$.
 ///
-/// Binds the [`gsl_sf_psi_1piy_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_1piy_e).
+/// Binds the [`gsl_sf_psi_1piy_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_1piy_e) function.
 pub fn psi_1piy(y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -67,7 +68,7 @@ pub fn psi_1piy(y: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the Trigamma function $\psi'(n)$ for
 /// positive integer $n$.
 ///
-/// Binds the [`gsl_sf_psi_1_int_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_1_int_e).
+/// Binds the [`gsl_sf_psi_1_int_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_1_int_e) function.
 pub fn psi_1_int(n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -81,7 +82,7 @@ pub fn psi_1_int(n: i32) -> Result<ValWithError<f64>> {
 /// These routines compute the Trigamma function $\psi'(x)$ for
 /// general `x`.
 ///
-/// Binds the [`gsl_sf_psi_1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_1_e).
+/// Binds the [`gsl_sf_psi_1_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_1_e) function.
 pub fn psi_1(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -95,7 +96,7 @@ pub fn psi_1(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the polygamma function $\psi^{(n)}(x)$ for
 /// $n \ge 0$, $x > 0$.
 ///
-/// Binds the [`gsl_sf_psi_n_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_n_e).
+/// Binds the [`gsl_sf_psi_n_e`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.gsl_sf_psi_n_e) function.
 pub fn psi_n(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = gsl_sf_result { val: 0.0, err: 0.0 };
@@ -103,3 +104,7 @@ pub fn psi_n(n: i32, x: f64) -> Result<ValWithError<f64>> {
         Ok(result.into())
     }
 }
+
+
+#[cfg(test)]
+mod test {}

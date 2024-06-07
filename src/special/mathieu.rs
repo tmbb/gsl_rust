@@ -16,6 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-use crate::bindings::*;
-use crate::*;
 
+
+#[cfg(test)]
+mod test {}
