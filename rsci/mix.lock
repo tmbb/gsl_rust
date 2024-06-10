@@ -1,0 +1,4 @@
+%{
+  "floki": {:hex, :floki, "0.36.2", "a7da0193538c93f937714a6704369711998a51a6164a222d710ebd54020aa7a3", [:mix], [], "hexpm", "a8766c0bc92f074e5cb36c4f9961982eda84c5d2b8e979ca67f5c268ec8ed580"},
+  "nimble_parsec": {:hex, :nimble_parsec, "1.4.0", "51f9b613ea62cfa97b25ccc2c1b4216e81df970acd8e16e8d1bdc58fef21370d", [:mix], [], "hexpm", "9c565862810fb383e9838c1dd2d7d2c437b3d13b267414ba6af33e50d2d1cf28"},
+}

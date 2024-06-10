@@ -16,6 +16,18 @@ CMacroDefinition = namedtuple('CMacroDefinition', ['name', 'type', 'value'])
 
 SpecialFuncTest = namedtuple('SpecialFunctionTest', ['func_c', 'func_rust', 'args', 'expected', 'tolerance'])
 
+FunctionDoc = namedtuple('FunctionDoc', ['name', 'doc'])
+
+SpecialFunctionHead = namedtuple('SpecialFunctionHead', [
+    'c_func',
+    'rust_func',
+    'args',
+    'has_single_gsl_sf_result',
+    'takes_arrays',
+    'no_comments_in_args'
+])
+
+FunctionHeadArg = namedtuple('FunctionHeadArg', ['name', 'type'])
 
 def inject_tests(path, tests_content):
     with open(path) as f:
@@ -107,6 +119,8 @@ def parse_TEST_SF_line(line, db):
                 else:
                     arg_code = ast.get_source_segment(py_line, arg_value).lstrip('+')
 
+                # Exclude all arguments that contain variables
+                # Those tests will have to be translated manually.
                 assert not re.match(r'[abcdf-zABCD-Z]', arg_code)
 
                 # Hack for a nasty particular case:
@@ -146,17 +160,15 @@ def parse_TEST_SF_line(line, db):
         else:
             raise e
 
-def inject_docs(path, functions_map, fdocs):
+def inject_docs(path, db, fdocs):
     docs_map = dict((fdoc.name, fdoc) for fdoc in fdocs)
     
     with open(path) as f:
         contents = f.read()
 
-    for (gsl_func, rust_func) in functions_map.items():
-        if gsl_func.endswith('_e'):
-            normalized_gsl_func = gsl_func[:-2]
-        else:
-            normalized_gsl_func = gsl_func
+    for (gsl_func, function) in db.functions.items():
+        rust_func = function['rust_func']
+        c_func_canonical = function['c_func_canonical']
 
         marker_with_warning_suppression = "\n#[allow(non_snake_case)]\npub fn {}(".format(rust_func)
 
@@ -165,7 +177,7 @@ def inject_docs(path, functions_map, fdocs):
         else:
             marker = "\npub fn {}(".format(rust_func)
 
-        fdoc = docs_map.get(normalized_gsl_func)
+        fdoc = docs_map.get(c_func_canonical)
 
         link_to_gsl = "\n///\n/// Binds the [`{}`](https://www.gnu.org/software/gsl/doc/html/specfunc.html#c.{}) function.".format(gsl_func, gsl_func)
 
@@ -261,7 +273,6 @@ def process_node_contents(node):
 
     return node.contents
     
-FunctionDoc = namedtuple('FunctionDoc', ['name', 'doc'])
 
 def canonical_c_func_name(name):
     if name.endswith('_e'): name = name[:-2]
@@ -298,16 +309,6 @@ def sf_docs_from_html(path):
     return docs
 
 
-SpecialFunctionHead = namedtuple('SfHead', [
-    'c_func',
-    'rust_func',
-    'args',
-    'has_single_gsl_sf_result',
-    'takes_arrays',
-    'no_comments_in_args'
-])
-
-SpecialFunctionHeadArg = namedtuple('SpecialFunctionHeadArg', ['name', 'type'])
 
 def convert_sf_name_to_rust_name(c_func):
     if c_func.endswith('_e'): c_func = c_func[:-2]
@@ -326,12 +327,15 @@ def convert_to_rust_type(c_type):
     elif c_type == ('double', '*'): return 'double*'
     elif c_type == ('int', '*'): return 'double*'
     elif c_type == ('const', 'gsl_mode_t'): return 'gsl_mode_t'
+    elif c_type is None: return ""
     else: return c_type
 
-def decompose_head(head):
+
+def decompose_head(head, db):
     (gsl_name, raw_args) = head
 
-    rust_name = convert_sf_name_to_rust_name(gsl_name)
+    function = db.functions.get(gsl_name)
+    rust_name = function and function.get('rust_func')
 
     comments_in_args = '/*' not in raw_args
 
@@ -342,26 +346,26 @@ def decompose_head(head):
         if len(arg) == 2:
             typ = convert_to_rust_type(arg[0])
             name = convert_arg_name_to_rust(arg[1])
-            sf_arg = SpecialFunctionHeadArg(name=name, type=typ)
+            sf_arg = FunctionHeadArg(name=name, type=typ)
             final_args.append(sf_arg)
         
         elif len(arg) == 3:
             if arg[1] == '*':
                 typ = arg[0] + "*"
                 name = convert_arg_name_to_rust(arg[2])
-                sf_arg = SpecialFunctionHeadArg(name=name, type=typ)
+                sf_arg = FunctionHeadArg(name=name, type=typ)
                 final_args.append(sf_arg)
 
             else:
                 typ = convert_to_rust_type((arg[0], arg[1]))
                 name = convert_arg_name_to_rust(arg[2])
-                sf_arg = SpecialFunctionHeadArg(name=name, type=typ)
+                sf_arg = FunctionHeadArg(name=name, type=typ)
                 final_args.append(sf_arg)
         
         elif len(arg) == 4:
                 typ = convert_to_rust_type((arg[1], arg[2]))
                 name = convert_arg_name_to_rust(arg[3])
-                sf_arg = SpecialFunctionHeadArg(name=name, type=typ)
+                sf_arg = FunctionHeadArg(name=name, type=typ)
                 final_args.append(sf_arg)
 
         else:
@@ -384,13 +388,57 @@ def decompose_head(head):
                 comments_in_args
             )
 
-def function_heads(path):
+
+def c_arg_to_rust(typ):
+    if typ == ('const', 'double') or typ == ('double',) or typ == 'double':
+        return 'f64'
+    elif typ == ('const', 'int') or typ == ('int',) or typ == 'double':
+        return 'i32'
+    elif typ == ('const', 'unsigned', 'int') or typ == ('unsigned', 'int') or typ == 'unsigned int':
+        return 'u32'
+    elif typ == ('const', 'gsl_rng', '*'):
+        return 'mut Rng'
+    elif len(typ) == 1:
+        return typ[0]
+    elif isinstance(typ, str):
+        return typ
+    else:
+        return " ".join(typ)
+
+def decompose_normal_function_head(match, db):
+    (func_typ, gsl_name, raw_args) = match
+
+    split_args = [arg.strip().split() for arg in raw_args.split(',')]
+
+    if gsl_name.startswith('gsl_ran_') and not gsl_name.endswith('_pdf'):
+        rust_name = 'random_' + gsl_name[8:]
+    else:
+        rust_name = gsl_name[8:]
+
+    final_args = []
+    for arg in split_args:
+        typ = c_arg_to_rust(tuple(arg[:-1]))
+        name = arg[-1]
+        
+        final_arg = FunctionHeadArg(name=name, type=typ)
+        final_args.append(final_arg)
+                
+    return FunctionHead(
+                gsl_name,
+                rust_name,
+                final_args,
+                c_arg_to_rust(func_typ)
+            )
+
+FunctionHead = namedtuple('FunctionHead', ['name', 'rust_name', 'args', 'type'])
+
+def function_heads(path, db):
     with open(path) as f:
         contents = f.read()
 
-    matches = re.findall(r'int\s+(?P<func>\w+)\((?P<args>[^)]+)\)\s*;', contents)
+    matches = re.findall(r'int\s+(?P<func>\w+)\s*\((?P<args>[^)]+)\)\s*;', contents)
     
-    heads = [decompose_head(match) for match in matches]
+    heads = [decompose_head(match, db) for match in matches]
 
     # Remove heads with problematic types
     heads = [
@@ -403,10 +451,26 @@ def function_heads(path):
 
     return heads
 
-def translate_function_heads(input_path, output_path, template_path):
-    heads = function_heads(input_path)
+def normal_function_heads(path, db):
+    with open(path) as f:
+        contents = f.read()
 
+    matches = re.findall(r'\n(?P<type>(?:unsigned\s+)?\w+)\s+(?P<func>\w+)\s+\((?P<args>[^)]+)\)\s*;', contents)
+    
+    heads = [decompose_normal_function_head(match, db) for match in matches]
+
+    heads = [
+        head for head in heads
+        if all(arg.type in ['f64', 'u32', 'u32', 'mut Rng'] for arg in head.args) and
+        head.type != 'void'
+    ]
+
+    return heads
+
+def translate_function_heads(input_path, output_path, template_path, db):
+    heads = function_heads(input_path, db)
     render_template_into_file(template_path, output_path, dict(sf_heads=heads))
+
     return heads
 
 SF_MODULES = [
@@ -443,43 +507,18 @@ SF_MODULES = [
     "zeta"
 ]
 
-
 def inject_tests_in_modules(modules, db):
     for module in modules:
         inject_tests_in_module(module, db)
 
-def gather_function_heads(modules):
+def gather_function_heads(modules, db):
     heads = []
     
     for module in modules:
-        new_heads = function_heads('gsl/specfunc/gsl_sf_{}.h'.format(module))
+        new_heads = function_heads('gsl/specfunc/gsl_sf_{}.h'.format(module), db)
         heads.extend(new_heads)
 
     return heads
-
-import json
-
-def update_gsl_functions_database(modules):
-    gsl_functions = json.load(open('gsl_functions.json'))
-    gsl_functions_set = set(f['c_func'] for f in gsl_functions)
-
-    heads = gather_function_heads(modules)
-
-    for head in heads:
-        if head.c_func not in gsl_functions_set:
-            new_func = {
-                'c_func': head.c_func,
-                'c_func_canonical': canonical_c_func_name(head.c_func),
-                'rust_func': head.rust_func,
-                'exclude': False
-            }
-
-            gsl_functions.append(new_func)
-
-    gsl_functions = sorted(gsl_functions, key=lambda f: f['c_func'])
-
-    json.dump(gsl_functions, open('gsl_functions.json', 'w'), indent=4)
-    
 
 def build_sf_templates():
     default = open('rs_file_templates/special/coulomb.rs').read()
@@ -489,26 +528,23 @@ def build_sf_templates():
             f.write(new_contents)
 
 
-def translate_function_head_in_modules(modules):
+def translate_function_head_in_modules(modules, db):
     # Translate the function heads into safe rust
     for module in modules:
         translate_function_heads(
             'gsl/specfunc/gsl_sf_{}.h'.format(module),
             'src/special/{}.rs'.format(module),
-            'rs_file_templates/special/{}.rs'.format(module)
+            'rs_file_templates/special/{}.rs'.format(module),
+            db
         )
 
-def inject_docs_in_modules(modules, special_function_dict_c_to_rust_map):
+def inject_docs_in_modules(modules, db):
     # Get function docs from the manual
     function_docs = sf_docs_from_html('gsl_manual/specfunc.html')
 
     # Add the docs to all modules (if there aren't already some docs there)
     for module in modules:
-        inject_docs(
-            "src/special/{}.rs".format(module),
-            special_function_dict_c_to_rust_map,
-            function_docs
-        )
+        inject_docs("src/special/{}.rs".format(module), db, function_docs)
 
 class SpecialFunctionDatabase:
 
@@ -521,7 +557,7 @@ class SpecialFunctionDatabase:
             self.functions[func['c_func']] = func
 
     def update_with_modules(self, modules):
-        heads = gather_function_heads(modules)
+        heads = gather_function_heads(modules, self)
 
         for head in heads:
             if head.c_func not in self.functions:
@@ -541,11 +577,23 @@ class SpecialFunctionDatabase:
     def add_typing_information(self, modules):
         for module in modules:
             path = 'gsl/specfunc/gsl_sf_{}.h'.format(module)
-            heads = function_heads(path)
+            heads = function_heads(path, self)
 
             for head in heads:
                 self.functions[head.c_func]['args'] = head.args
-            
+
+
+
+def build_randist(db):
+    path = "gsl/randist/gsl_randist.h"
+    function_heads = normal_function_heads(path, db)
+
+    render_template_into_file(
+        "rs_file_templates/randist.rs",
+        "src/randist.rs",
+        dict(function_heads=function_heads)
+    )
+
 
 def main():
     logging.basicConfig(level=logging.INFO)
@@ -567,15 +615,13 @@ def main():
 
     generate_machine_rs()
 
-    update_gsl_functions_database(SF_MODULES)
+    translate_function_head_in_modules(SF_MODULES, db)
 
-    special_function_dict_c_to_rust_map = dict(
-        (func['c_func'], func['rust_func'])
-        for func in json.load(open('gsl_functions.json'))
-    )
-
-    translate_function_head_in_modules(SF_MODULES)
-
-    inject_docs_in_modules(SF_MODULES, special_function_dict_c_to_rust_map)
+    inject_docs_in_modules(SF_MODULES, db)
 
     inject_tests_in_modules(SF_MODULES, db)
+
+    build_randist(db)
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,7 @@
 /*
     special/ellint.rs
     Copyright (C) 2021 Pim van den Berg
+    Copyright (C) 2024 Tiago Barroso
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,7 +17,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
+#![allow(non_snake_case)]
 
 #[cfg(test)]
 mod test {}

@@ -23,6 +23,7 @@ use std::os::raw::*;
 use std::panic::{catch_unwind, AssertUnwindSafe};
 
 pub mod bspline;
+pub mod distribution;
 pub mod fft;
 pub mod filter;
 pub mod integration;
@@ -34,6 +35,9 @@ pub mod sorting;
 pub mod special;
 pub mod stats;
 pub mod machine;
+pub mod math;
+pub mod rng;
+pub mod test_helpers;
 
 mod data;
 pub use data::*;

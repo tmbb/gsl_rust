@@ -21,9 +21,18 @@ pub struct SpecialFunctionTestError {
     incons: bool,
     negative_error: bool,
     bad_error: bool,
-    bad_tolerance: bool,
-    big_error: bool,
-    bad_exponent: bool
+    pub bad_tolerance: bool,
+    pub big_error: bool,
+    bad_exponent: bool,
+    pub tolerance: f64,
+    pub frac_diff: f64,
+    pub abs_diff: f64,
+    pub error: f64
+}
+
+
+pub fn sqrt(x: f64) -> f64 {
+    x.sqrt()
 }
 
 pub fn fractional_difference(x1: f64, x2: f64) -> f64 {
@@ -38,7 +47,51 @@ pub fn fractional_difference(x1: f64, x2: f64) -> f64 {
     }
 }
 
-pub fn check_result(result: Result<ValWithError<f64>>, expected: f64, tolerance: f64) -> () {
+#[macro_export]
+macro_rules! check_result {
+    ($call:expr, $expected:expr, $tolerance:expr) => {
+        match $crate::special::special_function_test::check_result_helper(
+            $call, $expected, $tolerance
+        ) {
+            std::result::Result::Ok(()) =>
+                (),
+            
+            std::result::Result::Err($crate::special::special_function_test::SpecialFunctionTestError{
+                tolerance: tolerance,
+                frac_diff: frac_diff,
+                abs_diff: abs_diff,
+                error: error,
+                big_error: big_error,
+                bad_tolerance: bad_tolerance,
+                ..
+            }) => {
+                let message = format!("
+
+    ┌────────────────────────────────────────────────────────────
+    │ Special function test failed:
+    └─┬──────────────────────────────────────────────────────────
+      ├─ tolerance: {:+e}
+      ├─ fractional difference: {:+e}
+      ├─ absolute difference: {:+e}
+      ├─ error: {:+e}
+      │
+      └──┬─ error too big?: {}
+         └─ value outside tolerance?: {}\n\n",
+                    tolerance,
+                    frac_diff,
+                    abs_diff,
+                    error,
+                    big_error,
+                    bad_tolerance);
+                
+                panic!("{}", message)
+            }
+        }
+    }
+}
+
+pub fn check_result_helper(result: Result<ValWithError<f64>>, expected: f64, tolerance: f64)
+        -> std::result::Result<(), SpecialFunctionTestError> {
     let val_with_err = result.unwrap();
 
     let frac_diff: f64 = fractional_difference(expected, val_with_err.val);
@@ -60,13 +113,22 @@ pub fn check_result(result: Result<ValWithError<f64>>, expected: f64, tolerance:
             negative_error: negative_error,
             bad_tolerance: bad_tolerance,
             big_error: big_error,
-            bad_exponent: bad_exponent
+            bad_exponent: bad_exponent,
+            tolerance: tolerance,
+            frac_diff: frac_diff,
+            abs_diff: abs_diff,
+            error: val_with_err.err
         };
 
-        panic!("{:#?}", special_function_test_error)
+        std::result::Result::Err(special_function_test_error)
 
     } else {
-        ()
-    };
+        std::result::Result::Ok(())
+    }
 }
 
+// Make these useful constants available
+pub use math::*;
+pub use machine::*;
+
+pub use check_result;
