@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["mean","variance","variance_mean"]};

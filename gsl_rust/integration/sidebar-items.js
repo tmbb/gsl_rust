@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["GaussKronrodRule"],"fn":["qag","qag_ext","qagiu","qagiu_ext"]};

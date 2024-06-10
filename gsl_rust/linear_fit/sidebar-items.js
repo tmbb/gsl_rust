@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["linear_fit","linear_fit_p","polynomial_basis"],"struct":["FitResult"]};

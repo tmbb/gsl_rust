@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["fit_bspline"],"struct":["BSpline","BSplineEvaluation"]};

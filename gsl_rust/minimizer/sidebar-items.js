@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["minimize","minimize_ext"],"struct":["MinimizerCallback"]};

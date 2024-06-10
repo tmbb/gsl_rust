@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `distribution` mod in crate `gsl_rust`."><title>gsl_rust::distribution - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-ba5701c5741a7b69.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gsl_rust" data-themes="" data-resource-suffix="" data-rustdoc-version="1.70.0 (90c541806 2023-05-31)" data-search-js="search-e077946657036a58.js" data-settings-js="settings-298e1ea74db45b39.js" data-settings-css="settings-7bfb4c59cc6bc502.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../static.files/main-f61008743c98d196.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<style>p { overflow-y: hidden; }</style>
+<script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+</head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="logo-container" href="../../gsl_rust/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><h2></h2></nav><nav class="sidebar"><a class="logo-container" href="../../gsl_rust/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><h2 class="location"><a href="#">Module distribution</a></h2><div class="sidebar-elems"><section><ul class="block"><li><a href="#functions">Functions</a></li></ul></section></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1>Module <a href="../index.html">gsl_rust</a>::<wbr><a class="mod" href="#">distribution</a><button id="copy-path" title="Copy item path to clipboard"><img src="../../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../../src/gsl_rust/distribution.rs.html#20-1749">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><h2 id="functions" class="small-section-header"><a href="#functions">Functions</a></h2><ul class="item-table"><li><div class="item-name"><a class="fn" href="fn.bernoulli_pdf.html" title="fn gsl_rust::distribution::bernoulli_pdf">bernoulli_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining
+<code>k</code> from a Bernoulli distribution with probability parameter
+<code>p</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.bernoulli_rvs.html" title="fn gsl_rust::distribution::bernoulli_rvs">bernoulli_rvs</a></div><div class="desc docblock-short">This function returns either 0 or 1, the result of a Bernoulli trial
+with probability <code>p</code>.
+The probability distribution for a Bernoulli
+trial is,</div></li><li><div class="item-name"><a class="fn" href="fn.beta_P_cdf.html" title="fn gsl_rust::distribution::beta_P_cdf">beta_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the beta
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.beta_Pinv_cdf.html" title="fn gsl_rust::distribution::beta_Pinv_cdf">beta_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the beta
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.beta_Q_cdf.html" title="fn gsl_rust::distribution::beta_Q_cdf">beta_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the beta
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.beta_Qinv_cdf.html" title="fn gsl_rust::distribution::beta_Qinv_cdf">beta_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the beta
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.beta_pdf.html" title="fn gsl_rust::distribution::beta_pdf">beta_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a beta distribution with parameters <code>a</code> and <code>b</code>, using the
+formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.beta_rvs.html" title="fn gsl_rust::distribution::beta_rvs">beta_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the beta
+distribution.
+The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.binomial_P_cdf.html" title="fn gsl_rust::distribution::binomial_P_cdf">binomial_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$  for the binomial
+distribution with parameters <code>p</code> and <code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.binomial_Q_cdf.html" title="fn gsl_rust::distribution::binomial_Q_cdf">binomial_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$  for the binomial
+distribution with parameters <code>p</code> and <code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.binomial_pdf.html" title="fn gsl_rust::distribution::binomial_pdf">binomial_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining <code>k</code>
+from a binomial distribution with parameters <code>p</code> and <code>n</code>, using
+the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.binomial_rvs.html" title="fn gsl_rust::distribution::binomial_rvs">binomial_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the binomial distribution,
+the number of successes in <code>n</code> independent trials with probability
+<code>p</code>.
+The probability distribution for binomial variates is,</div></li><li><div class="item-name"><a class="fn" href="fn.bivariate_gaussian_pdf.html" title="fn gsl_rust::distribution::bivariate_gaussian_pdf">bivariate_gaussian_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x,y)$ at
+(<code>x</code>, <code>y</code>) for a bivariate Gaussian distribution with standard
+deviations <code>sigma_x</code>, <code>sigma_y</code> and correlation coefficient
+<code>rho</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.cauchy_P_cdf.html" title="fn gsl_rust::distribution::cauchy_P_cdf">cauchy_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Cauchy
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.cauchy_Pinv_cdf.html" title="fn gsl_rust::distribution::cauchy_Pinv_cdf">cauchy_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Cauchy
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.cauchy_Q_cdf.html" title="fn gsl_rust::distribution::cauchy_Q_cdf">cauchy_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Cauchy
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.cauchy_Qinv_cdf.html" title="fn gsl_rust::distribution::cauchy_Qinv_cdf">cauchy_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Cauchy
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.cauchy_pdf.html" title="fn gsl_rust::distribution::cauchy_pdf">cauchy_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Cauchy distribution with scale parameter <code>a</code>, using the formula
+given above.</div></li><li><div class="item-name"><a class="fn" href="fn.cauchy_rvs.html" title="fn gsl_rust::distribution::cauchy_rvs">cauchy_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Cauchy distribution with
+scale parameter <code>a</code>.
+The probability distribution for Cauchy
+random variates is,</div></li><li><div class="item-name"><a class="fn" href="fn.chi2.html" title="fn gsl_rust::distribution::chi2">chi2</a></div><div class="desc docblock-short">This function returns a random variate from the chi-squared distribution
+with <code>nu</code> degrees of freedom. The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.chi2_P_cdf.html" title="fn gsl_rust::distribution::chi2_P_cdf">chi2_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the chi-squared
+distribution with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.chi2_Pinv_cdf.html" title="fn gsl_rust::distribution::chi2_Pinv_cdf">chi2_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the chi-squared
+distribution with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.chi2_Q_cdf.html" title="fn gsl_rust::distribution::chi2_Q_cdf">chi2_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the chi-squared
+distribution with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.chi2_Qinv_cdf.html" title="fn gsl_rust::distribution::chi2_Qinv_cdf">chi2_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the chi-squared
+distribution with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.chi2_pdf.html" title="fn gsl_rust::distribution::chi2_pdf">chi2_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a chi-squared distribution with <code>nu</code> degrees of freedom, using
+the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.exponential_P_cdf.html" title="fn gsl_rust::distribution::exponential_P_cdf">exponential_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the exponential
+distribution with mean <code>mu</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exponential_Pinv_cdf.html" title="fn gsl_rust::distribution::exponential_Pinv_cdf">exponential_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the exponential
+distribution with mean <code>mu</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exponential_Q_cdf.html" title="fn gsl_rust::distribution::exponential_Q_cdf">exponential_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the exponential
+distribution with mean <code>mu</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exponential_Qinv_cdf.html" title="fn gsl_rust::distribution::exponential_Qinv_cdf">exponential_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the exponential
+distribution with mean <code>mu</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exponential_pdf.html" title="fn gsl_rust::distribution::exponential_pdf">exponential_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for an exponential distribution with mean <code>mu</code>, using the formula
+given above.</div></li><li><div class="item-name"><a class="fn" href="fn.exponential_rvs.html" title="fn gsl_rust::distribution::exponential_rvs">exponential_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the exponential distribution
+with mean <code>mu</code>. The distribution is,</div></li><li><div class="item-name"><a class="fn" href="fn.exppow_P_cdf.html" title="fn gsl_rust::distribution::exppow_P_cdf">exppow_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ for the exponential power distribution with
+parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exppow_Q_cdf.html" title="fn gsl_rust::distribution::exppow_Q_cdf">exppow_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ for the exponential power distribution with
+parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exppow_pdf.html" title="fn gsl_rust::distribution::exppow_pdf">exppow_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for an exponential power distribution with scale parameter <code>a</code>
+and exponent <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.exppow_rvs.html" title="fn gsl_rust::distribution::exppow_rvs">exppow_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the exponential power distribution
+with scale parameter <code>a</code> and exponent <code>b</code>.
+The distribution is,</div></li><li><div class="item-name"><a class="fn" href="fn.fdist_P_cdf.html" title="fn gsl_rust::distribution::fdist_P_cdf">fdist_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the F-distribution
+with <code>nu1</code> and <code>nu2</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.fdist_Pinv_cdf.html" title="fn gsl_rust::distribution::fdist_Pinv_cdf">fdist_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the F-distribution
+with <code>nu1</code> and <code>nu2</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.fdist_Q_cdf.html" title="fn gsl_rust::distribution::fdist_Q_cdf">fdist_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the F-distribution
+with <code>nu1</code> and <code>nu2</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.fdist_Qinv_cdf.html" title="fn gsl_rust::distribution::fdist_Qinv_cdf">fdist_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the F-distribution
+with <code>nu1</code> and <code>nu2</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.fdist_pdf.html" title="fn gsl_rust::distribution::fdist_pdf">fdist_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for an F-distribution with <code>nu1</code> and <code>nu2</code> degrees of freedom,
+using the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.fdist_rvs.html" title="fn gsl_rust::distribution::fdist_rvs">fdist_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the F-distribution with degrees of freedom <code>nu1</code> and <code>nu2</code>.
+The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.flat_P_cdf.html" title="fn gsl_rust::distribution::flat_P_cdf">flat_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for a uniform distribution
+from <code>a</code> to <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.flat_Pinv_cdf.html" title="fn gsl_rust::distribution::flat_Pinv_cdf">flat_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for a uniform distribution
+from <code>a</code> to <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.flat_Q_cdf.html" title="fn gsl_rust::distribution::flat_Q_cdf">flat_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for a uniform distribution
+from <code>a</code> to <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.flat_Qinv_cdf.html" title="fn gsl_rust::distribution::flat_Qinv_cdf">flat_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for a uniform distribution
+from <code>a</code> to <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.flat_pdf.html" title="fn gsl_rust::distribution::flat_pdf">flat_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a uniform distribution from <code>a</code> to <code>b</code>, using the formula
+given above.</div></li><li><div class="item-name"><a class="fn" href="fn.flat_rvs.html" title="fn gsl_rust::distribution::flat_rvs">flat_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the flat (uniform)
+distribution from <code>a</code> to <code>b</code>. The distribution is,</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_P_cdf.html" title="fn gsl_rust::distribution::gamma_P_cdf">gamma_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the gamma
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_Pinv_cdf.html" title="fn gsl_rust::distribution::gamma_Pinv_cdf">gamma_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the gamma
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_Q_cdf.html" title="fn gsl_rust::distribution::gamma_Q_cdf">gamma_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the gamma
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_Qinv_cdf.html" title="fn gsl_rust::distribution::gamma_Qinv_cdf">gamma_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the gamma
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_knuth_rvs.html" title="fn gsl_rust::distribution::gamma_knuth_rvs">gamma_knuth_rvs</a></div><div class="desc docblock-short">This function returns a gamma variate using the algorithms from Knuth (vol 2).</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_pdf.html" title="fn gsl_rust::distribution::gamma_pdf">gamma_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a gamma distribution with parameters <code>a</code> and <code>b</code>, using the
+formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.gamma_rvs.html" title="fn gsl_rust::distribution::gamma_rvs">gamma_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the gamma
+distribution.
+The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_P_cdf.html" title="fn gsl_rust::distribution::gaussian_P_cdf">gaussian_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Gaussian
+distribution with standard deviation <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_Pinv_cdf.html" title="fn gsl_rust::distribution::gaussian_Pinv_cdf">gaussian_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Gaussian
+distribution with standard deviation <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_Q_cdf.html" title="fn gsl_rust::distribution::gaussian_Q_cdf">gaussian_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Gaussian
+distribution with standard deviation <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_Qinv_cdf.html" title="fn gsl_rust::distribution::gaussian_Qinv_cdf">gaussian_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Gaussian
+distribution with standard deviation <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_pdf.html" title="fn gsl_rust::distribution::gaussian_pdf">gaussian_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Gaussian distribution with standard deviation <code>sigma</code>, using
+the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_ratio_method_rvs.html" title="fn gsl_rust::distribution::gaussian_ratio_method_rvs">gaussian_ratio_method_rvs</a></div><div class="desc docblock-short">This function computes a Gaussian random variate using the alternative
+Marsaglia-Tsang ziggurat and Kinderman-Monahan-Leva ratio methods.
+The
+Ziggurat algorithm is the fastest available algorithm in most cases.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_rvs.html" title="fn gsl_rust::distribution::gaussian_rvs">gaussian_rvs</a></div><div class="desc docblock-short">This function returns a Gaussian random variate, with mean zero and
+standard deviation <code>sigma</code>.
+The probability distribution for
+Gaussian random variates is,</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_tail_pdf.html" title="fn gsl_rust::distribution::gaussian_tail_pdf">gaussian_tail_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Gaussian tail distribution with standard deviation <code>sigma</code> and
+lower limit <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_tail_rvs.html" title="fn gsl_rust::distribution::gaussian_tail_rvs">gaussian_tail_rvs</a></div><div class="desc docblock-short">This function provides random variates from the upper tail of a Gaussian
+distribution with standard deviation <code>sigma</code>.
+The values returned
+are larger than the lower limit <code>a</code>, which must be positive.
+The
+method is based on Marsaglia’s famous rectangle-wedge-tail algorithm (Ann.
+Math. Stat. 32, 894–899 (1961)), with this aspect explained in Knuth, v2,
+3rd ed, p139,586 (exercise 11).</div></li><li><div class="item-name"><a class="fn" href="fn.gaussian_ziggurat_rvs.html" title="fn gsl_rust::distribution::gaussian_ziggurat_rvs">gaussian_ziggurat_rvs</a></div><div class="desc docblock-short">This function computes a Gaussian random variate using the alternative
+Marsaglia-Tsang ziggurat and Kinderman-Monahan-Leva ratio methods.
+The
+Ziggurat algorithm is the fastest available algorithm in most cases.</div></li><li><div class="item-name"><a class="fn" href="fn.geometric_P_cdf.html" title="fn gsl_rust::distribution::geometric_P_cdf">geometric_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the geometric distribution with parameter
+<code>p</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.geometric_Q_cdf.html" title="fn gsl_rust::distribution::geometric_Q_cdf">geometric_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the geometric distribution with parameter
+<code>p</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.geometric_pdf.html" title="fn gsl_rust::distribution::geometric_pdf">geometric_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining <code>k</code>
+from a geometric distribution with probability parameter <code>p</code>, using
+the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.geometric_rvs.html" title="fn gsl_rust::distribution::geometric_rvs">geometric_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the geometric distribution,
+the number of independent trials with probability <code>p</code> until the
+first success.
+The probability distribution for geometric variates
+is,</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel1_P_cdf.html" title="fn gsl_rust::distribution::gumbel1_P_cdf">gumbel1_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-1 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel1_Pinv_cdf.html" title="fn gsl_rust::distribution::gumbel1_Pinv_cdf">gumbel1_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-1 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel1_Q_cdf.html" title="fn gsl_rust::distribution::gumbel1_Q_cdf">gumbel1_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-1 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel1_Qinv_cdf.html" title="fn gsl_rust::distribution::gumbel1_Qinv_cdf">gumbel1_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-1 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel1_pdf.html" title="fn gsl_rust::distribution::gumbel1_pdf">gumbel1_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Type-1 Gumbel distribution with parameters <code>a</code> and <code>b</code>,
+using the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel1_rvs.html" title="fn gsl_rust::distribution::gumbel1_rvs">gumbel1_rvs</a></div><div class="desc docblock-short">This function returns  a random variate from the Type-1 Gumbel
+distribution.
+The Type-1 Gumbel distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel2_P_cdf.html" title="fn gsl_rust::distribution::gumbel2_P_cdf">gumbel2_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-2 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel2_Pinv_cdf.html" title="fn gsl_rust::distribution::gumbel2_Pinv_cdf">gumbel2_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-2 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel2_Q_cdf.html" title="fn gsl_rust::distribution::gumbel2_Q_cdf">gumbel2_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-2 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel2_Qinv_cdf.html" title="fn gsl_rust::distribution::gumbel2_Qinv_cdf">gumbel2_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Type-2 Gumbel
+distribution with parameters <code>a</code> and <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel2_pdf.html" title="fn gsl_rust::distribution::gumbel2_pdf">gumbel2_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Type-2 Gumbel distribution with parameters <code>a</code> and <code>b</code>,
+using the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.gumbel2_rvs.html" title="fn gsl_rust::distribution::gumbel2_rvs">gumbel2_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Type-2 Gumbel
+distribution.
+The Type-2 Gumbel distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.hypergeometric_P_cdf.html" title="fn gsl_rust::distribution::hypergeometric_P_cdf">hypergeometric_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the hypergeometric distribution with
+parameters <code>n1</code>, <code>n2</code> and <code>t</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.hypergeometric_Q_cdf.html" title="fn gsl_rust::distribution::hypergeometric_Q_cdf">hypergeometric_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the hypergeometric distribution with
+parameters <code>n1</code>, <code>n2</code> and <code>t</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.hypergeometric_pdf.html" title="fn gsl_rust::distribution::hypergeometric_pdf">hypergeometric_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining <code>k</code>
+from a hypergeometric distribution with parameters <code>n1</code>, <code>n2</code>,
+<code>t</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.hypergeometric_rvs.html" title="fn gsl_rust::distribution::hypergeometric_rvs">hypergeometric_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the hypergeometric
+distribution.
+The probability distribution for hypergeometric
+random variates is,</div></li><li><div class="item-name"><a class="fn" href="fn.landau_pdf.html" title="fn gsl_rust::distribution::landau_pdf">landau_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for the Landau distribution using an approximation to the formula given
+above.</div></li><li><div class="item-name"><a class="fn" href="fn.landau_rvs.html" title="fn gsl_rust::distribution::landau_rvs">landau_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Landau distribution.
+The
+probability distribution for Landau random variates is defined
+analytically by the complex integral,</div></li><li><div class="item-name"><a class="fn" href="fn.laplace_P_cdf.html" title="fn gsl_rust::distribution::laplace_P_cdf">laplace_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Laplace
+distribution with width <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.laplace_Pinv_cdf.html" title="fn gsl_rust::distribution::laplace_Pinv_cdf">laplace_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Laplace
+distribution with width <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.laplace_Q_cdf.html" title="fn gsl_rust::distribution::laplace_Q_cdf">laplace_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Laplace
+distribution with width <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.laplace_Qinv_cdf.html" title="fn gsl_rust::distribution::laplace_Qinv_cdf">laplace_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Laplace
+distribution with width <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.laplace_pdf.html" title="fn gsl_rust::distribution::laplace_pdf">laplace_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Laplace distribution with width <code>a</code>, using the formula
+given above.</div></li><li><div class="item-name"><a class="fn" href="fn.laplace_rvs.html" title="fn gsl_rust::distribution::laplace_rvs">laplace_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Laplace distribution
+with width <code>a</code>.
+The distribution is,</div></li><li><div class="item-name"><a class="fn" href="fn.levy_rvs.html" title="fn gsl_rust::distribution::levy_rvs">levy_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Levy symmetric stable
+distribution with scale <code>c</code> and exponent <code>alpha</code>.
+The symmetric
+stable probability distribution is defined by a Fourier transform,</div></li><li><div class="item-name"><a class="fn" href="fn.levy_skew_rvs.html" title="fn gsl_rust::distribution::levy_skew_rvs">levy_skew_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Levy skew stable
+distribution with scale <code>c</code>, exponent <code>alpha</code> and skewness
+parameter <code>beta</code>.
+The skewness parameter must lie in the range
+$[-1,1]$.
+The Levy skew stable probability distribution is defined
+by a Fourier transform,</div></li><li><div class="item-name"><a class="fn" href="fn.logarithmic_pdf.html" title="fn gsl_rust::distribution::logarithmic_pdf">logarithmic_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining <code>k</code>
+from a logarithmic distribution with probability parameter <code>p</code>,
+using the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.logarithmic_rvs.html" title="fn gsl_rust::distribution::logarithmic_rvs">logarithmic_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the logarithmic
+distribution.
+The probability distribution for logarithmic random variates
+is,</div></li><li><div class="item-name"><a class="fn" href="fn.logistic_P_cdf.html" title="fn gsl_rust::distribution::logistic_P_cdf">logistic_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the logistic
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.logistic_Pinv_cdf.html" title="fn gsl_rust::distribution::logistic_Pinv_cdf">logistic_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the logistic
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.logistic_Q_cdf.html" title="fn gsl_rust::distribution::logistic_Q_cdf">logistic_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the logistic
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.logistic_Qinv_cdf.html" title="fn gsl_rust::distribution::logistic_Qinv_cdf">logistic_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the logistic
+distribution with scale parameter <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.logistic_pdf.html" title="fn gsl_rust::distribution::logistic_pdf">logistic_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a logistic distribution with scale parameter <code>a</code>, using the
+formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.logistic_rvs.html" title="fn gsl_rust::distribution::logistic_rvs">logistic_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the logistic
+distribution.
+The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.lognormal_P_cdf.html" title="fn gsl_rust::distribution::lognormal_P_cdf">lognormal_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the lognormal
+distribution with parameters <code>zeta</code> and <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.lognormal_Pinv_cdf.html" title="fn gsl_rust::distribution::lognormal_Pinv_cdf">lognormal_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the lognormal
+distribution with parameters <code>zeta</code> and <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.lognormal_Q_cdf.html" title="fn gsl_rust::distribution::lognormal_Q_cdf">lognormal_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the lognormal
+distribution with parameters <code>zeta</code> and <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.lognormal_Qinv_cdf.html" title="fn gsl_rust::distribution::lognormal_Qinv_cdf">lognormal_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the lognormal
+distribution with parameters <code>zeta</code> and <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.lognormal_pdf.html" title="fn gsl_rust::distribution::lognormal_pdf">lognormal_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a lognormal distribution with parameters <code>zeta</code> and <code>sigma</code>,
+using the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.lognormal_rvs.html" title="fn gsl_rust::distribution::lognormal_rvs">lognormal_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the lognormal
+distribution.
+The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.negative_binomial_P_cdf.html" title="fn gsl_rust::distribution::negative_binomial_P_cdf">negative_binomial_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the negative binomial distribution with
+parameters <code>p</code> and <code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.negative_binomial_Q_cdf.html" title="fn gsl_rust::distribution::negative_binomial_Q_cdf">negative_binomial_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the negative binomial distribution with
+parameters <code>p</code> and <code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.negative_binomial_pdf.html" title="fn gsl_rust::distribution::negative_binomial_pdf">negative_binomial_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining <code>k</code>
+from a negative binomial distribution with parameters <code>p</code> and
+<code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.negative_binomial_rvs.html" title="fn gsl_rust::distribution::negative_binomial_rvs">negative_binomial_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the negative binomial
+distribution, the number of failures occurring before <code>n</code> successes
+in independent trials with probability <code>p</code> of success.
+The
+probability distribution for negative binomial variates is,</div></li><li><div class="item-name"><a class="fn" href="fn.pareto_P_cdf.html" title="fn gsl_rust::distribution::pareto_P_cdf">pareto_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Pareto
+distribution with exponent <code>a</code> and scale <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pareto_Pinv_cdf.html" title="fn gsl_rust::distribution::pareto_Pinv_cdf">pareto_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Pareto
+distribution with exponent <code>a</code> and scale <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pareto_Q_cdf.html" title="fn gsl_rust::distribution::pareto_Q_cdf">pareto_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Pareto
+distribution with exponent <code>a</code> and scale <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pareto_Qinv_cdf.html" title="fn gsl_rust::distribution::pareto_Qinv_cdf">pareto_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Pareto
+distribution with exponent <code>a</code> and scale <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pareto_pdf.html" title="fn gsl_rust::distribution::pareto_pdf">pareto_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Pareto distribution with exponent <code>a</code> and scale <code>b</code>, using
+the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.pareto_rvs.html" title="fn gsl_rust::distribution::pareto_rvs">pareto_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Pareto distribution of
+order <code>a</code>.
+The distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.pascal_P_cdf.html" title="fn gsl_rust::distribution::pascal_P_cdf">pascal_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the Pascal distribution with
+parameters <code>p</code> and <code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pascal_Q_cdf.html" title="fn gsl_rust::distribution::pascal_Q_cdf">pascal_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the Pascal distribution with
+parameters <code>p</code> and <code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pascal_pdf.html" title="fn gsl_rust::distribution::pascal_pdf">pascal_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining <code>k</code>
+from a Pascal distribution with parameters <code>p</code> and
+<code>n</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.pascal_rvs.html" title="fn gsl_rust::distribution::pascal_rvs">pascal_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the Pascal distribution.
+The
+Pascal distribution is simply a negative binomial distribution with an
+integer value of $n$.</div></li><li><div class="item-name"><a class="fn" href="fn.poisson_P_cdf.html" title="fn gsl_rust::distribution::poisson_P_cdf">poisson_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the Poisson distribution with parameter
+<code>mu</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.poisson_Q_cdf.html" title="fn gsl_rust::distribution::poisson_Q_cdf">poisson_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(k)$, $Q(k)$ for the Poisson distribution with parameter
+<code>mu</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.poisson_pdf.html" title="fn gsl_rust::distribution::poisson_pdf">poisson_pdf</a></div><div class="desc docblock-short">This function computes the probability $p(k)$ of obtaining  <code>k</code>
+from a Poisson distribution with mean <code>mu</code>, using the formula
+given above.</div></li><li><div class="item-name"><a class="fn" href="fn.poisson_rvs.html" title="fn gsl_rust::distribution::poisson_rvs">poisson_rvs</a></div><div class="desc docblock-short">This function returns a random integer from the Poisson distribution
+with mean <code>mu</code>.
+The probability distribution for Poisson variates is,</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_P_cdf.html" title="fn gsl_rust::distribution::rayleigh_P_cdf">rayleigh_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Rayleigh
+distribution with scale parameter <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_Pinv_cdf.html" title="fn gsl_rust::distribution::rayleigh_Pinv_cdf">rayleigh_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Rayleigh
+distribution with scale parameter <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_Q_cdf.html" title="fn gsl_rust::distribution::rayleigh_Q_cdf">rayleigh_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Rayleigh
+distribution with scale parameter <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_Qinv_cdf.html" title="fn gsl_rust::distribution::rayleigh_Qinv_cdf">rayleigh_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Rayleigh
+distribution with scale parameter <code>sigma</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_pdf.html" title="fn gsl_rust::distribution::rayleigh_pdf">rayleigh_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Rayleigh distribution with scale parameter <code>sigma</code>, using the
+formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_rvs.html" title="fn gsl_rust::distribution::rayleigh_rvs">rayleigh_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Rayleigh distribution with
+scale parameter <code>sigma</code>.
+The distribution is,</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_tail_pdf.html" title="fn gsl_rust::distribution::rayleigh_tail_pdf">rayleigh_tail_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Rayleigh tail distribution with scale parameter <code>sigma</code> and
+lower limit <code>a</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.rayleigh_tail_rvs.html" title="fn gsl_rust::distribution::rayleigh_tail_rvs">rayleigh_tail_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the tail of the Rayleigh
+distribution with scale parameter <code>sigma</code> and a lower limit of
+<code>a</code>.
+The distribution is,</div></li><li><div class="item-name"><a class="fn" href="fn.student_t.html" title="fn gsl_rust::distribution::student_t">student_t</a></div><div class="desc docblock-short">This function returns a random variate from the t-distribution.
+The
+distribution function is,</div></li><li><div class="item-name"><a class="fn" href="fn.student_t_P_cdf.html" title="fn gsl_rust::distribution::student_t_P_cdf">student_t_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the t-distribution
+with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.student_t_Pinv_cdf.html" title="fn gsl_rust::distribution::student_t_Pinv_cdf">student_t_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the t-distribution
+with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.student_t_Q_cdf.html" title="fn gsl_rust::distribution::student_t_Q_cdf">student_t_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the t-distribution
+with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.student_t_Qinv_cdf.html" title="fn gsl_rust::distribution::student_t_Qinv_cdf">student_t_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the t-distribution
+with <code>nu</code> degrees of freedom.</div></li><li><div class="item-name"><a class="fn" href="fn.student_t_pdf.html" title="fn gsl_rust::distribution::student_t_pdf">student_t_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a t-distribution with <code>nu</code> degrees of freedom, using the formula
+given above.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_P_cdf.html" title="fn gsl_rust::distribution::ugaussian_P_cdf">ugaussian_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the unit Gaussian
+distribution.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_Pinv_cdf.html" title="fn gsl_rust::distribution::ugaussian_Pinv_cdf">ugaussian_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the unit Gaussian
+distribution.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_Q_cdf.html" title="fn gsl_rust::distribution::ugaussian_Q_cdf">ugaussian_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the unit Gaussian
+distribution.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_Qinv_cdf.html" title="fn gsl_rust::distribution::ugaussian_Qinv_cdf">ugaussian_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the unit Gaussian
+distribution.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_pdf.html" title="fn gsl_rust::distribution::ugaussian_pdf">ugaussian_pdf</a></div><div class="desc docblock-short">These functions compute results for the unit Gaussian distribution.
+They
+are equivalent to the functions above with a standard deviation of one,
+<code>sigma</code> = 1.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_ratio_method_rvs.html" title="fn gsl_rust::distribution::ugaussian_ratio_method_rvs">ugaussian_ratio_method_rvs</a></div><div class="desc docblock-short">These functions compute results for the unit Gaussian distribution.
+They
+are equivalent to the functions above with a standard deviation of one,
+<code>sigma</code> = 1.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_rvs.html" title="fn gsl_rust::distribution::ugaussian_rvs">ugaussian_rvs</a></div><div class="desc docblock-short">These functions compute results for the unit Gaussian distribution.
+They
+are equivalent to the functions above with a standard deviation of one,
+<code>sigma</code> = 1.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_tail_pdf.html" title="fn gsl_rust::distribution::ugaussian_tail_pdf">ugaussian_tail_pdf</a></div><div class="desc docblock-short">These functions compute results for the tail of a unit Gaussian
+distribution.
+They are equivalent to the functions above with a standard
+deviation of one, <code>sigma</code> = 1.</div></li><li><div class="item-name"><a class="fn" href="fn.ugaussian_tail_rvs.html" title="fn gsl_rust::distribution::ugaussian_tail_rvs">ugaussian_tail_rvs</a></div><div class="desc docblock-short">These functions compute results for the tail of a unit Gaussian
+distribution.
+They are equivalent to the functions above with a standard
+deviation of one, <code>sigma</code> = 1.</div></li><li><div class="item-name"><a class="fn" href="fn.weibull_P_cdf.html" title="fn gsl_rust::distribution::weibull_P_cdf">weibull_P_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Weibull
+distribution with scale <code>a</code> and exponent <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.weibull_Pinv_cdf.html" title="fn gsl_rust::distribution::weibull_Pinv_cdf">weibull_Pinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Weibull
+distribution with scale <code>a</code> and exponent <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.weibull_Q_cdf.html" title="fn gsl_rust::distribution::weibull_Q_cdf">weibull_Q_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Weibull
+distribution with scale <code>a</code> and exponent <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.weibull_Qinv_cdf.html" title="fn gsl_rust::distribution::weibull_Qinv_cdf">weibull_Qinv_cdf</a></div><div class="desc docblock-short">These functions compute the cumulative distribution functions
+$P(x)$, $Q(x)$ and their inverses for the Weibull
+distribution with scale <code>a</code> and exponent <code>b</code>.</div></li><li><div class="item-name"><a class="fn" href="fn.weibull_pdf.html" title="fn gsl_rust::distribution::weibull_pdf">weibull_pdf</a></div><div class="desc docblock-short">This function computes the probability density $p(x)$ at <code>x</code>
+for a Weibull distribution with scale <code>a</code> and exponent <code>b</code>,
+using the formula given above.</div></li><li><div class="item-name"><a class="fn" href="fn.weibull_rvs.html" title="fn gsl_rust::distribution::weibull_rvs">weibull_rvs</a></div><div class="desc docblock-short">This function returns a random variate from the Weibull distribution.
+The
+distribution function is,</div></li></ul></section></div></main></body></html>

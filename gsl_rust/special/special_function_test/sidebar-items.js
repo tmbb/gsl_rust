@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["TEST_SNGL","TEST_SQRT_TOL0","TEST_TOL0","TEST_TOL1","TEST_TOL2","TEST_TOL3","TEST_TOL4","TEST_TOL5","TEST_TOL6"],"fn":["check_result_helper","fractional_difference","sqrt"],"macro":["check_result"],"struct":["SpecialFunctionTestError"]};
