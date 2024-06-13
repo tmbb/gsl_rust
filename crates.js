@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["cfg_if","darling","darling_core","darling_macro","derive_builder","derive_builder_core","derive_builder_macro","drop_guard","either","fnv","gsl_rust","ident_case","itertools","katex","katex_doc","katexit","libquickjs_sys","num_complex","num_traits","once_cell","proc_macro2","quick_js","quote","strsim","syn","thiserror","thiserror_impl","unicode_ident"];

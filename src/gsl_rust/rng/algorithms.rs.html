@@ -1,0 +1,480 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/rng/algorithms.rs`."><title>algorithms.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-ba5701c5741a7b69.css" id="mainThemeStyle"><div id="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gsl_rust" data-themes="" data-resource-suffix="" data-rustdoc-version="1.70.0 (90c541806 2023-05-31)" data-search-js="search-e077946657036a58.js" data-settings-js="settings-298e1ea74db45b39.js" data-settings-css="settings-7bfb4c59cc6bc502.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ></div><script src="../../../static.files/storage-62ce34ea385b278a.js"></script><script defer src="../../../static.files/source-script-905937fbbdc8e9ea.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../static.files/main-f61008743c98d196.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<style>p { overflow-y: hidden; }</style>
+<script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+</head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><a class="sub-logo-container" href="../../../gsl_rust/index.html"><img class="rust-logo" src="../../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<a href="#2" id="2">2</a>
+<a href="#3" id="3">3</a>
+<a href="#4" id="4">4</a>
+<a href="#5" id="5">5</a>
+<a href="#6" id="6">6</a>
+<a href="#7" id="7">7</a>
+<a href="#8" id="8">8</a>
+<a href="#9" id="9">9</a>
+<a href="#10" id="10">10</a>
+<a href="#11" id="11">11</a>
+<a href="#12" id="12">12</a>
+<a href="#13" id="13">13</a>
+<a href="#14" id="14">14</a>
+<a href="#15" id="15">15</a>
+<a href="#16" id="16">16</a>
+<a href="#17" id="17">17</a>
+<a href="#18" id="18">18</a>
+<a href="#19" id="19">19</a>
+<a href="#20" id="20">20</a>
+<a href="#21" id="21">21</a>
+<a href="#22" id="22">22</a>
+<a href="#23" id="23">23</a>
+<a href="#24" id="24">24</a>
+<a href="#25" id="25">25</a>
+<a href="#26" id="26">26</a>
+<a href="#27" id="27">27</a>
+<a href="#28" id="28">28</a>
+<a href="#29" id="29">29</a>
+<a href="#30" id="30">30</a>
+<a href="#31" id="31">31</a>
+<a href="#32" id="32">32</a>
+<a href="#33" id="33">33</a>
+<a href="#34" id="34">34</a>
+<a href="#35" id="35">35</a>
+<a href="#36" id="36">36</a>
+<a href="#37" id="37">37</a>
+<a href="#38" id="38">38</a>
+<a href="#39" id="39">39</a>
+<a href="#40" id="40">40</a>
+<a href="#41" id="41">41</a>
+<a href="#42" id="42">42</a>
+<a href="#43" id="43">43</a>
+<a href="#44" id="44">44</a>
+<a href="#45" id="45">45</a>
+<a href="#46" id="46">46</a>
+<a href="#47" id="47">47</a>
+<a href="#48" id="48">48</a>
+<a href="#49" id="49">49</a>
+<a href="#50" id="50">50</a>
+<a href="#51" id="51">51</a>
+<a href="#52" id="52">52</a>
+<a href="#53" id="53">53</a>
+<a href="#54" id="54">54</a>
+<a href="#55" id="55">55</a>
+<a href="#56" id="56">56</a>
+<a href="#57" id="57">57</a>
+<a href="#58" id="58">58</a>
+<a href="#59" id="59">59</a>
+<a href="#60" id="60">60</a>
+<a href="#61" id="61">61</a>
+<a href="#62" id="62">62</a>
+<a href="#63" id="63">63</a>
+<a href="#64" id="64">64</a>
+<a href="#65" id="65">65</a>
+<a href="#66" id="66">66</a>
+<a href="#67" id="67">67</a>
+<a href="#68" id="68">68</a>
+<a href="#69" id="69">69</a>
+<a href="#70" id="70">70</a>
+<a href="#71" id="71">71</a>
+<a href="#72" id="72">72</a>
+<a href="#73" id="73">73</a>
+<a href="#74" id="74">74</a>
+<a href="#75" id="75">75</a>
+<a href="#76" id="76">76</a>
+<a href="#77" id="77">77</a>
+<a href="#78" id="78">78</a>
+<a href="#79" id="79">79</a>
+<a href="#80" id="80">80</a>
+<a href="#81" id="81">81</a>
+<a href="#82" id="82">82</a>
+<a href="#83" id="83">83</a>
+<a href="#84" id="84">84</a>
+<a href="#85" id="85">85</a>
+<a href="#86" id="86">86</a>
+<a href="#87" id="87">87</a>
+<a href="#88" id="88">88</a>
+<a href="#89" id="89">89</a>
+<a href="#90" id="90">90</a>
+<a href="#91" id="91">91</a>
+<a href="#92" id="92">92</a>
+<a href="#93" id="93">93</a>
+<a href="#94" id="94">94</a>
+<a href="#95" id="95">95</a>
+<a href="#96" id="96">96</a>
+<a href="#97" id="97">97</a>
+<a href="#98" id="98">98</a>
+<a href="#99" id="99">99</a>
+<a href="#100" id="100">100</a>
+<a href="#101" id="101">101</a>
+<a href="#102" id="102">102</a>
+<a href="#103" id="103">103</a>
+<a href="#104" id="104">104</a>
+<a href="#105" id="105">105</a>
+<a href="#106" id="106">106</a>
+<a href="#107" id="107">107</a>
+<a href="#108" id="108">108</a>
+<a href="#109" id="109">109</a>
+<a href="#110" id="110">110</a>
+<a href="#111" id="111">111</a>
+<a href="#112" id="112">112</a>
+<a href="#113" id="113">113</a>
+<a href="#114" id="114">114</a>
+<a href="#115" id="115">115</a>
+<a href="#116" id="116">116</a>
+<a href="#117" id="117">117</a>
+<a href="#118" id="118">118</a>
+<a href="#119" id="119">119</a>
+<a href="#120" id="120">120</a>
+<a href="#121" id="121">121</a>
+<a href="#122" id="122">122</a>
+<a href="#123" id="123">123</a>
+<a href="#124" id="124">124</a>
+<a href="#125" id="125">125</a>
+<a href="#126" id="126">126</a>
+<a href="#127" id="127">127</a>
+<a href="#128" id="128">128</a>
+<a href="#129" id="129">129</a>
+<a href="#130" id="130">130</a>
+<a href="#131" id="131">131</a>
+<a href="#132" id="132">132</a>
+<a href="#133" id="133">133</a>
+<a href="#134" id="134">134</a>
+<a href="#135" id="135">135</a>
+<a href="#136" id="136">136</a>
+<a href="#137" id="137">137</a>
+<a href="#138" id="138">138</a>
+<a href="#139" id="139">139</a>
+<a href="#140" id="140">140</a>
+<a href="#141" id="141">141</a>
+<a href="#142" id="142">142</a>
+<a href="#143" id="143">143</a>
+<a href="#144" id="144">144</a>
+<a href="#145" id="145">145</a>
+<a href="#146" id="146">146</a>
+<a href="#147" id="147">147</a>
+<a href="#148" id="148">148</a>
+<a href="#149" id="149">149</a>
+<a href="#150" id="150">150</a>
+<a href="#151" id="151">151</a>
+<a href="#152" id="152">152</a>
+<a href="#153" id="153">153</a>
+<a href="#154" id="154">154</a>
+<a href="#155" id="155">155</a>
+<a href="#156" id="156">156</a>
+<a href="#157" id="157">157</a>
+<a href="#158" id="158">158</a>
+<a href="#159" id="159">159</a>
+<a href="#160" id="160">160</a>
+<a href="#161" id="161">161</a>
+<a href="#162" id="162">162</a>
+<a href="#163" id="163">163</a>
+<a href="#164" id="164">164</a>
+<a href="#165" id="165">165</a>
+<a href="#166" id="166">166</a>
+<a href="#167" id="167">167</a>
+<a href="#168" id="168">168</a>
+<a href="#169" id="169">169</a>
+<a href="#170" id="170">170</a>
+<a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
+<a href="#176" id="176">176</a>
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a>
+<a href="#179" id="179">179</a>
+<a href="#180" id="180">180</a>
+<a href="#181" id="181">181</a>
+<a href="#182" id="182">182</a>
+<a href="#183" id="183">183</a>
+<a href="#184" id="184">184</a>
+<a href="#185" id="185">185</a>
+<a href="#186" id="186">186</a>
+<a href="#187" id="187">187</a>
+<a href="#188" id="188">188</a>
+<a href="#189" id="189">189</a>
+<a href="#190" id="190">190</a>
+<a href="#191" id="191">191</a>
+<a href="#192" id="192">192</a>
+<a href="#193" id="193">193</a>
+<a href="#194" id="194">194</a>
+<a href="#195" id="195">195</a>
+<a href="#196" id="196">196</a>
+<a href="#197" id="197">197</a>
+<a href="#198" id="198">198</a>
+<a href="#199" id="199">199</a>
+<a href="#200" id="200">200</a>
+<a href="#201" id="201">201</a>
+<a href="#202" id="202">202</a>
+<a href="#203" id="203">203</a>
+<a href="#204" id="204">204</a>
+<a href="#205" id="205">205</a>
+<a href="#206" id="206">206</a>
+<a href="#207" id="207">207</a>
+<a href="#208" id="208">208</a>
+<a href="#209" id="209">209</a>
+<a href="#210" id="210">210</a>
+<a href="#211" id="211">211</a>
+<a href="#212" id="212">212</a>
+<a href="#213" id="213">213</a>
+<a href="#214" id="214">214</a>
+<a href="#215" id="215">215</a>
+<a href="#216" id="216">216</a>
+<a href="#217" id="217">217</a>
+<a href="#218" id="218">218</a>
+<a href="#219" id="219">219</a>
+<a href="#220" id="220">220</a>
+<a href="#221" id="221">221</a>
+<a href="#222" id="222">222</a>
+<a href="#223" id="223">223</a>
+<a href="#224" id="224">224</a>
+<a href="#225" id="225">225</a>
+<a href="#226" id="226">226</a>
+<a href="#227" id="227">227</a>
+<a href="#228" id="228">228</a>
+<a href="#229" id="229">229</a>
+<a href="#230" id="230">230</a>
+</pre></div><pre class="rust"><code><span class="doccomment">//! The functions described above make no reference to the actual algorithm used. This is deliberate so that you can switch algorithms without having
+//! to change any of your application source code. The library provides a large number of generators of different types, including simulation quality
+//! generators, generators provided for compatibility with other libraries and historical generators from the past.
+//!
+//! The following generators are recommended for use in simulation. They have extremely long periods, low correlation and pass most statistical tests.
+//! For the most reliable source of uncorrelated numbers, the second-generation RANLUX generators have the strongest proof of randomness.
+
+</span><span class="kw">pub mod </span>other;
+<span class="kw">pub mod </span>unix;
+
+<span class="kw">use </span><span class="kw">crate</span>::rng::RngType;
+<span class="kw">use </span><span class="kw">crate</span>::bindings;
+
+<span class="doccomment">/// The MT19937 generator of Makoto Matsumoto and Takuji Nishimura is a variant of the twisted generalized feedback shift-register algorithm, and
+/// is known as the “Mersenne Twister” generator. It has a Mersenne prime period of 2^19937 - 1 (about 10^6000) and is equi-distributed in 623 dimensions.
+/// It has passed the DIEHARD statistical tests. It uses 624 words of state per generator and is comparable in speed to the other generators. The original
+/// generator used a default seed of 4357 and choosing s equal to zero in gsl_rng_set reproduces this. Later versions switched to 5489 as the default seed,
+/// you can choose this explicitly via gsl_rng_set instead if you require it.
+///
+/// For more information see,
+///
+/// Makoto Matsumoto and Takuji Nishimura, “Mersenne Twister: A 623-dimensionally equidistributed uniform pseudorandom number generator”. ACM Transactions
+/// on Modeling and Computer Simulation, Vol. 8, No. 1 (Jan. 1998), Pages 3–30
+///
+/// The generator gsl_rng_mt19937 uses the second revision of the seeding procedure published by the two authors above in 2002. The original seeding
+/// procedures could cause spurious artifacts for some seed values. They are still available through the alternative generators gsl_rng_mt19937_1999 and
+/// gsl_rng_mt19937_1998.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_mt19937&quot;</span>)]
+</span><span class="kw">pub fn </span>mt19937() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_mt19937)
+}
+
+<span class="doccomment">/// The generator ranlxs0 is a second-generation version of the RANLUX algorithm of Lüscher, which produces “luxury random numbers”. This generator
+/// provides single precision output (24 bits) at three luxury levels ranlxs0, ranlxs1 and ranlxs2, in increasing order of strength. It uses double-precision
+/// floating point arithmetic internally and can be significantly faster than the integer version of ranlux, particularly on 64-bit architectures. The period
+/// of the generator is about 10^171. The algorithm has mathematically proven properties and can provide truly decorrelated numbers at a known level of
+/// randomness. The higher luxury levels provide increased decorrelation between samples as an additional safety margin.
+///
+/// Note that the range of allowed seeds for this generator is [0,2^31-1]. Higher seed values are wrapped modulo 2^31.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlxs0&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlxs0() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlxs0)
+}
+
+<span class="doccomment">/// The generator ranlxs0 is a second-generation version of the RANLUX algorithm of Lüscher, which produces “luxury random numbers”. This generator
+/// provides single precision output (24 bits) at three luxury levels ranlxs0, ranlxs1 and ranlxs2, in increasing order of strength. It uses double-precision
+/// floating point arithmetic internally and can be significantly faster than the integer version of ranlux, particularly on 64-bit architectures. The period
+/// of the generator is about 10^171. The algorithm has mathematically proven properties and can provide truly decorrelated numbers at a known level of
+/// randomness. The higher luxury levels provide increased decorrelation between samples as an additional safety margin.
+///
+/// Note that the range of allowed seeds for this generator is [0,2^31-1]. Higher seed values are wrapped modulo 2^31.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlxs1&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlxs1() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlxs1)
+}
+
+<span class="doccomment">/// The generator ranlxs0 is a second-generation version of the RANLUX algorithm of Lüscher, which produces “luxury random numbers”. This generator
+/// provides single precision output (24 bits) at three luxury levels ranlxs0, ranlxs1 and ranlxs2, in increasing order of strength. It uses double-precision
+/// floating point arithmetic internally and can be significantly faster than the integer version of ranlux, particularly on 64-bit architectures. The period
+/// of the generator is about 10^171. The algorithm has mathematically proven properties and can provide truly decorrelated numbers at a known level of
+/// randomness. The higher luxury levels provide increased decorrelation between samples as an additional safety margin.
+///
+/// Note that the range of allowed seeds for this generator is [0,2^31-1]. Higher seed values are wrapped modulo 2^31.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlxs2&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlxs2() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlxs2)
+}
+
+<span class="doccomment">/// This generator produces double precision output (48 bits) from the RANLXS generator. The library provides two luxury levels ranlxd1 and ranlxd2,
+/// in increasing order of strength.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlxd1&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlxd1() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlxd1)
+}
+
+<span class="doccomment">/// This generator produces double precision output (48 bits) from the RANLXS generator. The library provides two luxury levels ranlxd1 and ranlxd2,
+/// in increasing order of strength.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlxd2&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlxd2() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlxd2)
+}
+
+<span class="doccomment">/// The ranlux generator is an implementation of the original algorithm developed by Lüscher. It uses a lagged-fibonacci-with-skipping algorithm to
+/// produce “luxury random numbers”. It is a 24-bit generator, originally designed for single-precision IEEE floating point numbers. This
+/// implementation is based on integer arithmetic, while the second-generation versions RANLXS and RANLXD described above provide floating-point
+/// implementations which will be faster on many platforms. The period of the generator is about 10^171. The algorithm has mathematically proven
+/// properties and it can provide truly decorrelated numbers at a known level of randomness. The default level of decorrelation recommended by
+/// Lüscher is provided by gsl_rng_ranlux, while gsl_rng_ranlux389 gives the highest level of randomness, with all 24 bits decorrelated. Both
+/// types of generator use 24 words of state per generator.
+///
+/// For more information see,
+///
+/// M. Lüscher, “A portable high-quality random number generator for lattice field theory calculations”, Computer Physics Communications, 79 (1994) 100–110.
+/// F. James, “RANLUX: A Fortran implementation of the high-quality pseudo-random number generator of Lüscher”, Computer Physics Communications, 79 (1994) 111–114
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlux&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlux() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlux)
+}
+
+<span class="doccomment">/// The ranlux generator is an implementation of the original algorithm developed by Lüscher. It uses a lagged-fibonacci-with-skipping algorithm to
+/// produce “luxury random numbers”. It is a 24-bit generator, originally designed for single-precision IEEE floating point numbers. This
+/// implementation is based on integer arithmetic, while the second-generation versions RANLXS and RANLXD described above provide floating-point
+/// implementations which will be faster on many platforms. The period of the generator is about 10^171. The algorithm has mathematically proven
+/// properties and it can provide truly decorrelated numbers at a known level of randomness. The default level of decorrelation recommended by
+/// Lüscher is provided by gsl_rng_ranlux, while gsl_rng_ranlux389 gives the highest level of randomness, with all 24 bits decorrelated. Both
+/// types of generator use 24 words of state per generator.
+///
+/// For more information see,
+///
+/// M. Lüscher, “A portable high-quality random number generator for lattice field theory calculations”, Computer Physics Communications, 79 (1994) 100–110.
+/// F. James, “RANLUX: A Fortran implementation of the high-quality pseudo-random number generator of Lüscher”, Computer Physics Communications, 79 (1994) 111–114
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_ranlux389&quot;</span>)]
+</span><span class="kw">pub fn </span>ranlux389() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_ranlux389)
+}
+
+<span class="doccomment">/// This is a combined multiple recursive generator by L’Ecuyer. Its sequence is,
+///
+/// z_n = (x_n - y_n) mod m_1
+///
+/// where the two underlying generators x_n and y_n are,
+///
+/// x_n = (a_1 x_{n-1} + a_2 x_{n-2} + a_3 x_{n-3}) mod m_1
+/// y_n = (b_1 y_{n-1} + b_2 y_{n-2} + b_3 y_{n-3}) mod m_2
+///
+/// with coefficients a_1 = 0, a_2 = 63308, a_3 = -183326, b_1 = 86098, b_2 = 0, b_3 = -539608, and moduli m_1 = 2^31 - 1 = 2147483647 and m_2 = 2145483479.
+///
+/// The period of this generator is lcm(m_1^3-1, m_2^3-1), which is approximately 2^185 (about 10^56). It uses 6 words of state per generator. For more information see,
+///
+/// P. L’Ecuyer, “Combined Multiple Recursive Random Number Generators”, Operations Research, 44, 5 (1996), 816–822.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_cmrg&quot;</span>)]
+</span><span class="kw">pub fn </span>cmrg() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_cmrg)
+}
+
+<span class="doccomment">/// This is a fifth-order multiple recursive generator by L’Ecuyer, Blouin and Coutre. Its sequence is,
+///
+/// x_n = (a_1 x_{n-1} + a_5 x_{n-5}) mod m
+///
+/// with a_1 = 107374182, a_2 = a_3 = a_4 = 0, a_5 = 104480 and m = 2^31 - 1.
+///
+/// The period of this generator is about 10^46. It uses 5 words of state per generator. More information can be found in the following paper,
+///
+/// P. L’Ecuyer, F. Blouin, and R. Coutre, “A search for good multiple recursive random number generators”, ACM Transactions on Modeling and Computer Simulation 3, 87–98 (1993).
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_mrg&quot;</span>)]
+</span><span class="kw">pub fn </span>mrg() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_mrg)
+}
+
+<span class="doccomment">/// This is a maximally equidistributed combined Tausworthe generator by L’Ecuyer. The sequence is,
+///
+/// x_n = (s1_n ^^ s2_n ^^ s3_n)
+///
+/// where,
+///
+/// s1_{n+1} = (((s1_n&amp;4294967294)&lt;&lt;12)^^(((s1_n&lt;&lt;13)^^s1_n)&gt;&gt;19))
+/// s2_{n+1} = (((s2_n&amp;4294967288)&lt;&lt; 4)^^(((s2_n&lt;&lt; 2)^^s2_n)&gt;&gt;25))
+/// s3_{n+1} = (((s3_n&amp;4294967280)&lt;&lt;17)^^(((s3_n&lt;&lt; 3)^^s3_n)&gt;&gt;11))
+///
+/// computed modulo 2^32. In the formulas above ^^ denotes “exclusive-or”. Note that the algorithm relies on the properties of 32-bit
+/// unsigned integers and has been implemented using a bitmask of 0xFFFFFFFF to make it work on 64 bit machines.
+///
+/// The period of this generator is 2^88 (about 10^26). It uses 3 words of state per generator. For more information see,
+///
+/// P. L’Ecuyer, “Maximally Equidistributed Combined Tausworthe Generators”, Mathematics of Computation, 65, 213 (1996), 203–213.
+///
+/// The generator gsl_rng_taus2 uses the same algorithm as gsl_rng_taus but with an improved seeding procedure described in the paper,
+///
+/// P. L’Ecuyer, “Tables of Maximally Equidistributed Combined LFSR Generators”, Mathematics of Computation, 68, 225 (1999), 261–269
+///
+/// The generator gsl_rng_taus2 should now be used in preference to gsl_rng_taus.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_taus&quot;</span>)]
+</span><span class="kw">pub fn </span>taus() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_taus)
+}
+
+<span class="doccomment">/// This is a maximally equidistributed combined Tausworthe generator by L’Ecuyer. The sequence is,
+///
+/// x_n = (s1_n ^^ s2_n ^^ s3_n)
+///
+/// where,
+///
+/// s1_{n+1} = (((s1_n&amp;4294967294)&lt;&lt;12)^^(((s1_n&lt;&lt;13)^^s1_n)&gt;&gt;19))
+/// s2_{n+1} = (((s2_n&amp;4294967288)&lt;&lt; 4)^^(((s2_n&lt;&lt; 2)^^s2_n)&gt;&gt;25))
+/// s3_{n+1} = (((s3_n&amp;4294967280)&lt;&lt;17)^^(((s3_n&lt;&lt; 3)^^s3_n)&gt;&gt;11))
+///
+/// computed modulo 2^32. In the formulas above ^^ denotes “exclusive-or”. Note that the algorithm relies on the properties of 32-bit
+/// unsigned integers and has been implemented using a bitmask of 0xFFFFFFFF to make it work on 64 bit machines.
+///
+/// The period of this generator is 2^88 (about 10^26). It uses 3 words of state per generator. For more information see,
+///
+/// P. L’Ecuyer, “Maximally Equidistributed Combined Tausworthe Generators”, Mathematics of Computation, 65, 213 (1996), 203–213.
+///
+/// The generator gsl_rng_taus2 uses the same algorithm as gsl_rng_taus but with an improved seeding procedure described in the paper,
+///
+/// P. L’Ecuyer, “Tables of Maximally Equidistributed Combined LFSR Generators”, Mathematics of Computation, 68, 225 (1999), 261–269
+///
+/// The generator gsl_rng_taus2 should now be used in preference to gsl_rng_taus.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_taus2&quot;</span>)]
+</span><span class="kw">pub fn </span>taus2() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_taus2)
+}
+
+<span class="doccomment">/// The gfsr4 generator is like a lagged-fibonacci generator, and produces each number as an xor’d sum of four previous values.
+///
+/// r_n = r_{n-A} ^^ r_{n-B} ^^ r_{n-C} ^^ r_{n-D}
+///
+/// Ziff (ref below) notes that “it is now widely known” that two-tap registers (such as R250, which is described below) have serious
+/// flaws, the most obvious one being the three-point correlation that comes from the definition of the generator. Nice mathematical
+/// properties can be derived for GFSR’s, and numerics bears out the claim that 4-tap GFSR’s with appropriately chosen offsets are as
+/// random as can be measured, using the author’s test.
+///
+/// This implementation uses the values suggested the example on p392 of Ziff’s article: A=471, B=1586, C=6988, D=9689.
+///
+/// If the offsets are appropriately chosen (such as the one ones in this implementation), then the sequence is said to be maximal;
+/// that means that the period is 2^D - 1, where D is the longest lag. (It is one less than 2^D because it is not permitted to have all
+/// zeros in the ra[] array.) For this implementation with D=9689 that works out to about 10^2917.
+///
+/// Note that the implementation of this generator using a 32-bit integer amounts to 32 parallel implementations of one-bit generators.
+/// One consequence of this is that the period of this 32-bit generator is the same as for the one-bit generator. Moreover, this
+/// independence means that all 32-bit patterns are equally likely, and in particular that 0 is an allowed random value. (We are grateful
+/// to Heiko Bauke for clarifying for us these properties of GFSR random number generators.)
+///
+/// For more information see,
+///
+/// Robert M. Ziff, “Four-tap shift-register-sequence random-number generators”, Computers in Physics, 12(4), Jul/Aug 1998, pp 385–392.
+</span><span class="attr">#[doc(alias = <span class="string">&quot;gsl_rng_gfsr4&quot;</span>)]
+</span><span class="kw">pub fn </span>gfsr4() -&gt; RngType {
+    <span class="macro">ffi_wrap!</span>(gsl_rng_gfsr4)
+}</code></pre></div></section></main></body></html>
