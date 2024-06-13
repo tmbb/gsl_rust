@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["rand","rand48","random_bsd","random_glibc2","random_libc5"]};

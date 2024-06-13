@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["default_rng","default_rng_with_seed"],"type":["Rng","RngType"]};

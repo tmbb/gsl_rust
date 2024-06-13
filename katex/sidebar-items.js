@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"constant":["KATEX_VERSION"],"fn":["render","render_with_opts"],"mod":["error","opts"]};
