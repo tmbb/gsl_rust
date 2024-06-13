@@ -22,11 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the Regular Spherical Conical Function
-/// $P^{-1/2-l}_{-1/2 + i \lambda}(x)$
-/// for $x > -1$ and $l \ge -1$.
+/// These routines compute the Regular Spherical Conical Function $P^{-1/2-l}_{-1/2
+/// + i \lambda}(x)$ for $x > -1$ and $l \ge -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_sph_reg_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_sph_reg_e).
+/// Binds the function
+/// [`gsl_sf_conicalP_sph_reg_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_sph_reg_e).
 pub fn conicalP_sph_reg_e(l: i32, lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -35,10 +35,11 @@ pub fn conicalP_sph_reg_e(l: i32, lambda: f64, x: f64) -> Result<ValWithError<f6
     }
 }
 
-/// These routines compute the irregular Spherical Conical Function
-/// $P^{1/2}_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the irregular Spherical Conical Function $P^{1/2}_{-1/2 +
+/// i \lambda}(x)$ for $x > -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_half_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_half_e).
+/// Binds the function
+/// [`gsl_sf_conicalP_half_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_half_e).
 pub fn conicalP_half_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -47,10 +48,11 @@ pub fn conicalP_half_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Legendre function $Q_0(x)$ for
-/// $x > -1$ and $x \ne 1$.
+/// These routines compute the Legendre function $Q_0(x)$ for $x > -1$ and $x \ne
+/// 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Q0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q0_e).
+/// Binds the function
+/// [`gsl_sf_legendre_Q0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q0_e).
 pub fn legendre_Q0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -59,10 +61,11 @@ pub fn legendre_Q0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions evaluate the Legendre polynomials
-/// $P_l(x)$ using explicit representations for $l = 1, 2, 3$.
+/// These functions evaluate the Legendre polynomials $P_l(x)$ using explicit
+/// representations for $l = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_legendre_P2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P2_e).
+/// Binds the function
+/// [`gsl_sf_legendre_P2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P2_e).
 pub fn legendre_P2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -71,10 +74,11 @@ pub fn legendre_P2_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Legendre function $Q_1(x)$ for
-/// $x > -1$ and $x \ne 1$.
+/// These routines compute the Legendre function $Q_1(x)$ for $x > -1$ and $x \ne
+/// 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Q1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q1_e).
+/// Binds the function
+/// [`gsl_sf_legendre_Q1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q1_e).
 pub fn legendre_Q1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -83,11 +87,11 @@ pub fn legendre_Q1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Regular Cylindrical Conical Function
-/// $P^{-m}_{-1/2 + i \lambda}(x)$
-/// for $x > -1$ and $m \ge -1$.
+/// These routines compute the Regular Cylindrical Conical Function $P^{-m}_{-1/2 +
+/// i \lambda}(x)$ for $x > -1$ and $m \ge -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_cyl_reg_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_cyl_reg_e).
+/// Binds the function
+/// [`gsl_sf_conicalP_cyl_reg_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_cyl_reg_e).
 pub fn conicalP_cyl_reg_e(m: i32, lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -96,16 +100,18 @@ pub fn conicalP_cyl_reg_e(m: i32, lambda: f64, x: f64) -> Result<ValWithError<f6
     }
 }
 
-/// These routines compute the first radial eigenfunction of the Laplacian on
-/// the 3-dimensional hyperbolic space,
+/// These routines compute the first radial eigenfunction of the Laplacian on the
+/// 3-dimensional hyperbolic space,
 /// 
-/// $$L^{H3d}_1(\lambda,\eta) := {1\over\sqrt{\lambda^2 + 1}} {\left(\sin(\lambda \eta)\over \lambda \sinh(\eta)\right)} \left(\coth(\eta) - \lambda \cot(\lambda\eta)\right)$$
+/// $$L^{H3d}_1(\lambda,\eta) := {1\over\sqrt{\lambda^2 + 1}} {\left(\sin(\lambda
+/// \eta)\over \lambda \sinh(\eta)\right)} \left(\coth(\eta) - \lambda
+/// \cot(\lambda\eta)\right)$$
 /// 
-/// for $\eta \ge 0$
-/// In the flat limit this takes the form
-/// $L^{H3d}_1(\lambda,\eta) = j_1(\lambda\eta)$.
+/// for $\eta \ge 0$ In the flat limit this takes the form $L^{H3d}_1(\lambda,\eta)
+/// = j_1(\lambda\eta)$.
 /// 
-/// Binds the function [`gsl_sf_legendre_H3d_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_1_e).
+/// Binds the function
+/// [`gsl_sf_legendre_H3d_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_1_e).
 pub fn legendre_H3d_1_e(lambda: f64, eta: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -114,10 +120,11 @@ pub fn legendre_H3d_1_e(lambda: f64, eta: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Legendre function $Q_l(x)$ for
-/// $x > -1$, $x \ne 1$ and $l \ge 0$.
+/// These routines compute the Legendre function $Q_l(x)$ for $x > -1$, $x \ne 1$
+/// and $l \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Ql_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Ql_e).
+/// Binds the function
+/// [`gsl_sf_legendre_Ql_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Ql_e).
 pub fn legendre_Ql_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -126,10 +133,11 @@ pub fn legendre_Ql_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the conical function
-/// $P^0_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the conical function $P^0_{-1/2 + i \lambda}(x)$ for $x >
+/// -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_0_e).
+/// Binds the function
+/// [`gsl_sf_conicalP_0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_0_e).
 pub fn conicalP_0_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -139,14 +147,15 @@ pub fn conicalP_0_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the normalized associated Legendre polynomial
-/// $\sqrt{(2l+1)/(4\pi)} \sqrt{(l-m)!/(l+m)!} P_l^m(x)$ suitable
-/// for use in spherical harmonics.
-/// The parameters must satisfy $m \ge 0$,
-/// $l \ge m$, and $|x| \le 1$.
-/// These routines avoid the overflows
-/// that occur for the standard normalization of $P_l^m(x)$.
+/// $\sqrt{(2l+1)/(4\pi)} \sqrt{(l-m)!/(l+m)!} P_l^m(x)$ suitable for use in
+/// spherical harmonics.
 /// 
-/// Binds the function [`gsl_sf_legendre_sphPlm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_sphPlm_e).
+/// The parameters must satisfy $m \ge 0$, $l \ge m$, and $|x| \le 1$. These
+/// routines avoid the overflows that occur for the standard normalization of
+/// $P_l^m(x)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_legendre_sphPlm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_sphPlm_e).
 pub fn legendre_sphPlm_e(l: i32, m: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -155,11 +164,11 @@ pub fn legendre_sphPlm_e(l: i32, m: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions evaluate the Legendre polynomial $P_l(x)$
-/// for a specific value of `l`, `x` subject to $l \ge 0$ and
-/// $|x| \le 1$.
+/// These functions evaluate the Legendre polynomial $P_l(x)$ for a specific value
+/// of `l`, `x` subject to $l \ge 0$ and $|x| \le 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Pl_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Pl_e).
+/// Binds the function
+/// [`gsl_sf_legendre_Pl_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Pl_e).
 pub fn legendre_Pl_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -168,11 +177,11 @@ pub fn legendre_Pl_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the associated Legendre polynomial
-/// $P_l^m(x)$ for $m \ge 0$,
-/// $l \ge m$, and $|x| \le 1$.
+/// These routines compute the associated Legendre polynomial $P_l^m(x)$ for $m \ge
+/// 0$, $l \ge m$, and $|x| \le 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Plm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Plm_e).
+/// Binds the function
+/// [`gsl_sf_legendre_Plm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Plm_e).
 pub fn legendre_Plm_e(l: i32, m: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -181,13 +190,14 @@ pub fn legendre_Plm_e(l: i32, m: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the `l`-th radial eigenfunction of the
-/// Laplacian on the 3-dimensional hyperbolic space $\eta \ge 0$ and
-/// $l \ge 0$.
-/// In the flat limit this takes the form
-/// $L^{H3d}_l(\lambda,\eta) = j_l(\lambda\eta)$.
+/// These routines compute the `l`-th radial eigenfunction of the Laplacian on the
+/// 3-dimensional hyperbolic space $\eta \ge 0$ and $l \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_legendre_H3d_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_e).
+/// In the flat limit this takes the form $L^{H3d}_l(\lambda,\eta) =
+/// j_l(\lambda\eta)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_legendre_H3d_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_e).
 pub fn legendre_H3d_e(l: i32, lambda: f64, eta: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -196,10 +206,11 @@ pub fn legendre_H3d_e(l: i32, lambda: f64, eta: f64) -> Result<ValWithError<f64>
     }
 }
 
-/// These functions evaluate the Legendre polynomials
-/// $P_l(x)$ using explicit representations for $l = 1, 2, 3$.
+/// These functions evaluate the Legendre polynomials $P_l(x)$ using explicit
+/// representations for $l = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_legendre_P1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P1_e).
+/// Binds the function
+/// [`gsl_sf_legendre_P1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P1_e).
 pub fn legendre_P1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -208,10 +219,11 @@ pub fn legendre_P1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions evaluate the Legendre polynomials
-/// $P_l(x)$ using explicit representations for $l = 1, 2, 3$.
+/// These functions evaluate the Legendre polynomials $P_l(x)$ using explicit
+/// representations for $l = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_legendre_P3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P3_e).
+/// Binds the function
+/// [`gsl_sf_legendre_P3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P3_e).
 pub fn legendre_P3_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -220,10 +232,11 @@ pub fn legendre_P3_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the conical function
-/// $P^1_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the conical function $P^1_{-1/2 + i \lambda}(x)$ for $x >
+/// -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_1_e).
+/// Binds the function
+/// [`gsl_sf_conicalP_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_1_e).
 pub fn conicalP_1_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -238,10 +251,12 @@ pub fn conicalP_1_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
 /// $$L^{H3d}_0(\lambda,\eta) := {\sin(\lambda\eta) \over \lambda\sinh(\eta)}$$
 /// 
 /// for $\eta \ge 0$.
-/// In the flat limit this takes the form
-/// $L^{H3d}_0(\lambda,\eta) = j_0(\lambda\eta)$.
 /// 
-/// Binds the function [`gsl_sf_legendre_H3d_0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_0_e).
+/// In the flat limit this takes the form $L^{H3d}_0(\lambda,\eta) =
+/// j_0(\lambda\eta)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_legendre_H3d_0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_0_e).
 pub fn legendre_H3d_0_e(lambda: f64, eta: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -250,10 +265,11 @@ pub fn legendre_H3d_0_e(lambda: f64, eta: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular Spherical Conical Function
-/// $P^{-1/2}_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the regular Spherical Conical Function $P^{-1/2}_{-1/2 +
+/// i \lambda}(x)$ for $x > -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_mhalf_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_mhalf_e).
+/// Binds the function
+/// [`gsl_sf_conicalP_mhalf_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_mhalf_e).
 pub fn conicalP_mhalf_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -263,10 +279,11 @@ pub fn conicalP_mhalf_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These functions evaluate the Legendre polynomials
-/// $P_l(x)$ using explicit representations for $l = 1, 2, 3$.
+/// These functions evaluate the Legendre polynomials $P_l(x)$ using explicit
+/// representations for $l = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_legendre_P3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P3).
+/// Binds the function
+/// [`gsl_sf_legendre_P3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P3).
 pub fn legendre_P3(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_P3(x) }
 }
@@ -277,164 +294,179 @@ pub fn legendre_P3(x: f64) -> f64 {
 /// $$L^{H3d}_0(\lambda,\eta) := {\sin(\lambda\eta) \over \lambda\sinh(\eta)}$$
 /// 
 /// for $\eta \ge 0$.
-/// In the flat limit this takes the form
-/// $L^{H3d}_0(\lambda,\eta) = j_0(\lambda\eta)$.
 /// 
-/// Binds the function [`gsl_sf_legendre_H3d_0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_0).
+/// In the flat limit this takes the form $L^{H3d}_0(\lambda,\eta) =
+/// j_0(\lambda\eta)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_legendre_H3d_0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_0).
 pub fn legendre_H3d_0(lambda: f64, eta: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_H3d_0(lambda, eta) }
 }
 
-/// These functions evaluate the Legendre polynomials
-/// $P_l(x)$ using explicit representations for $l = 1, 2, 3$.
+/// These functions evaluate the Legendre polynomials $P_l(x)$ using explicit
+/// representations for $l = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_legendre_P1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P1).
+/// Binds the function
+/// [`gsl_sf_legendre_P1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P1).
 pub fn legendre_P1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_P1(x) }
 }
 
-/// These routines compute the regular Spherical Conical Function
-/// $P^{-1/2}_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the regular Spherical Conical Function $P^{-1/2}_{-1/2 +
+/// i \lambda}(x)$ for $x > -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_mhalf`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_mhalf).
+/// Binds the function
+/// [`gsl_sf_conicalP_mhalf`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_mhalf).
 pub fn conicalP_mhalf(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_conicalP_mhalf(lambda, x) }
 }
 
-/// These routines compute the Legendre function $Q_1(x)$ for
-/// $x > -1$ and $x \ne 1$.
+/// These routines compute the Legendre function $Q_1(x)$ for $x > -1$ and $x \ne
+/// 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Q1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q1).
+/// Binds the function
+/// [`gsl_sf_legendre_Q1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q1).
 pub fn legendre_Q1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_Q1(x) }
 }
 
-/// These routines compute the Regular Cylindrical Conical Function
-/// $P^{-m}_{-1/2 + i \lambda}(x)$
-/// for $x > -1$ and $m \ge -1$.
+/// These routines compute the Regular Cylindrical Conical Function $P^{-m}_{-1/2 +
+/// i \lambda}(x)$ for $x > -1$ and $m \ge -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_cyl_reg`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_cyl_reg).
+/// Binds the function
+/// [`gsl_sf_conicalP_cyl_reg`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_cyl_reg).
 pub fn conicalP_cyl_reg(m: i32, lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_conicalP_cyl_reg(m, lambda, x) }
 }
 
-/// These routines compute the `l`-th radial eigenfunction of the
-/// Laplacian on the 3-dimensional hyperbolic space $\eta \ge 0$ and
-/// $l \ge 0$.
-/// In the flat limit this takes the form
-/// $L^{H3d}_l(\lambda,\eta) = j_l(\lambda\eta)$.
+/// These routines compute the `l`-th radial eigenfunction of the Laplacian on the
+/// 3-dimensional hyperbolic space $\eta \ge 0$ and $l \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_legendre_H3d`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d).
+/// In the flat limit this takes the form $L^{H3d}_l(\lambda,\eta) =
+/// j_l(\lambda\eta)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_legendre_H3d`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d).
 pub fn legendre_H3d(l: i32, lambda: f64, eta: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_H3d(l, lambda, eta) }
 }
 
-/// This function is now deprecated and will be removed in a future
-/// release.
+/// This function is now deprecated and will be removed in a future release.
 /// 
-/// Binds the function [`gsl_sf_legendre_array_size`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_array_size).
+/// Binds the function
+/// [`gsl_sf_legendre_array_size`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_array_size).
 pub fn legendre_array_size(lmax: i32, m: i32) -> i32 {
     unsafe { bindings::gsl_sf_legendre_array_size(lmax, m) }
 }
 
-/// These routines compute the irregular Spherical Conical Function
-/// $P^{1/2}_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the irregular Spherical Conical Function $P^{1/2}_{-1/2 +
+/// i \lambda}(x)$ for $x > -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_half`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_half).
+/// Binds the function
+/// [`gsl_sf_conicalP_half`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_half).
 pub fn conicalP_half(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_conicalP_half(lambda, x) }
 }
 
-/// These routines compute the Legendre function $Q_0(x)$ for
-/// $x > -1$ and $x \ne 1$.
+/// These routines compute the Legendre function $Q_0(x)$ for $x > -1$ and $x \ne
+/// 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Q0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q0).
+/// Binds the function
+/// [`gsl_sf_legendre_Q0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Q0).
 pub fn legendre_Q0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_Q0(x) }
 }
 
-/// These routines compute the associated Legendre polynomial
-/// $P_l^m(x)$ for $m \ge 0$,
-/// $l \ge m$, and $|x| \le 1$.
+/// These routines compute the associated Legendre polynomial $P_l^m(x)$ for $m \ge
+/// 0$, $l \ge m$, and $|x| \le 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Plm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Plm).
+/// Binds the function
+/// [`gsl_sf_legendre_Plm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Plm).
 pub fn legendre_Plm(l: i32, m: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_Plm(l, m, x) }
 }
 
-/// These functions evaluate the Legendre polynomial $P_l(x)$
-/// for a specific value of `l`, `x` subject to $l \ge 0$ and
-/// $|x| \le 1$.
+/// These functions evaluate the Legendre polynomial $P_l(x)$ for a specific value
+/// of `l`, `x` subject to $l \ge 0$ and $|x| \le 1$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Pl`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Pl).
+/// Binds the function
+/// [`gsl_sf_legendre_Pl`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Pl).
 pub fn legendre_Pl(l: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_Pl(l, x) }
 }
 
-/// These routines compute the conical function
-/// $P^1_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the conical function $P^1_{-1/2 + i \lambda}(x)$ for $x >
+/// -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_1).
+/// Binds the function
+/// [`gsl_sf_conicalP_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_1).
 pub fn conicalP_1(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_conicalP_1(lambda, x) }
 }
 
-/// These routines compute the conical function
-/// $P^0_{-1/2 + i \lambda}(x)$ for $x > -1$.
+/// These routines compute the conical function $P^0_{-1/2 + i \lambda}(x)$ for $x >
+/// -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_0).
+/// Binds the function
+/// [`gsl_sf_conicalP_0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_0).
 pub fn conicalP_0(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_conicalP_0(lambda, x) }
 }
 
-/// These functions evaluate the Legendre polynomials
-/// $P_l(x)$ using explicit representations for $l = 1, 2, 3$.
+/// These functions evaluate the Legendre polynomials $P_l(x)$ using explicit
+/// representations for $l = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_legendre_P2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P2).
+/// Binds the function
+/// [`gsl_sf_legendre_P2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_P2).
 pub fn legendre_P2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_P2(x) }
 }
 
 /// These routines compute the normalized associated Legendre polynomial
-/// $\sqrt{(2l+1)/(4\pi)} \sqrt{(l-m)!/(l+m)!} P_l^m(x)$ suitable
-/// for use in spherical harmonics.
-/// The parameters must satisfy $m \ge 0$,
-/// $l \ge m$, and $|x| \le 1$.
-/// These routines avoid the overflows
-/// that occur for the standard normalization of $P_l^m(x)$.
+/// $\sqrt{(2l+1)/(4\pi)} \sqrt{(l-m)!/(l+m)!} P_l^m(x)$ suitable for use in
+/// spherical harmonics.
 /// 
-/// Binds the function [`gsl_sf_legendre_sphPlm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_sphPlm).
+/// The parameters must satisfy $m \ge 0$, $l \ge m$, and $|x| \le 1$. These
+/// routines avoid the overflows that occur for the standard normalization of
+/// $P_l^m(x)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_legendre_sphPlm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_sphPlm).
 pub fn legendre_sphPlm(l: i32, m: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_sphPlm(l, m, x) }
 }
 
-/// These routines compute the first radial eigenfunction of the Laplacian on
-/// the 3-dimensional hyperbolic space,
+/// These routines compute the first radial eigenfunction of the Laplacian on the
+/// 3-dimensional hyperbolic space,
 /// 
-/// $$L^{H3d}_1(\lambda,\eta) := {1\over\sqrt{\lambda^2 + 1}} {\left(\sin(\lambda \eta)\over \lambda \sinh(\eta)\right)} \left(\coth(\eta) - \lambda \cot(\lambda\eta)\right)$$
+/// $$L^{H3d}_1(\lambda,\eta) := {1\over\sqrt{\lambda^2 + 1}} {\left(\sin(\lambda
+/// \eta)\over \lambda \sinh(\eta)\right)} \left(\coth(\eta) - \lambda
+/// \cot(\lambda\eta)\right)$$
 /// 
-/// for $\eta \ge 0$
-/// In the flat limit this takes the form
-/// $L^{H3d}_1(\lambda,\eta) = j_1(\lambda\eta)$.
+/// for $\eta \ge 0$ In the flat limit this takes the form $L^{H3d}_1(\lambda,\eta)
+/// = j_1(\lambda\eta)$.
 /// 
-/// Binds the function [`gsl_sf_legendre_H3d_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_1).
+/// Binds the function
+/// [`gsl_sf_legendre_H3d_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_H3d_1).
 pub fn legendre_H3d_1(lambda: f64, eta: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_H3d_1(lambda, eta) }
 }
 
-/// These routines compute the Legendre function $Q_l(x)$ for
-/// $x > -1$, $x \ne 1$ and $l \ge 0$.
+/// These routines compute the Legendre function $Q_l(x)$ for $x > -1$, $x \ne 1$
+/// and $l \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_legendre_Ql`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Ql).
+/// Binds the function
+/// [`gsl_sf_legendre_Ql`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_legendre_Ql).
 pub fn legendre_Ql(l: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_legendre_Ql(l, x) }
 }
 
-/// These routines compute the Regular Spherical Conical Function
-/// $P^{-1/2-l}_{-1/2 + i \lambda}(x)$
-/// for $x > -1$ and $l \ge -1$.
+/// These routines compute the Regular Spherical Conical Function $P^{-1/2-l}_{-1/2
+/// + i \lambda}(x)$ for $x > -1$ and $l \ge -1$.
 /// 
-/// Binds the function [`gsl_sf_conicalP_sph_reg`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_sph_reg).
+/// Binds the function
+/// [`gsl_sf_conicalP_sph_reg`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_conicalP_sph_reg).
 pub fn conicalP_sph_reg(l: i32, lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_conicalP_sph_reg(l, lambda, x) }
 }

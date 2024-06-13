@@ -23,14 +23,16 @@ use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
 /// These routines compute the power $x^n$ for integer `n`.
-/// The
-/// power is computed using the minimum number of multiplications. For
-/// example, $x^8$ is computed as $((x^2)^2)^2$, requiring only 3
-/// multiplications.
-/// For reasons of efficiency, these functions do not
-/// check for overflow or underflow conditions. The following is a simple example:
 /// 
-/// #include <gsl/gsl_sf_pow_int.h>/*compute3.0**12*/doubley=gsl_sf_pow_int(3.0,12);Binds the function [`gsl_sf_pow_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pow_int_e).
+/// The power is computed using the minimum number of multiplications. For example,
+/// $x^8$ is computed as $((x^2)^2)^2$, requiring only 3 multiplications. For
+/// reasons of efficiency, these functions do not check for overflow or underflow
+/// conditions. The following is a simple example:
+/// 
+/// #include
+/// <gsl/gsl_sf_pow_int.h>/*compute3.0**12*/doubley=gsl_sf_pow_int(3.0,12);Binds the
+/// function
+/// [`gsl_sf_pow_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pow_int_e).
 pub fn pow_int_e(x: f64, n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -41,14 +43,16 @@ pub fn pow_int_e(x: f64, n: i32) -> Result<ValWithError<f64>> {
 
 
 /// These routines compute the power $x^n$ for integer `n`.
-/// The
-/// power is computed using the minimum number of multiplications. For
-/// example, $x^8$ is computed as $((x^2)^2)^2$, requiring only 3
-/// multiplications.
-/// For reasons of efficiency, these functions do not
-/// check for overflow or underflow conditions. The following is a simple example:
 /// 
-/// #include <gsl/gsl_sf_pow_int.h>/*compute3.0**12*/doubley=gsl_sf_pow_int(3.0,12);Binds the function [`gsl_sf_pow_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pow_int).
+/// The power is computed using the minimum number of multiplications. For example,
+/// $x^8$ is computed as $((x^2)^2)^2$, requiring only 3 multiplications. For
+/// reasons of efficiency, these functions do not check for overflow or underflow
+/// conditions. The following is a simple example:
+/// 
+/// #include
+/// <gsl/gsl_sf_pow_int.h>/*compute3.0**12*/doubley=gsl_sf_pow_int(3.0,12);Binds the
+/// function
+/// [`gsl_sf_pow_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pow_int).
 pub fn pow_int(x: f64, n: i32) -> f64 {
     unsafe { bindings::gsl_sf_pow_int(x, n) }
 }

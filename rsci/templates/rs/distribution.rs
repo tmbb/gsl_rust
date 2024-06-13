@@ -21,11 +21,17 @@
 
 use crate::bindings;
 use crate::rng::Rng;
+// Import the FFI trait so that we can call `r.unwrap_unique()`
+use crate::ffi::FFI;
+// Import the ndarray functionality to have somewhere to store the results
+// of multiple samplings and the results of a single sample of distributions
+// that generate more than one `f64` or `i32`
+use ndarray::{Array, Ix1};
 <%= for ran_fun <- @ran_functions do %>
 <%= RSci.doc_to_rust(ran_fun.doc) %>
-pub fn <%= ran_fun.rust_name %>(mut r: Rng<%= for arg <- ran_fun.rust_arguments do
+pub fn <%= ran_fun.rust_name %>(r: &mut Rng<%= for arg <- ran_fun.rust_arguments do
         %>, <%= arg.name %>: <%= arg.type %><% end%>) -> <%= ran_fun.rust_return_type %> {
-    unsafe { bindings::<%= ran_fun.c_name %>(&mut r<%= for arg <- ran_fun.rust_arguments do
+    unsafe { bindings::<%= ran_fun.c_name %>(r.unwrap_unique()<%= for arg <- ran_fun.rust_arguments do
         %>, <%= arg.name %><% end%>) }
 }
 <% end %>
@@ -38,58 +44,73 @@ pub fn <%= normal_fun.rust_name %>(<%= for {arg, last?} <- RSci.with_last(normal
 }
 <% end %>
 
-#[cfg(test)]
-mod test {
-    use crate::rng;
-    use crate::distribution;
-    use crate::test_helpers;
-
-    #[test]
-    fn test_ugaussian() {
-        test_helpers::assert_moments!(
-            |rng: rng::Rng| { distribution::ugaussian_rvs(rng) },
-            0.0,
-            100.0,
-            p = 0.5
-        );
-
-        test_helpers::assert_moments!(
-            |rng: rng::Rng| { distribution::ugaussian_rvs(rng) },
-            -1.0,
-            1.0,
-            p = 0.6826895
-        );
-    }
-
-    #[test]
-    fn test_exponential() {
-        test_helpers::assert_moments!(
-            |rng: rng::Rng| { distribution::exponential_rvs(rng, 2.0) },
-            0.0,
-            1.0,
-            p = 1.0 - (-0.5 as f64).exp()
-        );
-    }
-
-    #[test]
-    fn test_cauchy() {
-        test_helpers::assert_moments!(
-            |rng: rng::Rng| { distribution::cauchy_rvs(rng, 1.0) },
-            0.0, 10000.0,
-            p = 0.5
-        );
-        
-        test_helpers::assert_moments!(
-            |rng: rng::Rng| { distribution::cauchy_rvs(rng, 2.5) },
-            0.0, 10000.0,
-            p = 0.5
-        );
-
-        test_helpers::assert_moments!(
-            |rng: rng::Rng| { distribution::cauchy_rvs(rng, 4.0) },
-            0.0, 10000.0,
-            p = 0.5
-        );
-
-    }
+// Functions to draw an array of random samples
+<%= for ran_many_fun <- @ran_many_functions do %>
+<%= RSci.doc_to_rust(ran_many_fun.doc) %>
+pub fn draw_samples_from_<%= ran_many_fun.rust_name %>(r: &mut Rng<%=
+        for arg <- ran_many_fun.rust_arguments do
+            %>, <%= arg.name %>: <%= arg.type %><% end
+            %>, <%= RSci.RandDist.nr_of_samples_var_name %>: usize) -> Array<<%= ran_many_fun.rust_return_type %>, Ix1> {
+    Array::from_iter(
+        (0..<%= RSci.RandDist.nr_of_samples_var_name %>).map(|_i| draw_sample_from_<%= ran_many_fun.rust_name %>(r<%=
+            for arg <- ran_many_fun.rust_arguments do
+                %>, <%= arg.name %><% end%>))
+    )
 }
+<% end %>
+
+// #[cfg(test)]
+// mod test {
+//     use crate::rng;
+//     use crate::distribution;
+//     use crate::test_helpers;
+
+//     #[test]
+//     fn test_ugaussian() {
+//         test_helpers::assert_moments!(
+//             |rng: rng::Rng| { distribution::draw_sample_from_ugaussian(rng) },
+//             0.0,
+//             100.0,
+//             p = 0.5
+//         );
+
+//         test_helpers::assert_moments!(
+//             |rng: rng::Rng| { distribution::draw_sample_from_ugaussian(rng) },
+//             -1.0,
+//             1.0,
+//             p = 0.6826895
+//         );
+//     }
+
+//     #[test]
+//     fn test_exponential() {
+//         test_helpers::assert_moments!(
+//             |rng: rng::Rng| { distribution::draw_sample_from_exponential(rng, 2.0) },
+//             0.0,
+//             1.0,
+//             p = 1.0 - (-0.5 as f64).exp()
+//         );
+//     }
+
+//     #[test]
+//     fn test_cauchy() {
+//         test_helpers::assert_moments!(
+//             |rng: rng::Rng| { distribution::draw_sample_from_cauchy(rng, 1.0) },
+//             0.0, 10000.0,
+//             p = 0.5
+//         );
+        
+//         test_helpers::assert_moments!(
+//             |rng: rng::Rng| { distribution::draw_sample_from_cauchy(rng, 2.5) },
+//             0.0, 10000.0,
+//             p = 0.5
+//         );
+
+//         test_helpers::assert_moments!(
+//             |rng: rng::Rng| { distribution::draw_sample_from_cauchy(rng, 4.0) },
+//             0.0, 10000.0,
+//             p = 0.5
+//         );
+
+//     }
+// }

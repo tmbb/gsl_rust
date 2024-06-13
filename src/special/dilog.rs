@@ -22,20 +22,20 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the dilogarithm for a real argument. In Lewin’s
-/// notation this is $Li_2(x)$, the real part of the dilogarithm of a
-/// real $x$.
-/// It is defined by the integral representation
+/// These routines compute the dilogarithm for a real argument.
+/// 
+/// In Lewin’s notation this is $Li_2(x)$, the real part of the dilogarithm of a
+/// real $x$. It is defined by the integral representation
 /// 
 /// $$Li_2(x) = - \Re \int_0^x ds \log(1-s) / s$$
 /// 
-/// Note that $\Im(Li_2(x)) = 0$ for
-/// $x \le 1$, and $-\pi\log(x)$ for $x > 1$.
+/// Note that $\Im(Li_2(x)) = 0$ for $x \le 1$, and $-\pi\log(x)$ for $x > 1$.
 /// 
-/// Note that Abramowitz & Stegun refer to the Spence integral
-/// $S(x) = Li_2(1 - x)$ as the dilogarithm rather than $Li_2(x)$.
+/// Note that Abramowitz & Stegun refer to the Spence integral $S(x) = Li_2(1 - x)$
+/// as the dilogarithm rather than $Li_2(x)$.
 /// 
-/// Binds the function [`gsl_sf_dilog_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dilog_e).
+/// Binds the function
+/// [`gsl_sf_dilog_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dilog_e).
 pub fn dilog_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -45,20 +45,20 @@ pub fn dilog_e(x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute the dilogarithm for a real argument. In Lewin’s
-/// notation this is $Li_2(x)$, the real part of the dilogarithm of a
-/// real $x$.
-/// It is defined by the integral representation
+/// These routines compute the dilogarithm for a real argument.
+/// 
+/// In Lewin’s notation this is $Li_2(x)$, the real part of the dilogarithm of a
+/// real $x$. It is defined by the integral representation
 /// 
 /// $$Li_2(x) = - \Re \int_0^x ds \log(1-s) / s$$
 /// 
-/// Note that $\Im(Li_2(x)) = 0$ for
-/// $x \le 1$, and $-\pi\log(x)$ for $x > 1$.
+/// Note that $\Im(Li_2(x)) = 0$ for $x \le 1$, and $-\pi\log(x)$ for $x > 1$.
 /// 
-/// Note that Abramowitz & Stegun refer to the Spence integral
-/// $S(x) = Li_2(1 - x)$ as the dilogarithm rather than $Li_2(x)$.
+/// Note that Abramowitz & Stegun refer to the Spence integral $S(x) = Li_2(1 - x)$
+/// as the dilogarithm rather than $Li_2(x)$.
 /// 
-/// Binds the function [`gsl_sf_dilog`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dilog).
+/// Binds the function
+/// [`gsl_sf_dilog`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dilog).
 pub fn dilog(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_dilog(x) }
 }

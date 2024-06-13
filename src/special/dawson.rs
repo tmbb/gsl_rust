@@ -24,7 +24,8 @@ use crate::{GSLError, ValWithError, Result};
 
 /// These routines compute the value of Dawson’s integral for `x`.
 /// 
-/// Binds the function [`gsl_sf_dawson_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dawson_e).
+/// Binds the function
+/// [`gsl_sf_dawson_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dawson_e).
 pub fn dawson_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,7 +37,8 @@ pub fn dawson_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the value of Dawson’s integral for `x`.
 /// 
-/// Binds the function [`gsl_sf_dawson`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dawson).
+/// Binds the function
+/// [`gsl_sf_dawson`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_dawson).
 pub fn dawson(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_dawson(x) }
 }

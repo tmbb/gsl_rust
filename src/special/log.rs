@@ -22,10 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the logarithm of the magnitude of `x`,
-/// $\log(|x|)$, for $x \ne 0$.
+/// These routines compute the logarithm of the magnitude of `x`, $\log(|x|)$, for
+/// $x \ne 0$.
 /// 
-/// Binds the function [`gsl_sf_log_abs_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_abs_e).
+/// Binds the function
+/// [`gsl_sf_log_abs_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_abs_e).
 pub fn log_abs_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,10 +35,10 @@ pub fn log_abs_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the logarithm of `x`, $\log(x)$, for
-/// $x > 0$.
+/// These routines compute the logarithm of `x`, $\log(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_log_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_e).
+/// Binds the function
+/// [`gsl_sf_log_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_e).
 pub fn log_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -46,10 +47,11 @@ pub fn log_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute $\log(1 + x)$ for $x > -1$ using an
-/// algorithm that is accurate for small `x`.
+/// These routines compute $\log(1 + x)$ for $x > -1$ using an algorithm that is
+/// accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_log_1plusx_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx_e).
+/// Binds the function
+/// [`gsl_sf_log_1plusx_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx_e).
 pub fn log_1plusx_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -58,10 +60,11 @@ pub fn log_1plusx_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute $\log(1 + x) - x$ for $x > -1$ using an
-/// algorithm that is accurate for small `x`.
+/// These routines compute $\log(1 + x) - x$ for $x > -1$ using an algorithm that is
+/// accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_log_1plusx_mx_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx_mx_e).
+/// Binds the function
+/// [`gsl_sf_log_1plusx_mx_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx_mx_e).
 pub fn log_1plusx_mx_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -71,34 +74,37 @@ pub fn log_1plusx_mx_e(x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute $\log(1 + x)$ for $x > -1$ using an
-/// algorithm that is accurate for small `x`.
+/// These routines compute $\log(1 + x)$ for $x > -1$ using an algorithm that is
+/// accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_log_1plusx`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx).
+/// Binds the function
+/// [`gsl_sf_log_1plusx`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx).
 pub fn log_1plusx(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_log_1plusx(x) }
 }
 
-/// These routines compute $\log(1 + x) - x$ for $x > -1$ using an
-/// algorithm that is accurate for small `x`.
+/// These routines compute $\log(1 + x) - x$ for $x > -1$ using an algorithm that is
+/// accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_log_1plusx_mx`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx_mx).
+/// Binds the function
+/// [`gsl_sf_log_1plusx_mx`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_1plusx_mx).
 pub fn log_1plusx_mx(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_log_1plusx_mx(x) }
 }
 
-/// These routines compute the logarithm of `x`, $\log(x)$, for
-/// $x > 0$.
+/// These routines compute the logarithm of `x`, $\log(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_log`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log).
+/// Binds the function
+/// [`gsl_sf_log`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log).
 pub fn log(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_log(x) }
 }
 
-/// These routines compute the logarithm of the magnitude of `x`,
-/// $\log(|x|)$, for $x \ne 0$.
+/// These routines compute the logarithm of the magnitude of `x`, $\log(|x|)$, for
+/// $x \ne 0$.
 /// 
-/// Binds the function [`gsl_sf_log_abs`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_abs).
+/// Binds the function
+/// [`gsl_sf_log_abs`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_abs).
 pub fn log_abs(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_log_abs(x) }
 }

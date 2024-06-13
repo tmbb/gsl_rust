@@ -28,7 +28,8 @@ use crate::{GSLError, ValWithError, Result};
 /// 
 /// for integer parameters `m`, `n`.
 /// 
-/// Binds the function [`gsl_sf_hyperg_1F1_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1_int_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_1F1_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1_int_e).
 pub fn hyperg_1F1_int_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -43,7 +44,8 @@ pub fn hyperg_1F1_int_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_conj_renorm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj_renorm_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_conj_renorm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj_renorm_e).
 pub fn hyperg_2F1_conj_renorm_e(ar: f64, ai: f64, c: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -56,13 +58,14 @@ pub fn hyperg_2F1_conj_renorm_e(ar: f64, ai: f64, c: f64, x: f64) -> Result<ValW
 /// 
 /// $${}_2F_1(a,b,c,x) = F(a,b,c,x)$$
 /// 
-/// for $|x| < 1$. If the arguments $(a,b,c,x)$ are too close to a singularity then
-/// the function can return the error code `GSL_EMAXITER` when the
-/// series approximation converges too slowly.
-/// This occurs in the region of
-/// $x = 1$, $c - a - b = m$ for integer m.
+/// for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_e).
+/// If the arguments $(a,b,c,x)$ are too close to a singularity then the function
+/// can return the error code `GSL_EMAXITER` when the series approximation converges
+/// too slowly. This occurs in the region of $x = 1$, $c - a - b = m$ for integer m.
+/// 
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_e).
 pub fn hyperg_2F1_e(a: f64, b: f64, c: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -75,7 +78,8 @@ pub fn hyperg_2F1_e(a: f64, b: f64, c: f64, x: f64) -> Result<ValWithError<f64>>
 /// 
 /// $${}_0F_1(c,x)$$
 /// 
-/// Binds the function [`gsl_sf_hyperg_0F1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_0F1_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_0F1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_0F1_e).
 pub fn hyperg_0F1_e(c: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -86,7 +90,8 @@ pub fn hyperg_0F1_e(c: f64, x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the confluent hypergeometric function $U(a,b,x)$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_U_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_U_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U_e).
 pub fn hyperg_U_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -95,10 +100,11 @@ pub fn hyperg_U_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the confluent hypergeometric function
-/// $U(m,n,x)$ for integer parameters `m`, `n`.
+/// These routines compute the confluent hypergeometric function $U(m,n,x)$ for
+/// integer parameters `m`, `n`.
 /// 
-/// Binds the function [`gsl_sf_hyperg_U_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U_int_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_U_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U_int_e).
 pub fn hyperg_U_int_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -112,11 +118,13 @@ pub fn hyperg_U_int_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
 /// $${}_2F_0(a,b,x)$$
 /// 
 /// The series representation is a divergent hypergeometric series.
+/// 
 /// However, for $x < 0$ we have
 /// 
 /// $${}_2F_0(a,b,x) = (-1/x)^a U(a,1+a-b,-1/x)$$
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F0_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F0_e).
 pub fn hyperg_2F0_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -131,7 +139,8 @@ pub fn hyperg_2F0_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// with complex parameters for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_conj_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_conj_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj_e).
 pub fn hyperg_2F1_conj_e(ar: f64, ai: f64, c: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -146,7 +155,8 @@ pub fn hyperg_2F1_conj_e(ar: f64, ai: f64, c: f64, x: f64) -> Result<ValWithErro
 /// 
 /// for general parameters `a`, `b`.
 /// 
-/// Binds the function [`gsl_sf_hyperg_1F1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_1F1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1_e).
 pub fn hyperg_1F1_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -161,7 +171,8 @@ pub fn hyperg_1F1_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_renorm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_renorm_e).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_renorm_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_renorm_e).
 pub fn hyperg_2F1_renorm_e(a: f64, b: f64, c: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -171,10 +182,11 @@ pub fn hyperg_2F1_renorm_e(a: f64, b: f64, c: f64, x: f64) -> Result<ValWithErro
 }
 
 
-/// These routines compute the confluent hypergeometric function
-/// $U(m,n,x)$ for integer parameters `m`, `n`.
+/// These routines compute the confluent hypergeometric function $U(m,n,x)$ for
+/// integer parameters `m`, `n`.
 /// 
-/// Binds the function [`gsl_sf_hyperg_U_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U_int).
+/// Binds the function
+/// [`gsl_sf_hyperg_U_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U_int).
 pub fn hyperg_U_int(m: i32, n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_U_int(m, n, x) }
 }
@@ -185,7 +197,8 @@ pub fn hyperg_U_int(m: i32, n: i32, x: f64) -> f64 {
 /// 
 /// for general parameters `a`, `b`.
 /// 
-/// Binds the function [`gsl_sf_hyperg_1F1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1).
+/// Binds the function
+/// [`gsl_sf_hyperg_1F1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1).
 pub fn hyperg_1F1(a: f64, b: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_1F1(a, b, x) }
 }
@@ -194,7 +207,8 @@ pub fn hyperg_1F1(a: f64, b: f64, x: f64) -> f64 {
 /// 
 /// $${}_0F_1(c,x)$$
 /// 
-/// Binds the function [`gsl_sf_hyperg_0F1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_0F1).
+/// Binds the function
+/// [`gsl_sf_hyperg_0F1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_0F1).
 pub fn hyperg_0F1(c: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_0F1(c, x) }
 }
@@ -205,7 +219,8 @@ pub fn hyperg_0F1(c: f64, x: f64) -> f64 {
 /// 
 /// for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_conj_renorm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj_renorm).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_conj_renorm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj_renorm).
 pub fn hyperg_2F1_conj_renorm(ar: f64, ai: f64, c: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_2F1_conj_renorm(ar, ai, c, x) }
 }
@@ -216,7 +231,8 @@ pub fn hyperg_2F1_conj_renorm(ar: f64, ai: f64, c: f64, x: f64) -> f64 {
 /// 
 /// with complex parameters for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_conj`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_conj`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_conj).
 pub fn hyperg_2F1_conj(ar: f64, ai: f64, c: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_2F1_conj(ar, ai, c, x) }
 }
@@ -225,20 +241,22 @@ pub fn hyperg_2F1_conj(ar: f64, ai: f64, c: f64, x: f64) -> f64 {
 /// 
 /// $${}_2F_1(a,b,c,x) = F(a,b,c,x)$$
 /// 
-/// for $|x| < 1$. If the arguments $(a,b,c,x)$ are too close to a singularity then
-/// the function can return the error code `GSL_EMAXITER` when the
-/// series approximation converges too slowly.
-/// This occurs in the region of
-/// $x = 1$, $c - a - b = m$ for integer m.
+/// for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1).
+/// If the arguments $(a,b,c,x)$ are too close to a singularity then the function
+/// can return the error code `GSL_EMAXITER` when the series approximation converges
+/// too slowly. This occurs in the region of $x = 1$, $c - a - b = m$ for integer m.
+/// 
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1).
 pub fn hyperg_2F1(a: f64, b: f64, c: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_2F1(a, b, c, x) }
 }
 
 /// These routines compute the confluent hypergeometric function $U(a,b,x)$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_U`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U).
+/// Binds the function
+/// [`gsl_sf_hyperg_U`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_U).
 pub fn hyperg_U(a: f64, b: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_U(a, b, x) }
 }
@@ -248,11 +266,13 @@ pub fn hyperg_U(a: f64, b: f64, x: f64) -> f64 {
 /// $${}_2F_0(a,b,x)$$
 /// 
 /// The series representation is a divergent hypergeometric series.
+/// 
 /// However, for $x < 0$ we have
 /// 
 /// $${}_2F_0(a,b,x) = (-1/x)^a U(a,1+a-b,-1/x)$$
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F0).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F0).
 pub fn hyperg_2F0(a: f64, b: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_2F0(a, b, x) }
 }
@@ -263,7 +283,8 @@ pub fn hyperg_2F0(a: f64, b: f64, x: f64) -> f64 {
 /// 
 /// for integer parameters `m`, `n`.
 /// 
-/// Binds the function [`gsl_sf_hyperg_1F1_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1_int).
+/// Binds the function
+/// [`gsl_sf_hyperg_1F1_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_1F1_int).
 pub fn hyperg_1F1_int(m: i32, n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_1F1_int(m, n, x) }
 }
@@ -274,7 +295,8 @@ pub fn hyperg_1F1_int(m: i32, n: i32, x: f64) -> f64 {
 /// 
 /// for $|x| < 1$.
 /// 
-/// Binds the function [`gsl_sf_hyperg_2F1_renorm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_renorm).
+/// Binds the function
+/// [`gsl_sf_hyperg_2F1_renorm`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hyperg_2F1_renorm).
 pub fn hyperg_2F1_renorm(a: f64, b: f64, c: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hyperg_2F1_renorm(a, b, c, x) }
 }

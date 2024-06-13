@@ -22,11 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These functions evaluate the Gegenbauer polynomials
-/// $C^{(\lambda)}_n(x)$ using explicit
-/// representations for $n = 1, 2, 3$.
+/// These functions evaluate the Gegenbauer polynomials $C^{(\lambda)}_n(x)$ using
+/// explicit representations for $n = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_1_e).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_1_e).
 pub fn gegenpoly_1_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -35,11 +35,11 @@ pub fn gegenpoly_1_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions evaluate the Gegenbauer polynomials
-/// $C^{(\lambda)}_n(x)$ using explicit
-/// representations for $n = 1, 2, 3$.
+/// These functions evaluate the Gegenbauer polynomials $C^{(\lambda)}_n(x)$ using
+/// explicit representations for $n = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_3_e).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_3_e).
 pub fn gegenpoly_3_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -48,11 +48,11 @@ pub fn gegenpoly_3_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions evaluate the Gegenbauer polynomials
-/// $C^{(\lambda)}_n(x)$ using explicit
-/// representations for $n = 1, 2, 3$.
+/// These functions evaluate the Gegenbauer polynomials $C^{(\lambda)}_n(x)$ using
+/// explicit representations for $n = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_2_e).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_2_e).
 pub fn gegenpoly_2_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -61,11 +61,11 @@ pub fn gegenpoly_2_e(lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions evaluate the Gegenbauer polynomial $C^{(\lambda)}_n(x)$
-/// for a specific value of `n`,
-/// `lambda`, `x` subject to $\lambda > -1/2$, $n \ge 0$.
+/// These functions evaluate the Gegenbauer polynomial $C^{(\lambda)}_n(x)$ for a
+/// specific value of `n`, `lambda`, `x` subject to $\lambda > -1/2$, $n \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_n_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_n_e).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_n_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_n_e).
 pub fn gegenpoly_n_e(n: i32, lambda: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -75,38 +75,38 @@ pub fn gegenpoly_n_e(n: i32, lambda: f64, x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These functions evaluate the Gegenbauer polynomials
-/// $C^{(\lambda)}_n(x)$ using explicit
-/// representations for $n = 1, 2, 3$.
+/// These functions evaluate the Gegenbauer polynomials $C^{(\lambda)}_n(x)$ using
+/// explicit representations for $n = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_1).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_1).
 pub fn gegenpoly_1(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gegenpoly_1(lambda, x) }
 }
 
-/// These functions evaluate the Gegenbauer polynomial $C^{(\lambda)}_n(x)$
-/// for a specific value of `n`,
-/// `lambda`, `x` subject to $\lambda > -1/2$, $n \ge 0$.
+/// These functions evaluate the Gegenbauer polynomial $C^{(\lambda)}_n(x)$ for a
+/// specific value of `n`, `lambda`, `x` subject to $\lambda > -1/2$, $n \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_n`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_n).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_n`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_n).
 pub fn gegenpoly_n(n: i32, lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gegenpoly_n(n, lambda, x) }
 }
 
-/// These functions evaluate the Gegenbauer polynomials
-/// $C^{(\lambda)}_n(x)$ using explicit
-/// representations for $n = 1, 2, 3$.
+/// These functions evaluate the Gegenbauer polynomials $C^{(\lambda)}_n(x)$ using
+/// explicit representations for $n = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_3).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_3).
 pub fn gegenpoly_3(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gegenpoly_3(lambda, x) }
 }
 
-/// These functions evaluate the Gegenbauer polynomials
-/// $C^{(\lambda)}_n(x)$ using explicit
-/// representations for $n = 1, 2, 3$.
+/// These functions evaluate the Gegenbauer polynomials $C^{(\lambda)}_n(x)$ using
+/// explicit representations for $n = 1, 2, 3$.
 /// 
-/// Binds the function [`gsl_sf_gegenpoly_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_2).
+/// Binds the function
+/// [`gsl_sf_gegenpoly_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gegenpoly_2).
 pub fn gegenpoly_2(lambda: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gegenpoly_2(lambda, x) }
 }

@@ -22,11 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_n(x)$ for $a > -1$,
-/// $n \ge 0$.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_n(x)$ for $a >
+/// -1$, $n \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_laguerre_n_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_n_e).
+/// Binds the function
+/// [`gsl_sf_laguerre_n_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_n_e).
 pub fn laguerre_n_e(n: i32, a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -35,11 +35,11 @@ pub fn laguerre_n_e(n: i32, a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_1(x)$, $L^a_2(x)$, $L^a_3(x)$ using explicit
-/// representations.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_1(x)$,
+/// $L^a_2(x)$, $L^a_3(x)$ using explicit representations.
 /// 
-/// Binds the function [`gsl_sf_laguerre_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_3_e).
+/// Binds the function
+/// [`gsl_sf_laguerre_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_3_e).
 pub fn laguerre_3_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -48,11 +48,11 @@ pub fn laguerre_3_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_1(x)$, $L^a_2(x)$, $L^a_3(x)$ using explicit
-/// representations.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_1(x)$,
+/// $L^a_2(x)$, $L^a_3(x)$ using explicit representations.
 /// 
-/// Binds the function [`gsl_sf_laguerre_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_1_e).
+/// Binds the function
+/// [`gsl_sf_laguerre_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_1_e).
 pub fn laguerre_1_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -61,11 +61,11 @@ pub fn laguerre_1_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_1(x)$, $L^a_2(x)$, $L^a_3(x)$ using explicit
-/// representations.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_1(x)$,
+/// $L^a_2(x)$, $L^a_3(x)$ using explicit representations.
 /// 
-/// Binds the function [`gsl_sf_laguerre_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_2_e).
+/// Binds the function
+/// [`gsl_sf_laguerre_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_2_e).
 pub fn laguerre_2_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -75,38 +75,38 @@ pub fn laguerre_2_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_1(x)$, $L^a_2(x)$, $L^a_3(x)$ using explicit
-/// representations.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_1(x)$,
+/// $L^a_2(x)$, $L^a_3(x)$ using explicit representations.
 /// 
-/// Binds the function [`gsl_sf_laguerre_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_2).
+/// Binds the function
+/// [`gsl_sf_laguerre_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_2).
 pub fn laguerre_2(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_laguerre_2(a, x) }
 }
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_1(x)$, $L^a_2(x)$, $L^a_3(x)$ using explicit
-/// representations.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_1(x)$,
+/// $L^a_2(x)$, $L^a_3(x)$ using explicit representations.
 /// 
-/// Binds the function [`gsl_sf_laguerre_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_1).
+/// Binds the function
+/// [`gsl_sf_laguerre_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_1).
 pub fn laguerre_1(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_laguerre_1(a, x) }
 }
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_n(x)$ for $a > -1$,
-/// $n \ge 0$.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_n(x)$ for $a >
+/// -1$, $n \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_laguerre_n`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_n).
+/// Binds the function
+/// [`gsl_sf_laguerre_n`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_n).
 pub fn laguerre_n(n: i32, a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_laguerre_n(n, a, x) }
 }
 
-/// These routines evaluate the generalized Laguerre polynomials
-/// $L^a_1(x)$, $L^a_2(x)$, $L^a_3(x)$ using explicit
-/// representations.
+/// These routines evaluate the generalized Laguerre polynomials $L^a_1(x)$,
+/// $L^a_2(x)$, $L^a_3(x)$ using explicit representations.
 /// 
-/// Binds the function [`gsl_sf_laguerre_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_3).
+/// Binds the function
+/// [`gsl_sf_laguerre_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_laguerre_3).
 pub fn laguerre_3(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_laguerre_3(a, x) }
 }

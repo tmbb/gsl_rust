@@ -47,7 +47,7 @@ pub fn median(width: usize, data: &mut [f64]) -> Result<()> {
 }
 
 /// Impulse filter
-/// See https://www.gnu.org/software/gsl/doc/html/filter.html#impulse-detection-filter
+/// See [the GSL docs](https://www.gnu.org/software/gsl/doc/html/filter.html#impulse-detection-filter).
 ///
 /// Tuning parameter `t`:
 /// - `t = 0`: equal to median filter

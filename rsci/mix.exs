@@ -22,7 +22,8 @@ defmodule RSci.MixProject do
   defp deps do
     [
       {:nimble_parsec, "~> 1.4"},
-      {:floki, "~> 0.36"}
+      {:floki, "~> 0.36"},
+      {:excribe, "~> 0.1"}
     ]
   end
 end

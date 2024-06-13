@@ -3,10 +3,11 @@ defmodule RSci do
   Documentation for `RSci`.
   """
   alias RSci.GslFunction
-
-  @public_cacerts :public_key.cacerts_get()
+  alias RSci.RandDist
+  alias RSci.DocProcessor
 
   @manual_html_url "https://www.gnu.org/software/gsl/doc/html/"
+  @public_cacerts :public_key.cacerts_get()
 
   def wget(url) do
     url_charlist = to_charlist(url)
@@ -41,81 +42,6 @@ defmodule RSci do
   def with_last(elements) do
     count = Enum.count(elements)
     Enum.with_index(elements, fn element, index -> {element, index == count - 1} end)
-  end
-
-  def math_image?(img) do
-    case Floki.attribute(img, "src") do
-      [src] ->
-        String.starts_with?(src, "_images/math/")
-
-      _other ->
-        false
-    end
-  end
-
-  def html_to_md(html) do
-    html_to_md_helper(html)
-  end
-
-  def html_to_md_helper(html) do
-    Floki.traverse_and_update(html, fn
-      {"div", [{"class", "math"}], [text, "\n\n"]} when is_binary(text) ->
-        ["$#{text}$", "\n\n"]
-
-      {"img", _attrs, _contents} = img ->
-        if math_image?(img) do
-          [inline_math] = Floki.attribute(img, "alt")
-          "$#{inline_math}$"
-
-        else
-          [alt] = Floki.attribute(img, "alt")
-          [src] = Floki.attribute(img, "src")
-
-          "![#{alt}](https://www.gnu.org/software/gsl/doc/html/#{src})\n\n"
-        end
-
-      {"p", _attrs, contents} ->
-        contents ++ ["\n\n"]
-
-      {"code", _attrs, contents} ->
-        ["`"] ++ contents ++ ["`"]
-
-      {"span", _attrs, contents} ->
-        contents
-
-      {_tag, _attrs, contents} ->
-        contents
-
-      other ->
-        other
-    end)
-  end
-
-  def html_to_text(html) do
-    iolist = Floki.traverse_and_update(html, fn
-      {_tag, _attr, contents} ->
-        contents
-
-      other ->
-        other
-    end)
-
-    iolist
-    |> List.flatten()
-    |> Enum.intersperse(" ")
-    |> Enum.join()
-    |> String.replace("¶", "")
-    |> String.trim()
-  end
-
-  def html_doc_to_md(html, module_name, gsl_function_name) do
-    md_list = html_to_md(html)
-
-    url = "#{@manual_html_url}/#{module_name}.html#c.#{gsl_function_name}"
-
-    reference_line = "Binds the function [`#{gsl_function_name}`](#{url})."
-
-    _md_doc = IO.iodata_to_binary([md_list, reference_line])
   end
 
   def c_type_to_rust_type(c_type) do
@@ -203,13 +129,19 @@ defmodule RSci do
         "chi2" <> rest
 
       "gsl_cdf_chisq_" <> rest ->
-        "chi2_" <> rest <> "_cdf"
+        "chi_squared_" <> rest <> "_cdf"
 
       "gsl_ran_tdist" <> rest ->
         "student_t" <> rest
 
       "gsl_cdf_tdist_" <> rest ->
         "student_t_" <> rest <> "_cdf"
+
+      "gsl_ran_fdist" <> rest ->
+        "f_dist" <> rest
+
+      "gsl_cdf_fdist_" <> rest ->
+        "f_dist_" <> rest <> "_cdf"
 
       "gsl_ran_" <> rest ->
         if (
@@ -220,7 +152,7 @@ defmodule RSci do
             ) do
           rest
         else
-          "#{rest}_rvs"
+          "draw_sample_from_#{rest}"
         end
 
       "gsl_sf_" <> rest ->
@@ -272,11 +204,10 @@ defmodule RSci do
             for function_call <- function_calls do
               ["c." <> function_name] = Floki.attribute(function_call, "id")
 
-              converted_doc = html_doc_to_md(doc, gsl_module, function_name)
+              converted_doc = DocProcessor.html_doc_to_md(doc, gsl_module, function_name)
+              call_text = DocProcessor.extract_function_signature_from_html_docs(function_call)
 
               rust_name = heuristic_c_func_name_to_rust_name(function_name)
-
-              call_text = html_to_text(function_call)
 
               {c_type, _c_function, raw_c_arguments} =
                 case RSci.GslFunctionDefParser.parse(call_text) do
@@ -290,7 +221,7 @@ defmodule RSci do
               c_arguments = build_c_arguments(raw_c_arguments)
               rust_arguments = c_arguments_to_rust_arguments(c_arguments)
 
-              # Special case due to error in the documentation
+              # Special case due to errors in the documentation
               rust_type =
                 if String.starts_with?(function_name, "gsl_sf_mathieu") do
                   "f64"
@@ -568,6 +499,7 @@ defmodule RSci do
     end
   end
 
+
   def build_randist(functions) do
     ran_functions = filter_functions(functions, fn f ->
       case f.rust_arguments do
@@ -604,9 +536,12 @@ defmodule RSci do
         %{ran_fun | rust_arguments: new_rust_args}
       end
 
+    ran_many_functions = RandDist.create_draw_samples_functions(ran_functions)
+
     assigns = %{
       ran_functions: ran_functions,
-      normal_functions: normal_functions
+      normal_functions: normal_functions,
+      ran_many_functions: ran_many_functions
     }
 
     render_template_to_file(

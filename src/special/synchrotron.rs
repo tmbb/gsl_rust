@@ -22,10 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the second synchrotron function
-/// $x K_{2/3}(x)$ for $x \ge 0$.
+/// These routines compute the second synchrotron function $x K_{2/3}(x)$ for $x \ge
+/// 0$.
 /// 
-/// Binds the function [`gsl_sf_synchrotron_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_2_e).
+/// Binds the function
+/// [`gsl_sf_synchrotron_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_2_e).
 pub fn synchrotron_2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,11 +35,11 @@ pub fn synchrotron_2_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the first synchrotron function
-/// $x \int_x^\infty dt K_{5/3}(t)$
-/// for $x \ge 0$.
+/// These routines compute the first synchrotron function $x \int_x^\infty dt
+/// K_{5/3}(t)$ for $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_synchrotron_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_1_e).
+/// Binds the function
+/// [`gsl_sf_synchrotron_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_1_e).
 pub fn synchrotron_1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -48,19 +49,20 @@ pub fn synchrotron_1_e(x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute the second synchrotron function
-/// $x K_{2/3}(x)$ for $x \ge 0$.
+/// These routines compute the second synchrotron function $x K_{2/3}(x)$ for $x \ge
+/// 0$.
 /// 
-/// Binds the function [`gsl_sf_synchrotron_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_2).
+/// Binds the function
+/// [`gsl_sf_synchrotron_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_2).
 pub fn synchrotron_2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_synchrotron_2(x) }
 }
 
-/// These routines compute the first synchrotron function
-/// $x \int_x^\infty dt K_{5/3}(t)$
-/// for $x \ge 0$.
+/// These routines compute the first synchrotron function $x \int_x^\infty dt
+/// K_{5/3}(t)$ for $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_synchrotron_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_1).
+/// Binds the function
+/// [`gsl_sf_synchrotron_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_synchrotron_1).
 pub fn synchrotron_1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_synchrotron_1(x) }
 }

@@ -12,6 +12,7 @@ repository = "https://github.com/PvdBerg1998/gsl_rust"
 drop_guard = "0.3.0"
 num-complex = "0.4.0"
 num-traits = "0.2.14"
+ndarray = "0.15.6"
 
 [dev-dependencies]
 approx = "0.5"
@@ -25,7 +26,7 @@ cmake = "0.1"
 [package.metadata.docs.rs]
 rustdoc-args = [
     "--html-in-header",
-    "assets/katex.html"
+    "./assets/katex.html"
 ]
 
 [[bench]]

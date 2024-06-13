@@ -24,7 +24,8 @@ use crate::{GSLError, ValWithError, Result};
 
 /// These routines compute the second-order Debye function $D_2(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_2_e).
+/// Binds the function
+/// [`gsl_sf_debye_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_2_e).
 pub fn debye_2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -35,7 +36,8 @@ pub fn debye_2_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the fifth-order Debye function $D_5(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_5_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_5_e).
+/// Binds the function
+/// [`gsl_sf_debye_5_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_5_e).
 pub fn debye_5_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -46,7 +48,8 @@ pub fn debye_5_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the sixth-order Debye function $D_6(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_6_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_6_e).
+/// Binds the function
+/// [`gsl_sf_debye_6_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_6_e).
 pub fn debye_6_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -57,7 +60,8 @@ pub fn debye_6_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the fourth-order Debye function $D_4(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_4_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_4_e).
+/// Binds the function
+/// [`gsl_sf_debye_4_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_4_e).
 pub fn debye_4_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -68,7 +72,8 @@ pub fn debye_4_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the first-order Debye function $D_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_1_e).
+/// Binds the function
+/// [`gsl_sf_debye_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_1_e).
 pub fn debye_1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -79,7 +84,8 @@ pub fn debye_1_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the third-order Debye function $D_3(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_3_e).
+/// Binds the function
+/// [`gsl_sf_debye_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_3_e).
 pub fn debye_3_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -91,42 +97,48 @@ pub fn debye_3_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the fourth-order Debye function $D_4(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_4`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_4).
+/// Binds the function
+/// [`gsl_sf_debye_4`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_4).
 pub fn debye_4(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_debye_4(x) }
 }
 
 /// These routines compute the second-order Debye function $D_2(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_2).
+/// Binds the function
+/// [`gsl_sf_debye_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_2).
 pub fn debye_2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_debye_2(x) }
 }
 
 /// These routines compute the third-order Debye function $D_3(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_3).
+/// Binds the function
+/// [`gsl_sf_debye_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_3).
 pub fn debye_3(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_debye_3(x) }
 }
 
 /// These routines compute the sixth-order Debye function $D_6(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_6`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_6).
+/// Binds the function
+/// [`gsl_sf_debye_6`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_6).
 pub fn debye_6(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_debye_6(x) }
 }
 
 /// These routines compute the first-order Debye function $D_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_1).
+/// Binds the function
+/// [`gsl_sf_debye_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_1).
 pub fn debye_1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_debye_1(x) }
 }
 
 /// These routines compute the fifth-order Debye function $D_5(x)$.
 /// 
-/// Binds the function [`gsl_sf_debye_5`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_5).
+/// Binds the function
+/// [`gsl_sf_debye_5`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_debye_5).
 pub fn debye_5(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_debye_5(x) }
 }

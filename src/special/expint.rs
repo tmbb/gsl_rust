@@ -24,11 +24,13 @@ use crate::{GSLError, ValWithError, Result};
 
 /// These routines compute the integral
 /// 
-/// $$\hbox{Chi}(x) := \Re \left[ \gamma_E + \log(x) + \int_0^x dt (\cosh(t)-1)/t \right]$$
+/// $$\hbox{Chi}(x) := \Re \left[ \gamma_E + \log(x) + \int_0^x dt (\cosh(t)-1)/t
+/// \right]$$
 /// 
 /// where $\gamma_E$ is the Euler constant (available as the macro `M_EULER`).
 /// 
-/// Binds the function [`gsl_sf_Chi_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Chi_e).
+/// Binds the function
+/// [`gsl_sf_Chi_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Chi_e).
 pub fn Chi_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -43,7 +45,8 @@ pub fn Chi_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// for $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_expint_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_3_e).
+/// Binds the function
+/// [`gsl_sf_expint_3_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_3_e).
 pub fn expint_3_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -56,7 +59,8 @@ pub fn expint_3_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$\hbox{AtanInt}(x) = \int_0^x dt \arctan(t)/t$$
 /// 
-/// Binds the function [`gsl_sf_atanint_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_atanint_e).
+/// Binds the function
+/// [`gsl_sf_atanint_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_atanint_e).
 pub fn atanint_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -69,7 +73,8 @@ pub fn atanint_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$E_2(x) := \Re \int_1^\infty dt \exp(-xt)/t^2$$
 /// 
-/// Binds the function [`gsl_sf_expint_E2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E2_e).
+/// Binds the function
+/// [`gsl_sf_expint_E2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E2_e).
 pub fn expint_E2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -84,7 +89,8 @@ pub fn expint_E2_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// for $x > 0$
 /// 
-/// Binds the function [`gsl_sf_Ci_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Ci_e).
+/// Binds the function
+/// [`gsl_sf_Ci_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Ci_e).
 pub fn Ci_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -97,7 +103,8 @@ pub fn Ci_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$E_1(x) := \Re \int_1^\infty dt \exp(-xt)/t.$$
 /// 
-/// Binds the function [`gsl_sf_expint_E1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E1_e).
+/// Binds the function
+/// [`gsl_sf_expint_E1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E1_e).
 pub fn expint_E1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -110,7 +117,8 @@ pub fn expint_E1_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$\hbox{Shi}(x) = \int_0^x dt \sinh(t)/t$$
 /// 
-/// Binds the function [`gsl_sf_Shi_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Shi_e).
+/// Binds the function
+/// [`gsl_sf_Shi_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Shi_e).
 pub fn Shi_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -123,7 +131,8 @@ pub fn Shi_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$\hbox{Si}(x) = \int_0^x dt \sin(t)/t$$
 /// 
-/// Binds the function [`gsl_sf_Si_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Si_e).
+/// Binds the function
+/// [`gsl_sf_Si_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Si_e).
 pub fn Si_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -138,7 +147,8 @@ pub fn Si_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// where $PV$ denotes the principal value of the integral.
 /// 
-/// Binds the function [`gsl_sf_expint_Ei_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_Ei_e).
+/// Binds the function
+/// [`gsl_sf_expint_Ei_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_Ei_e).
 pub fn expint_Ei_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -151,7 +161,8 @@ pub fn expint_Ei_e(x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$E_n(x) := \Re \int_1^\infty dt \exp(-xt)/t^n.$$
 /// 
-/// Binds the function [`gsl_sf_expint_En_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_En_e).
+/// Binds the function
+/// [`gsl_sf_expint_En_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_En_e).
 pub fn expint_En_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -165,7 +176,8 @@ pub fn expint_En_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
 /// 
 /// $$\hbox{Shi}(x) = \int_0^x dt \sinh(t)/t$$
 /// 
-/// Binds the function [`gsl_sf_Shi`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Shi).
+/// Binds the function
+/// [`gsl_sf_Shi`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Shi).
 pub fn Shi(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_Shi(x) }
 }
@@ -174,7 +186,8 @@ pub fn Shi(x: f64) -> f64 {
 /// 
 /// $$\hbox{Si}(x) = \int_0^x dt \sin(t)/t$$
 /// 
-/// Binds the function [`gsl_sf_Si`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Si).
+/// Binds the function
+/// [`gsl_sf_Si`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Si).
 pub fn Si(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_Si(x) }
 }
@@ -183,7 +196,8 @@ pub fn Si(x: f64) -> f64 {
 /// 
 /// $$E_2(x) := \Re \int_1^\infty dt \exp(-xt)/t^2$$
 /// 
-/// Binds the function [`gsl_sf_expint_E2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E2).
+/// Binds the function
+/// [`gsl_sf_expint_E2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E2).
 pub fn expint_E2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_expint_E2(x) }
 }
@@ -194,7 +208,8 @@ pub fn expint_E2(x: f64) -> f64 {
 /// 
 /// for $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_expint_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_3).
+/// Binds the function
+/// [`gsl_sf_expint_3`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_3).
 pub fn expint_3(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_expint_3(x) }
 }
@@ -205,7 +220,8 @@ pub fn expint_3(x: f64) -> f64 {
 /// 
 /// where $PV$ denotes the principal value of the integral.
 /// 
-/// Binds the function [`gsl_sf_expint_Ei`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_Ei).
+/// Binds the function
+/// [`gsl_sf_expint_Ei`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_Ei).
 pub fn expint_Ei(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_expint_Ei(x) }
 }
@@ -214,18 +230,21 @@ pub fn expint_Ei(x: f64) -> f64 {
 /// 
 /// $$\hbox{AtanInt}(x) = \int_0^x dt \arctan(t)/t$$
 /// 
-/// Binds the function [`gsl_sf_atanint`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_atanint).
+/// Binds the function
+/// [`gsl_sf_atanint`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_atanint).
 pub fn atanint(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_atanint(x) }
 }
 
 /// These routines compute the integral
 /// 
-/// $$\hbox{Chi}(x) := \Re \left[ \gamma_E + \log(x) + \int_0^x dt (\cosh(t)-1)/t \right]$$
+/// $$\hbox{Chi}(x) := \Re \left[ \gamma_E + \log(x) + \int_0^x dt (\cosh(t)-1)/t
+/// \right]$$
 /// 
 /// where $\gamma_E$ is the Euler constant (available as the macro `M_EULER`).
 /// 
-/// Binds the function [`gsl_sf_Chi`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Chi).
+/// Binds the function
+/// [`gsl_sf_Chi`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Chi).
 pub fn Chi(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_Chi(x) }
 }
@@ -234,7 +253,8 @@ pub fn Chi(x: f64) -> f64 {
 /// 
 /// $$E_1(x) := \Re \int_1^\infty dt \exp(-xt)/t.$$
 /// 
-/// Binds the function [`gsl_sf_expint_E1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E1).
+/// Binds the function
+/// [`gsl_sf_expint_E1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_E1).
 pub fn expint_E1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_expint_E1(x) }
 }
@@ -245,7 +265,8 @@ pub fn expint_E1(x: f64) -> f64 {
 /// 
 /// for $x > 0$
 /// 
-/// Binds the function [`gsl_sf_Ci`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Ci).
+/// Binds the function
+/// [`gsl_sf_Ci`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_Ci).
 pub fn Ci(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_Ci(x) }
 }
@@ -254,7 +275,8 @@ pub fn Ci(x: f64) -> f64 {
 /// 
 /// $$E_n(x) := \Re \int_1^\infty dt \exp(-xt)/t^n.$$
 /// 
-/// Binds the function [`gsl_sf_expint_En`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_En).
+/// Binds the function
+/// [`gsl_sf_expint_En`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expint_En).
 pub fn expint_En(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_expint_En(n, x) }
 }

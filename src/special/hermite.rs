@@ -22,10 +22,13 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at position `x`
-/// using a the Cauchy integral algorithm due to Bunck, 2009. The algorithm complexity is $O(\sqrt{n})$.
+/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at
+/// position `x` using a the Cauchy integral algorithm due to Bunck, 2009.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_fast_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_fast_e).
+/// The algorithm complexity is $O(\sqrt{n})$.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_func_fast_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_fast_e).
 pub fn hermite_func_fast_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,9 +37,11 @@ pub fn hermite_func_fast_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the `m`-th derivative of the Hermite function $\psi_n(x)$ of order `n` at position `x`.
+/// These routines evaluate the `m`-th derivative of the Hermite function
+/// $\psi_n(x)$ of order `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_der_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_der_e).
+/// Binds the function
+/// [`gsl_sf_hermite_func_der_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_der_e).
 pub fn hermite_func_der_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -45,9 +50,11 @@ pub fn hermite_func_der_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the `s`-th zero of the probabilist Hermite polynomial $He_n(x)$ of order `n`.
+/// These routines evaluate the `s`-th zero of the probabilist Hermite polynomial
+/// $He_n(x)$ of order `n`.
 /// 
-/// Binds the function [`gsl_sf_hermite_prob_zero_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_zero_e).
+/// Binds the function
+/// [`gsl_sf_hermite_prob_zero_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_zero_e).
 pub fn hermite_prob_zero_e(n: i32, s: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -56,10 +63,14 @@ pub fn hermite_prob_zero_e(n: i32, s: i32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the physicist Hermite polynomial $H_n(x)$ of order `n` at position `x`.
-/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error handler.
+/// These routines evaluate the physicist Hermite polynomial $H_n(x)$ of order `n`
+/// at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_e).
+/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error
+/// handler.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_e).
 pub fn hermite_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -68,9 +79,11 @@ pub fn hermite_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the `s`-th zero of the Hermite function $\psi_n(x)$ of order `n`.
+/// These routines evaluate the `s`-th zero of the Hermite function $\psi_n(x)$ of
+/// order `n`.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_zero_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_zero_e).
+/// Binds the function
+/// [`gsl_sf_hermite_func_zero_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_zero_e).
 pub fn hermite_func_zero_e(n: i32, s: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -79,9 +92,11 @@ pub fn hermite_func_zero_e(n: i32, s: i32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the `s`-th zero of the physicist Hermite polynomial $H_n(x)$ of order `n`.
+/// These routines evaluate the `s`-th zero of the physicist Hermite polynomial
+/// $H_n(x)$ of order `n`.
 /// 
-/// Binds the function [`gsl_sf_hermite_zero_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_zero_e).
+/// Binds the function
+/// [`gsl_sf_hermite_zero_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_zero_e).
 pub fn hermite_zero_e(n: i32, s: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -90,10 +105,13 @@ pub fn hermite_zero_e(n: i32, s: i32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at position `x`
-/// using a three term recurrence relation. The algorithm complexity is $O(n)$.
+/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at
+/// position `x` using a three term recurrence relation.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_e).
+/// The algorithm complexity is $O(n)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_func_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_e).
 pub fn hermite_func_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -102,10 +120,14 @@ pub fn hermite_func_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the probabilist Hermite polynomial $He_n(x)$ of order `n` at position `x`.
-/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error handler.
+/// These routines evaluate the probabilist Hermite polynomial $He_n(x)$ of order
+/// `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_prob_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_e).
+/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error
+/// handler.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_prob_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_e).
 pub fn hermite_prob_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -114,10 +136,11 @@ pub fn hermite_prob_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the `m`-th derivative of the physicist Hermite polynomial $H_n(x)$ of order `n`
-/// at position `x`.
+/// These routines evaluate the `m`-th derivative of the physicist Hermite
+/// polynomial $H_n(x)$ of order `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_deriv_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_deriv_e).
+/// Binds the function
+/// [`gsl_sf_hermite_deriv_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_deriv_e).
 pub fn hermite_deriv_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -126,10 +149,11 @@ pub fn hermite_deriv_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines evaluate the `m`-th derivative of the probabilist Hermite polynomial $He_n(x)$
-/// of order `n` at position `x`.
+/// These routines evaluate the `m`-th derivative of the probabilist Hermite
+/// polynomial $He_n(x)$ of order `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_prob_deriv_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_deriv_e).
+/// Binds the function
+/// [`gsl_sf_hermite_prob_deriv_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_deriv_e).
 pub fn hermite_prob_deriv_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -139,78 +163,102 @@ pub fn hermite_prob_deriv_e(m: i32, n: i32, x: f64) -> Result<ValWithError<f64>>
 }
 
 
-/// These routines evaluate the `m`-th derivative of the Hermite function $\psi_n(x)$ of order `n` at position `x`.
+/// These routines evaluate the `m`-th derivative of the Hermite function
+/// $\psi_n(x)$ of order `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_der`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_der).
+/// Binds the function
+/// [`gsl_sf_hermite_func_der`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_der).
 pub fn hermite_func_der(m: i32, n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite_func_der(m, n, x) }
 }
 
-/// These routines evaluate the physicist Hermite polynomial $H_n(x)$ of order `n` at position `x`.
-/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error handler.
+/// These routines evaluate the physicist Hermite polynomial $H_n(x)$ of order `n`
+/// at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite).
+/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error
+/// handler.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite).
 pub fn hermite(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite(n, x) }
 }
 
-/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at position `x`
-/// using a the Cauchy integral algorithm due to Bunck, 2009. The algorithm complexity is $O(\sqrt{n})$.
+/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at
+/// position `x` using a the Cauchy integral algorithm due to Bunck, 2009.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_fast`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_fast).
+/// The algorithm complexity is $O(\sqrt{n})$.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_func_fast`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_fast).
 pub fn hermite_func_fast(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite_func_fast(n, x) }
 }
 
-/// These routines evaluate the `m`-th derivative of the physicist Hermite polynomial $H_n(x)$ of order `n`
-/// at position `x`.
+/// These routines evaluate the `m`-th derivative of the physicist Hermite
+/// polynomial $H_n(x)$ of order `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_deriv`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_deriv).
+/// Binds the function
+/// [`gsl_sf_hermite_deriv`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_deriv).
 pub fn hermite_deriv(m: i32, n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite_deriv(m, n, x) }
 }
 
-/// These routines evaluate the `s`-th zero of the Hermite function $\psi_n(x)$ of order `n`.
+/// These routines evaluate the `s`-th zero of the Hermite function $\psi_n(x)$ of
+/// order `n`.
 /// 
-/// Binds the function [`gsl_sf_hermite_func_zero`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_zero).
+/// Binds the function
+/// [`gsl_sf_hermite_func_zero`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func_zero).
 pub fn hermite_func_zero(n: i32, s: i32) -> f64 {
     unsafe { bindings::gsl_sf_hermite_func_zero(n, s) }
 }
 
-/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at position `x`
-/// using a three term recurrence relation. The algorithm complexity is $O(n)$.
+/// These routines evaluate the Hermite function $\psi_n(x)$ of order `n` at
+/// position `x` using a three term recurrence relation.
 /// 
-/// Binds the function [`gsl_sf_hermite_func`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func).
+/// The algorithm complexity is $O(n)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_func`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_func).
 pub fn hermite_func(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite_func(n, x) }
 }
 
-/// These routines evaluate the `s`-th zero of the probabilist Hermite polynomial $He_n(x)$ of order `n`.
+/// These routines evaluate the `s`-th zero of the probabilist Hermite polynomial
+/// $He_n(x)$ of order `n`.
 /// 
-/// Binds the function [`gsl_sf_hermite_prob_zero`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_zero).
+/// Binds the function
+/// [`gsl_sf_hermite_prob_zero`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_zero).
 pub fn hermite_prob_zero(n: i32, s: i32) -> f64 {
     unsafe { bindings::gsl_sf_hermite_prob_zero(n, s) }
 }
 
-/// These routines evaluate the probabilist Hermite polynomial $He_n(x)$ of order `n` at position `x`.
-/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error handler.
+/// These routines evaluate the probabilist Hermite polynomial $He_n(x)$ of order
+/// `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_prob`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob).
+/// If an overflow is detected, `GSL_EOVRFLW` is returned without calling the error
+/// handler.
+/// 
+/// Binds the function
+/// [`gsl_sf_hermite_prob`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob).
 pub fn hermite_prob(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite_prob(n, x) }
 }
 
-/// These routines evaluate the `m`-th derivative of the probabilist Hermite polynomial $He_n(x)$
-/// of order `n` at position `x`.
+/// These routines evaluate the `m`-th derivative of the probabilist Hermite
+/// polynomial $He_n(x)$ of order `n` at position `x`.
 /// 
-/// Binds the function [`gsl_sf_hermite_prob_deriv`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_deriv).
+/// Binds the function
+/// [`gsl_sf_hermite_prob_deriv`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_prob_deriv).
 pub fn hermite_prob_deriv(m: i32, n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hermite_prob_deriv(m, n, x) }
 }
 
-/// These routines evaluate the `s`-th zero of the physicist Hermite polynomial $H_n(x)$ of order `n`.
+/// These routines evaluate the `s`-th zero of the physicist Hermite polynomial
+/// $H_n(x)$ of order `n`.
 /// 
-/// Binds the function [`gsl_sf_hermite_zero`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_zero).
+/// Binds the function
+/// [`gsl_sf_hermite_zero`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hermite_zero).
 pub fn hermite_zero(n: i32, s: i32) -> f64 {
     unsafe { bindings::gsl_sf_hermite_zero(n, s) }
 }

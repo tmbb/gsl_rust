@@ -22,11 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the lowest-order normalized hydrogenic bound
-/// state radial wavefunction
-/// $R_1 := 2Z \sqrt{Z} \exp(-Z r)$.
+/// These routines compute the lowest-order normalized hydrogenic bound state radial
+/// wavefunction $R_1 := 2Z \sqrt{Z} \exp(-Z r)$.
 /// 
-/// Binds the function [`gsl_sf_hydrogenicR_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR_1_e).
+/// Binds the function
+/// [`gsl_sf_hydrogenicR_1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR_1_e).
 pub fn hydrogenicR_1_e(z: f64, r: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -35,16 +35,19 @@ pub fn hydrogenicR_1_e(z: f64, r: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the `n`-th normalized hydrogenic bound state
-/// radial wavefunction,
+/// These routines compute the `n`-th normalized hydrogenic bound state radial
+/// wavefunction,
 /// 
-/// $$R_n := {2 Z^{3/2} \over n^2}  \left({2Z r \over n}\right)^l  \sqrt{(n-l-1)! \over (n+l)!} \exp(-Z r/n) L^{2l+1}_{n-l-1}(2Z r / n).$$
+/// $$R_n := {2 Z^{3/2} \over n^2} \left({2Z r \over n}\right)^l \sqrt{(n-l-1)!
+/// \over (n+l)!} \exp(-Z r/n) L^{2l+1}_{n-l-1}(2Z r / n).$$
 /// 
 /// where $L^a_b(x)$ is the generalized Laguerre polynomial.
-/// The normalization is chosen such that the wavefunction $\psi$ is
-/// given by $\psi(n,l,r) = R_n Y_{lm}$.
 /// 
-/// Binds the function [`gsl_sf_hydrogenicR_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR_e).
+/// The normalization is chosen such that the wavefunction $\psi$ is given by
+/// $\psi(n,l,r) = R_n Y_{lm}$.
+/// 
+/// Binds the function
+/// [`gsl_sf_hydrogenicR_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR_e).
 pub fn hydrogenicR_e(n: i32, l: i32, z: f64, r: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -56,7 +59,8 @@ pub fn hydrogenicR_e(n: i32, l: i32, z: f64, r: f64) -> Result<ValWithError<f64>
 /// This function computes the Coulomb wave function normalization constant
 /// $C_L(\eta)$ for $L > -1$.
 /// 
-/// Binds the function [`gsl_sf_coulomb_CL_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coulomb_CL_e).
+/// Binds the function
+/// [`gsl_sf_coulomb_CL_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coulomb_CL_e).
 pub fn coulomb_CL_e(l: f64, eta: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -66,25 +70,28 @@ pub fn coulomb_CL_e(l: f64, eta: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute the `n`-th normalized hydrogenic bound state
-/// radial wavefunction,
+/// These routines compute the `n`-th normalized hydrogenic bound state radial
+/// wavefunction,
 /// 
-/// $$R_n := {2 Z^{3/2} \over n^2}  \left({2Z r \over n}\right)^l  \sqrt{(n-l-1)! \over (n+l)!} \exp(-Z r/n) L^{2l+1}_{n-l-1}(2Z r / n).$$
+/// $$R_n := {2 Z^{3/2} \over n^2} \left({2Z r \over n}\right)^l \sqrt{(n-l-1)!
+/// \over (n+l)!} \exp(-Z r/n) L^{2l+1}_{n-l-1}(2Z r / n).$$
 /// 
 /// where $L^a_b(x)$ is the generalized Laguerre polynomial.
-/// The normalization is chosen such that the wavefunction $\psi$ is
-/// given by $\psi(n,l,r) = R_n Y_{lm}$.
 /// 
-/// Binds the function [`gsl_sf_hydrogenicR`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR).
+/// The normalization is chosen such that the wavefunction $\psi$ is given by
+/// $\psi(n,l,r) = R_n Y_{lm}$.
+/// 
+/// Binds the function
+/// [`gsl_sf_hydrogenicR`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR).
 pub fn hydrogenicR(n: i32, l: i32, z: f64, r: f64) -> f64 {
     unsafe { bindings::gsl_sf_hydrogenicR(n, l, z, r) }
 }
 
-/// These routines compute the lowest-order normalized hydrogenic bound
-/// state radial wavefunction
-/// $R_1 := 2Z \sqrt{Z} \exp(-Z r)$.
+/// These routines compute the lowest-order normalized hydrogenic bound state radial
+/// wavefunction $R_1 := 2Z \sqrt{Z} \exp(-Z r)$.
 /// 
-/// Binds the function [`gsl_sf_hydrogenicR_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR_1).
+/// Binds the function
+/// [`gsl_sf_hydrogenicR_1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hydrogenicR_1).
 pub fn hydrogenicR_1(z: f64, r: f64) -> f64 {
     unsafe { bindings::gsl_sf_hydrogenicR_1(z, r) }
 }

@@ -25,15 +25,12 @@ use crate::{GSLError, ValWithError, Result};
 /// These routines compute the radial `j`-th kind Mathieu functions
 /// $Mc_n^{(j)}(q,x)$ and $Ms_n^{(j)}(q,x)$ of order `n`.
 /// 
-/// The allowed values of `j` are 1 and 2.
-/// The functions for $j = 3,4$ can be computed as
-/// $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and
-/// $M_n^{(4)} = M_n^{(1)} - iM_n^{(2)}$,
-/// where
-/// $M_n^{(j)} = Mc_n^{(j)}$ or
-/// $Ms_n^{(j)}$.
+/// The allowed values of `j` are 1 and 2. The functions for $j = 3,4$ can be
+/// computed as $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and $M_n^{(4)} = M_n^{(1)} -
+/// iM_n^{(2)}$, where $M_n^{(j)} = Mc_n^{(j)}$ or $Ms_n^{(j)}$.
 /// 
-/// Binds the function [`gsl_sf_mathieu_Mc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Mc_e).
+/// Binds the function
+/// [`gsl_sf_mathieu_Mc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Mc_e).
 pub fn mathieu_Mc_e(j: i32, n: i32, q: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -42,11 +39,11 @@ pub fn mathieu_Mc_e(j: i32, n: i32, q: f64, x: f64) -> Result<ValWithError<f64>>
     }
 }
 
-/// These routines compute the characteristic values $a_n(q)$,
-/// $b_n(q)$ of the Mathieu functions $ce_n(q,x)$ and
-/// $se_n(q,x)$, respectively.
+/// These routines compute the characteristic values $a_n(q)$, $b_n(q)$ of the
+/// Mathieu functions $ce_n(q,x)$ and $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_b_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_b_e).
+/// Binds the function
+/// [`gsl_sf_mathieu_b_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_b_e).
 pub fn mathieu_b_e(n: i32, q: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -55,11 +52,11 @@ pub fn mathieu_b_e(n: i32, q: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the characteristic values $a_n(q)$,
-/// $b_n(q)$ of the Mathieu functions $ce_n(q,x)$ and
-/// $se_n(q,x)$, respectively.
+/// These routines compute the characteristic values $a_n(q)$, $b_n(q)$ of the
+/// Mathieu functions $ce_n(q,x)$ and $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_a_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_a_e).
+/// Binds the function
+/// [`gsl_sf_mathieu_a_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_a_e).
 pub fn mathieu_a_e(n: i32, q: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -71,15 +68,12 @@ pub fn mathieu_a_e(n: i32, q: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the radial `j`-th kind Mathieu functions
 /// $Mc_n^{(j)}(q,x)$ and $Ms_n^{(j)}(q,x)$ of order `n`.
 /// 
-/// The allowed values of `j` are 1 and 2.
-/// The functions for $j = 3,4$ can be computed as
-/// $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and
-/// $M_n^{(4)} = M_n^{(1)} - iM_n^{(2)}$,
-/// where
-/// $M_n^{(j)} = Mc_n^{(j)}$ or
-/// $Ms_n^{(j)}$.
+/// The allowed values of `j` are 1 and 2. The functions for $j = 3,4$ can be
+/// computed as $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and $M_n^{(4)} = M_n^{(1)} -
+/// iM_n^{(2)}$, where $M_n^{(j)} = Mc_n^{(j)}$ or $Ms_n^{(j)}$.
 /// 
-/// Binds the function [`gsl_sf_mathieu_Ms_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Ms_e).
+/// Binds the function
+/// [`gsl_sf_mathieu_Ms_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Ms_e).
 pub fn mathieu_Ms_e(j: i32, n: i32, q: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -88,10 +82,11 @@ pub fn mathieu_Ms_e(j: i32, n: i32, q: f64, x: f64) -> Result<ValWithError<f64>>
     }
 }
 
-/// These routines compute the angular Mathieu functions $ce_n(q,x)$
-/// and $se_n(q,x)$, respectively.
+/// These routines compute the angular Mathieu functions $ce_n(q,x)$ and
+/// $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_ce_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_ce_e).
+/// Binds the function
+/// [`gsl_sf_mathieu_ce_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_ce_e).
 pub fn mathieu_ce_e(n: i32, q: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -100,10 +95,11 @@ pub fn mathieu_ce_e(n: i32, q: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the angular Mathieu functions $ce_n(q,x)$
-/// and $se_n(q,x)$, respectively.
+/// These routines compute the angular Mathieu functions $ce_n(q,x)$ and
+/// $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_se_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_se_e).
+/// Binds the function
+/// [`gsl_sf_mathieu_se_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_se_e).
 pub fn mathieu_se_e(n: i32, q: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -116,49 +112,48 @@ pub fn mathieu_se_e(n: i32, q: f64, x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the radial `j`-th kind Mathieu functions
 /// $Mc_n^{(j)}(q,x)$ and $Ms_n^{(j)}(q,x)$ of order `n`.
 /// 
-/// The allowed values of `j` are 1 and 2.
-/// The functions for $j = 3,4$ can be computed as
-/// $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and
-/// $M_n^{(4)} = M_n^{(1)} - iM_n^{(2)}$,
-/// where
-/// $M_n^{(j)} = Mc_n^{(j)}$ or
-/// $Ms_n^{(j)}$.
+/// The allowed values of `j` are 1 and 2. The functions for $j = 3,4$ can be
+/// computed as $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and $M_n^{(4)} = M_n^{(1)} -
+/// iM_n^{(2)}$, where $M_n^{(j)} = Mc_n^{(j)}$ or $Ms_n^{(j)}$.
 /// 
-/// Binds the function [`gsl_sf_mathieu_Mc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Mc).
+/// Binds the function
+/// [`gsl_sf_mathieu_Mc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Mc).
 pub fn mathieu_Mc(j: i32, n: i32, q: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_mathieu_Mc(j, n, q, x) }
 }
 
-/// These routines compute the angular Mathieu functions $ce_n(q,x)$
-/// and $se_n(q,x)$, respectively.
+/// These routines compute the angular Mathieu functions $ce_n(q,x)$ and
+/// $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_se`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_se).
+/// Binds the function
+/// [`gsl_sf_mathieu_se`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_se).
 pub fn mathieu_se(n: i32, q: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_mathieu_se(n, q, x) }
 }
 
-/// These routines compute the angular Mathieu functions $ce_n(q,x)$
-/// and $se_n(q,x)$, respectively.
+/// These routines compute the angular Mathieu functions $ce_n(q,x)$ and
+/// $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_ce`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_ce).
+/// Binds the function
+/// [`gsl_sf_mathieu_ce`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_ce).
 pub fn mathieu_ce(n: i32, q: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_mathieu_ce(n, q, x) }
 }
 
-/// These routines compute the characteristic values $a_n(q)$,
-/// $b_n(q)$ of the Mathieu functions $ce_n(q,x)$ and
-/// $se_n(q,x)$, respectively.
+/// These routines compute the characteristic values $a_n(q)$, $b_n(q)$ of the
+/// Mathieu functions $ce_n(q,x)$ and $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_b`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_b).
+/// Binds the function
+/// [`gsl_sf_mathieu_b`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_b).
 pub fn mathieu_b(n: i32, q: f64) -> f64 {
     unsafe { bindings::gsl_sf_mathieu_b(n, q) }
 }
 
-/// These routines compute the characteristic values $a_n(q)$,
-/// $b_n(q)$ of the Mathieu functions $ce_n(q,x)$ and
-/// $se_n(q,x)$, respectively.
+/// These routines compute the characteristic values $a_n(q)$, $b_n(q)$ of the
+/// Mathieu functions $ce_n(q,x)$ and $se_n(q,x)$, respectively.
 /// 
-/// Binds the function [`gsl_sf_mathieu_a`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_a).
+/// Binds the function
+/// [`gsl_sf_mathieu_a`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_a).
 pub fn mathieu_a(n: i32, q: f64) -> f64 {
     unsafe { bindings::gsl_sf_mathieu_a(n, q) }
 }
@@ -166,15 +161,12 @@ pub fn mathieu_a(n: i32, q: f64) -> f64 {
 /// These routines compute the radial `j`-th kind Mathieu functions
 /// $Mc_n^{(j)}(q,x)$ and $Ms_n^{(j)}(q,x)$ of order `n`.
 /// 
-/// The allowed values of `j` are 1 and 2.
-/// The functions for $j = 3,4$ can be computed as
-/// $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and
-/// $M_n^{(4)} = M_n^{(1)} - iM_n^{(2)}$,
-/// where
-/// $M_n^{(j)} = Mc_n^{(j)}$ or
-/// $Ms_n^{(j)}$.
+/// The allowed values of `j` are 1 and 2. The functions for $j = 3,4$ can be
+/// computed as $M_n^{(3)} = M_n^{(1)} + iM_n^{(2)}$ and $M_n^{(4)} = M_n^{(1)} -
+/// iM_n^{(2)}$, where $M_n^{(j)} = Mc_n^{(j)}$ or $Ms_n^{(j)}$.
 /// 
-/// Binds the function [`gsl_sf_mathieu_Ms`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Ms).
+/// Binds the function
+/// [`gsl_sf_mathieu_Ms`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_mathieu_Ms).
 pub fn mathieu_Ms(j: i32, n: i32, q: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_mathieu_Ms(j, n, q, x) }
 }

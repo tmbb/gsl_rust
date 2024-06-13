@@ -24,17 +24,13 @@ use crate::{GSLError, ValWithError, Result};
 
 /// These routines compute the Wigner 6-j coefficient,
 /// 
-/// $$\left\{
-/// \begin{array}{ccc}
-///   ja & jb & jc \\
-///   jd & je & jf
-/// \end{array}
-/// \right\}$$
+/// $$\left\{ \begin{array}{ccc} ja & jb & jc \\ jd & je & jf \end{array} \right\}$$
 /// 
-/// where the arguments are given in half-integer units, $ja$ =
-/// `two_ja`/2, $ma$ = `two_ma`/2, etc.
+/// where the arguments are given in half-integer units, $ja$ = `two_ja`/2, $ma$ =
+/// `two_ma`/2, etc.
 /// 
-/// Binds the function [`gsl_sf_coupling_6j_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_6j_e).
+/// Binds the function
+/// [`gsl_sf_coupling_6j_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_6j_e).
 pub fn coupling_6j_e(two_ja: i32, two_jb: i32, two_jc: i32, two_jd: i32, two_je: i32, two_jf: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -45,18 +41,14 @@ pub fn coupling_6j_e(two_ja: i32, two_jb: i32, two_jc: i32, two_jd: i32, two_je:
 
 /// These routines compute the Wigner 9-j coefficient,
 /// 
-/// $$\left\{
-/// \begin{array}{ccc}
-///   ja & jb & jc \\
-///   jd & je & jf \\
-///   jg & jh & ji
-/// \end{array}
-/// \right\}$$
+/// $$\left\{ \begin{array}{ccc} ja & jb & jc \\ jd & je & jf \\ jg & jh & ji
+/// \end{array} \right\}$$
 /// 
-/// where the arguments are given in half-integer units, $ja$ =
-/// `two_ja`/2, $ma$ = `two_ma`/2, etc.
+/// where the arguments are given in half-integer units, $ja$ = `two_ja`/2, $ma$ =
+/// `two_ma`/2, etc.
 /// 
-/// Binds the function [`gsl_sf_coupling_9j_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_9j_e).
+/// Binds the function
+/// [`gsl_sf_coupling_9j_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_9j_e).
 pub fn coupling_9j_e(two_ja: i32, two_jb: i32, two_jc: i32, two_jd: i32, two_je: i32, two_jf: i32, two_jg: i32, two_jh: i32, two_ji: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -67,17 +59,13 @@ pub fn coupling_9j_e(two_ja: i32, two_jb: i32, two_jc: i32, two_jd: i32, two_je:
 
 /// These routines compute the Wigner 3-j coefficient,
 /// 
-/// $$\left(
-/// \begin{array}{ccc}
-///   ja & jb & jc \\
-///   ma & mb & mc
-/// \end{array}
-/// \right)$$
+/// $$\left( \begin{array}{ccc} ja & jb & jc \\ ma & mb & mc \end{array} \right)$$
 /// 
-/// where the arguments are given in half-integer units, $ja$ =
-/// `two_ja`/2, $ma$ = `two_ma`/2, etc.
+/// where the arguments are given in half-integer units, $ja$ = `two_ja`/2, $ma$ =
+/// `two_ma`/2, etc.
 /// 
-/// Binds the function [`gsl_sf_coupling_3j_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_3j_e).
+/// Binds the function
+/// [`gsl_sf_coupling_3j_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_3j_e).
 pub fn coupling_3j_e(two_ja: i32, two_jb: i32, two_jc: i32, two_ma: i32, two_mb: i32, two_mc: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -89,52 +77,40 @@ pub fn coupling_3j_e(two_ja: i32, two_jb: i32, two_jc: i32, two_ma: i32, two_mb:
 
 /// These routines compute the Wigner 3-j coefficient,
 /// 
-/// $$\left(
-/// \begin{array}{ccc}
-///   ja & jb & jc \\
-///   ma & mb & mc
-/// \end{array}
-/// \right)$$
+/// $$\left( \begin{array}{ccc} ja & jb & jc \\ ma & mb & mc \end{array} \right)$$
 /// 
-/// where the arguments are given in half-integer units, $ja$ =
-/// `two_ja`/2, $ma$ = `two_ma`/2, etc.
+/// where the arguments are given in half-integer units, $ja$ = `two_ja`/2, $ma$ =
+/// `two_ma`/2, etc.
 /// 
-/// Binds the function [`gsl_sf_coupling_3j`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_3j).
+/// Binds the function
+/// [`gsl_sf_coupling_3j`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_3j).
 pub fn coupling_3j(two_ja: i32, two_jb: i32, two_jc: i32, two_ma: i32, two_mb: i32, two_mc: i32) -> f64 {
     unsafe { bindings::gsl_sf_coupling_3j(two_ja, two_jb, two_jc, two_ma, two_mb, two_mc) }
 }
 
 /// These routines compute the Wigner 6-j coefficient,
 /// 
-/// $$\left\{
-/// \begin{array}{ccc}
-///   ja & jb & jc \\
-///   jd & je & jf
-/// \end{array}
-/// \right\}$$
+/// $$\left\{ \begin{array}{ccc} ja & jb & jc \\ jd & je & jf \end{array} \right\}$$
 /// 
-/// where the arguments are given in half-integer units, $ja$ =
-/// `two_ja`/2, $ma$ = `two_ma`/2, etc.
+/// where the arguments are given in half-integer units, $ja$ = `two_ja`/2, $ma$ =
+/// `two_ma`/2, etc.
 /// 
-/// Binds the function [`gsl_sf_coupling_6j`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_6j).
+/// Binds the function
+/// [`gsl_sf_coupling_6j`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_6j).
 pub fn coupling_6j(two_ja: i32, two_jb: i32, two_jc: i32, two_jd: i32, two_je: i32, two_jf: i32) -> f64 {
     unsafe { bindings::gsl_sf_coupling_6j(two_ja, two_jb, two_jc, two_jd, two_je, two_jf) }
 }
 
 /// These routines compute the Wigner 9-j coefficient,
 /// 
-/// $$\left\{
-/// \begin{array}{ccc}
-///   ja & jb & jc \\
-///   jd & je & jf \\
-///   jg & jh & ji
-/// \end{array}
-/// \right\}$$
+/// $$\left\{ \begin{array}{ccc} ja & jb & jc \\ jd & je & jf \\ jg & jh & ji
+/// \end{array} \right\}$$
 /// 
-/// where the arguments are given in half-integer units, $ja$ =
-/// `two_ja`/2, $ma$ = `two_ma`/2, etc.
+/// where the arguments are given in half-integer units, $ja$ = `two_ja`/2, $ma$ =
+/// `two_ma`/2, etc.
 /// 
-/// Binds the function [`gsl_sf_coupling_9j`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_9j).
+/// Binds the function
+/// [`gsl_sf_coupling_9j`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_coupling_9j).
 pub fn coupling_9j(two_ja: i32, two_jb: i32, two_jc: i32, two_jd: i32, two_je: i32, two_jf: i32, two_jg: i32, two_jh: i32, two_ji: i32) -> f64 {
     unsafe { bindings::gsl_sf_coupling_9j(two_ja, two_jb, two_jc, two_jd, two_je, two_jf, two_jg, two_jh, two_ji) }
 }

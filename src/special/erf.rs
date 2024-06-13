@@ -25,7 +25,8 @@ use crate::{GSLError, ValWithError, Result};
 /// These routines compute the logarithm of the complementary error function
 /// $\log(\text{erfc}(x))$.
 /// 
-/// Binds the function [`gsl_sf_log_erfc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_erfc_e).
+/// Binds the function
+/// [`gsl_sf_log_erfc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_erfc_e).
 pub fn log_erfc_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,11 +35,11 @@ pub fn log_erfc_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the error function $\text{erf}(x)$,
-/// where
-/// $\text{erf}(x) = (2/\sqrt{\pi}) \int_0^x dt \exp(-t^2)$.
+/// These routines compute the error function $\text{erf}(x)$, where $\text{erf}(x) =
+/// (2/\sqrt{\pi}) \int_0^x dt \exp(-t^2)$.
 /// 
-/// Binds the function [`gsl_sf_erf_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_e).
+/// Binds the function
+/// [`gsl_sf_erf_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_e).
 pub fn erf_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -47,10 +48,11 @@ pub fn erf_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the upper tail of the Gaussian probability function
-/// $Q(x) = (1/\sqrt{2\pi}) \int_x^\infty dt \exp(-t^2/2)$
+/// These routines compute the upper tail of the Gaussian probability function $Q(x)
+/// = (1/\sqrt{2\pi}) \int_x^\infty dt \exp(-t^2/2)$
 /// 
-/// Binds the function [`gsl_sf_erf_Q_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Q_e).
+/// Binds the function
+/// [`gsl_sf_erf_Q_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Q_e).
 pub fn erf_Q_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -59,10 +61,11 @@ pub fn erf_Q_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Gaussian probability density function
-/// $Z(x) = (1/\sqrt{2\pi}) \exp(-x^2/2)$
+/// These routines compute the Gaussian probability density function $Z(x) =
+/// (1/\sqrt{2\pi}) \exp(-x^2/2)$
 /// 
-/// Binds the function [`gsl_sf_erf_Z_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Z_e).
+/// Binds the function
+/// [`gsl_sf_erf_Z_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Z_e).
 pub fn erf_Z_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -71,10 +74,11 @@ pub fn erf_Z_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the complementary error function
-/// $\text{erfc}(x) = 1 - \text{erf}(x) = (2/\sqrt{\pi}) \int_x^\infty \exp(-t^2)$
+/// These routines compute the complementary error function $\text{erfc}(x) = 1 - \text{erf}(x)
+/// = (2/\sqrt{\pi}) \int_x^\infty \exp(-t^2)$
 /// 
-/// Binds the function [`gsl_sf_erfc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erfc_e).
+/// Binds the function
+/// [`gsl_sf_erfc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erfc_e).
 pub fn erfc_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -85,7 +89,8 @@ pub fn erfc_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the hazard function for the normal distribution.
 /// 
-/// Binds the function [`gsl_sf_hazard_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hazard_e).
+/// Binds the function
+/// [`gsl_sf_hazard_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hazard_e).
 pub fn hazard_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -95,10 +100,11 @@ pub fn hazard_e(x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute the Gaussian probability density function
-/// $Z(x) = (1/\sqrt{2\pi}) \exp(-x^2/2)$
+/// These routines compute the Gaussian probability density function $Z(x) =
+/// (1/\sqrt{2\pi}) \exp(-x^2/2)$
 /// 
-/// Binds the function [`gsl_sf_erf_Z`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Z).
+/// Binds the function
+/// [`gsl_sf_erf_Z`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Z).
 pub fn erf_Z(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_erf_Z(x) }
 }
@@ -106,39 +112,43 @@ pub fn erf_Z(x: f64) -> f64 {
 /// These routines compute the logarithm of the complementary error function
 /// $\log(\text{erfc}(x))$.
 /// 
-/// Binds the function [`gsl_sf_log_erfc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_erfc).
+/// Binds the function
+/// [`gsl_sf_log_erfc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_log_erfc).
 pub fn log_erfc(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_log_erfc(x) }
 }
 
-/// These routines compute the complementary error function
-/// $\text{erfc}(x) = 1 - \text{erf}(x) = (2/\sqrt{\pi}) \int_x^\infty \exp(-t^2)$
+/// These routines compute the complementary error function $\text{erfc}(x) = 1 - \text{erf}(x)
+/// = (2/\sqrt{\pi}) \int_x^\infty \exp(-t^2)$
 /// 
-/// Binds the function [`gsl_sf_erfc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erfc).
+/// Binds the function
+/// [`gsl_sf_erfc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erfc).
 pub fn erfc(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_erfc(x) }
 }
 
-/// These routines compute the error function $\text{erf}(x)$,
-/// where
-/// $\text{erf}(x) = (2/\sqrt{\pi}) \int_0^x dt \exp(-t^2)$.
+/// These routines compute the error function $\text{erf}(x)$, where $\text{erf}(x) =
+/// (2/\sqrt{\pi}) \int_0^x dt \exp(-t^2)$.
 /// 
-/// Binds the function [`gsl_sf_erf`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf).
+/// Binds the function
+/// [`gsl_sf_erf`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf).
 pub fn erf(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_erf(x) }
 }
 
 /// These routines compute the hazard function for the normal distribution.
 /// 
-/// Binds the function [`gsl_sf_hazard`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hazard).
+/// Binds the function
+/// [`gsl_sf_hazard`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hazard).
 pub fn hazard(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_hazard(x) }
 }
 
-/// These routines compute the upper tail of the Gaussian probability function
-/// $Q(x) = (1/\sqrt{2\pi}) \int_x^\infty dt \exp(-t^2/2)$
+/// These routines compute the upper tail of the Gaussian probability function $Q(x)
+/// = (1/\sqrt{2\pi}) \int_x^\infty dt \exp(-t^2/2)$
 /// 
-/// Binds the function [`gsl_sf_erf_Q`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Q).
+/// Binds the function
+/// [`gsl_sf_erf_Q`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_erf_Q).
 pub fn erf_Q(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_erf_Q(x) }
 }

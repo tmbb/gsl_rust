@@ -24,7 +24,8 @@ use crate::{GSLError, ValWithError, Result};
 
 /// These routines compute the eta function $\eta(n)$ for integer `n`.
 /// 
-/// Binds the function [`gsl_sf_eta_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta_int_e).
+/// Binds the function
+/// [`gsl_sf_eta_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta_int_e).
 pub fn eta_int_e(n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -33,10 +34,11 @@ pub fn eta_int_e(n: i32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Hurwitz zeta function $\zeta(s,q)$ for
-/// $s > 1$, $q > 0$.
+/// These routines compute the Hurwitz zeta function $\zeta(s,q)$ for $s > 1$, $q >
+/// 0$.
 /// 
-/// Binds the function [`gsl_sf_hzeta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hzeta_e).
+/// Binds the function
+/// [`gsl_sf_hzeta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hzeta_e).
 pub fn hzeta_e(s: f64, q: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -47,7 +49,8 @@ pub fn hzeta_e(s: f64, q: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the eta function $\eta(s)$ for arbitrary `s`.
 /// 
-/// Binds the function [`gsl_sf_eta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta_e).
+/// Binds the function
+/// [`gsl_sf_eta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta_e).
 pub fn eta_e(s: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -56,11 +59,11 @@ pub fn eta_e(s: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Riemann zeta function $\zeta(n)$
-/// for integer `n`,
-/// $n \ne 1$.
+/// These routines compute the Riemann zeta function $\zeta(n)$ for integer `n`, $n
+/// \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zeta_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta_int_e).
+/// Binds the function
+/// [`gsl_sf_zeta_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta_int_e).
 pub fn zeta_int_e(n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -69,11 +72,11 @@ pub fn zeta_int_e(n: i32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Riemann zeta function $\zeta(s)$
-/// for arbitrary `s`,
+/// These routines compute the Riemann zeta function $\zeta(s)$ for arbitrary `s`,
 /// $s \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zeta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta_e).
+/// Binds the function
+/// [`gsl_sf_zeta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta_e).
 pub fn zeta_e(s: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -82,10 +85,10 @@ pub fn zeta_e(s: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute $\zeta(n) - 1$ for integer `n`,
-/// $n \ne 1$.
+/// These routines compute $\zeta(n) - 1$ for integer `n`, $n \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zetam1_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1_int_e).
+/// Binds the function
+/// [`gsl_sf_zetam1_int_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1_int_e).
 pub fn zeta_minus_1_int_e(n: i32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -94,10 +97,10 @@ pub fn zeta_minus_1_int_e(n: i32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute $\zeta(s) - 1$ for arbitrary `s`,
-/// $s \ne 1$.
+/// These routines compute $\zeta(s) - 1$ for arbitrary `s`, $s \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zetam1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1_e).
+/// Binds the function
+/// [`gsl_sf_zetam1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1_e).
 pub fn zeta_minus_1_e(s: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -109,56 +112,59 @@ pub fn zeta_minus_1_e(s: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the eta function $\eta(s)$ for arbitrary `s`.
 /// 
-/// Binds the function [`gsl_sf_eta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta).
+/// Binds the function
+/// [`gsl_sf_eta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta).
 pub fn eta(s: f64) -> f64 {
     unsafe { bindings::gsl_sf_eta(s) }
 }
 
 /// These routines compute the eta function $\eta(n)$ for integer `n`.
 /// 
-/// Binds the function [`gsl_sf_eta_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta_int).
+/// Binds the function
+/// [`gsl_sf_eta_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_eta_int).
 pub fn eta_int(n: i32) -> f64 {
     unsafe { bindings::gsl_sf_eta_int(n) }
 }
 
-/// These routines compute the Riemann zeta function $\zeta(n)$
-/// for integer `n`,
-/// $n \ne 1$.
+/// These routines compute the Riemann zeta function $\zeta(n)$ for integer `n`, $n
+/// \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zeta_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta_int).
+/// Binds the function
+/// [`gsl_sf_zeta_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta_int).
 pub fn zeta_int(n: i32) -> f64 {
     unsafe { bindings::gsl_sf_zeta_int(n) }
 }
 
-/// These routines compute $\zeta(n) - 1$ for integer `n`,
-/// $n \ne 1$.
+/// These routines compute $\zeta(n) - 1$ for integer `n`, $n \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zetam1_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1_int).
+/// Binds the function
+/// [`gsl_sf_zetam1_int`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1_int).
 pub fn zeta_minus_1_int(n: i32) -> f64 {
     unsafe { bindings::gsl_sf_zetam1_int(n) }
 }
 
-/// These routines compute the Hurwitz zeta function $\zeta(s,q)$ for
-/// $s > 1$, $q > 0$.
+/// These routines compute the Hurwitz zeta function $\zeta(s,q)$ for $s > 1$, $q >
+/// 0$.
 /// 
-/// Binds the function [`gsl_sf_hzeta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hzeta).
+/// Binds the function
+/// [`gsl_sf_hzeta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_hzeta).
 pub fn hzeta(s: f64, q: f64) -> f64 {
     unsafe { bindings::gsl_sf_hzeta(s, q) }
 }
 
-/// These routines compute $\zeta(s) - 1$ for arbitrary `s`,
-/// $s \ne 1$.
+/// These routines compute $\zeta(s) - 1$ for arbitrary `s`, $s \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zetam1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1).
+/// Binds the function
+/// [`gsl_sf_zetam1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zetam1).
 pub fn zeta_minus_1(s: f64) -> f64 {
     unsafe { bindings::gsl_sf_zetam1(s) }
 }
 
-/// These routines compute the Riemann zeta function $\zeta(s)$
-/// for arbitrary `s`,
+/// These routines compute the Riemann zeta function $\zeta(s)$ for arbitrary `s`,
 /// $s \ne 1$.
 /// 
-/// Binds the function [`gsl_sf_zeta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta).
+/// Binds the function
+/// [`gsl_sf_zeta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_zeta).
 pub fn zeta(s: f64) -> f64 {
     unsafe { bindings::gsl_sf_zeta(s) }
 }

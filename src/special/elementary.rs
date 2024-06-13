@@ -22,10 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// This function multiplies `x` and `y` storing the product and its
-/// associated error in `result`.
+/// This function multiplies `x` and `y` storing the product and its associated
+/// error in `result`.
 /// 
-/// Binds the function [`gsl_sf_multiply_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_multiply_e).
+/// Binds the function
+/// [`gsl_sf_multiply_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_multiply_e).
 pub fn multiply_e(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,13 +35,13 @@ pub fn multiply_e(x: f64, y: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// This function multiplies `x` and `y` with associated absolute
-/// errors `dx` and `dy`.
-/// The product
-/// $xy \pm xy \sqrt{(dx/x)^2 +(dy/y)^2}$
-/// is stored in `result`.
+/// This function multiplies `x` and `y` with associated absolute errors `dx` and
+/// `dy`.
 /// 
-/// Binds the function [`gsl_sf_multiply_err_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_multiply_err_e).
+/// The product $xy \pm xy \sqrt{(dx/x)^2 +(dy/y)^2}$ is stored in `result`.
+/// 
+/// Binds the function
+/// [`gsl_sf_multiply_err_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_multiply_err_e).
 pub fn multiply_err_e(x: f64, dx: f64, y: f64, dy: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -50,10 +51,11 @@ pub fn multiply_err_e(x: f64, dx: f64, y: f64, dy: f64) -> Result<ValWithError<f
 }
 
 
-/// This function multiplies `x` and `y` storing the product and its
-/// associated error in `result`.
+/// This function multiplies `x` and `y` storing the product and its associated
+/// error in `result`.
 /// 
-/// Binds the function [`gsl_sf_multiply`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_multiply).
+/// Binds the function
+/// [`gsl_sf_multiply`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_multiply).
 pub fn multiply(x: f64, y: f64) -> f64 {
     unsafe { bindings::gsl_sf_multiply(x, y) }
 }

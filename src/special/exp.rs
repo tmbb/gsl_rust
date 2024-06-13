@@ -22,10 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the quantity $\exp(x)-1$ using an algorithm
-/// that is accurate for small $x$.
+/// These routines compute the quantity $\exp(x)-1$ using an algorithm that is
+/// accurate for small $x$.
 /// 
-/// Binds the function [`gsl_sf_expm1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expm1_e).
+/// Binds the function
+/// [`gsl_sf_expm1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expm1_e).
 pub fn expm1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,13 +35,14 @@ pub fn expm1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the quantity $2(\exp(x)-1-x)/x^2$ using an
-/// algorithm that is accurate for small `x`.
-/// For small `x` the
-/// algorithm is based on the expansion
-/// $2(\exp(x)-1-x)/x^2 = 1 + x/3 + x^2/(3*4) + x^3/(3*4*5) + \dots$.
+/// These routines compute the quantity $2(\exp(x)-1-x)/x^2$ using an algorithm that
+/// is accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_exprel_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_2_e).
+/// For small `x` the algorithm is based on the expansion $2(\exp(x)-1-x)/x^2 = 1 +
+/// x/3 + x^2/(3*4) + x^3/(3*4*5) + \dots$.
+/// 
+/// Binds the function
+/// [`gsl_sf_exprel_2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_2_e).
 pub fn exprel_2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -49,13 +51,14 @@ pub fn exprel_2_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the quantity $(\exp(x)-1)/x$ using an
-/// algorithm that is accurate for small `x`.
-/// For small `x` the
-/// algorithm is based on the expansion
-/// $(\exp(x)-1)/x = 1 + x/2 + x^2/(2*3) + x^3/(2*3*4) + \dots$.
+/// These routines compute the quantity $(\exp(x)-1)/x$ using an algorithm that is
+/// accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_exprel_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_e).
+/// For small `x` the algorithm is based on the expansion $(\exp(x)-1)/x = 1 + x/2 +
+/// x^2/(2*3) + x^3/(2*3*4) + \dots$.
+/// 
+/// Binds the function
+/// [`gsl_sf_exprel_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_e).
 pub fn exprel_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -64,10 +67,11 @@ pub fn exprel_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// This routine computes the product $y \exp(x)$ for the quantities
-/// `x`, `y` with associated absolute errors `dx`, `dy`.
+/// This routine computes the product $y \exp(x)$ for the quantities `x`, `y` with
+/// associated absolute errors `dx`, `dy`.
 /// 
-/// Binds the function [`gsl_sf_exp_mult_err_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_mult_err_e).
+/// Binds the function
+/// [`gsl_sf_exp_mult_err_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_mult_err_e).
 pub fn exp_mult_err_e(x: f64, dx: f64, y: f64, dy: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -76,10 +80,11 @@ pub fn exp_mult_err_e(x: f64, dx: f64, y: f64, dy: f64) -> Result<ValWithError<f
     }
 }
 
-/// These routines exponentiate `x` and multiply by the factor `y`
-/// to return the product $y \exp(x)$.
+/// These routines exponentiate `x` and multiply by the factor `y` to return the
+/// product $y \exp(x)$.
 /// 
-/// Binds the function [`gsl_sf_exp_mult_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_mult_e).
+/// Binds the function
+/// [`gsl_sf_exp_mult_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_mult_e).
 pub fn exp_mult_e(x: f64, y: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -88,10 +93,11 @@ pub fn exp_mult_e(x: f64, y: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines provide an exponential function $\exp(x)$ using GSL
-/// semantics and error checking.
+/// These routines provide an exponential function $\exp(x)$ using GSL semantics and
+/// error checking.
 /// 
-/// Binds the function [`gsl_sf_exp_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_e).
+/// Binds the function
+/// [`gsl_sf_exp_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_e).
 pub fn exp_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -100,10 +106,10 @@ pub fn exp_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// This function exponentiates `x` with an associated absolute error
-/// `dx`.
+/// This function exponentiates `x` with an associated absolute error `dx`.
 /// 
-/// Binds the function [`gsl_sf_exp_err_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_err_e).
+/// Binds the function
+/// [`gsl_sf_exp_err_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_err_e).
 pub fn exp_err_e(x: f64, dx: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -112,17 +118,16 @@ pub fn exp_err_e(x: f64, dx: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the $N$-relative exponential, which is the
-/// `n`-th generalization of the functions `gsl_sf_exprel()` and
-/// `gsl_sf_exprel_2()`.
+/// These routines compute the $N$-relative exponential, which is the `n`-th
+/// generalization of the functions `gsl_sf_exprel()` and `gsl_sf_exprel_2()`.
+/// 
 /// The $N$-relative exponential is given by,
 /// 
-/// $$\hbox{exprel}_N(x)
-///             &= N!/x^N \left(\exp(x) - \sum_{k=0}^{N-1} x^k/k!\right)\cr
-///             &= 1 + x/(N+1) + x^2/((N+1)(N+2)) + \dots\cr
-///             &= {}_1F_1(1,1+N,x)\cr$$
+/// $$\hbox{exprel}_N(x) &= N!/x^N \left(\exp(x) - \sum_{k=0}^{N-1} x^k/k!\right)\cr
+/// &= 1 + x/(N+1) + x^2/((N+1)(N+2)) + \dots\cr &= {}_1F_1(1,1+N,x)\cr$$
 /// 
-/// Binds the function [`gsl_sf_exprel_n_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_n_e).
+/// Binds the function
+/// [`gsl_sf_exprel_n_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_n_e).
 pub fn exprel_n_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -132,63 +137,67 @@ pub fn exprel_n_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute the quantity $\exp(x)-1$ using an algorithm
-/// that is accurate for small $x$.
+/// These routines compute the quantity $\exp(x)-1$ using an algorithm that is
+/// accurate for small $x$.
 /// 
-/// Binds the function [`gsl_sf_expm1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expm1).
+/// Binds the function
+/// [`gsl_sf_expm1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_expm1).
 pub fn expm1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_expm1(x) }
 }
 
-/// These routines provide an exponential function $\exp(x)$ using GSL
-/// semantics and error checking.
+/// These routines provide an exponential function $\exp(x)$ using GSL semantics and
+/// error checking.
 /// 
-/// Binds the function [`gsl_sf_exp`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp).
+/// Binds the function
+/// [`gsl_sf_exp`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp).
 pub fn exp(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_exp(x) }
 }
 
-/// These routines exponentiate `x` and multiply by the factor `y`
-/// to return the product $y \exp(x)$.
+/// These routines exponentiate `x` and multiply by the factor `y` to return the
+/// product $y \exp(x)$.
 /// 
-/// Binds the function [`gsl_sf_exp_mult`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_mult).
+/// Binds the function
+/// [`gsl_sf_exp_mult`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exp_mult).
 pub fn exp_mult(x: f64, y: f64) -> f64 {
     unsafe { bindings::gsl_sf_exp_mult(x, y) }
 }
 
-/// These routines compute the $N$-relative exponential, which is the
-/// `n`-th generalization of the functions `gsl_sf_exprel()` and
-/// `gsl_sf_exprel_2()`.
+/// These routines compute the $N$-relative exponential, which is the `n`-th
+/// generalization of the functions `gsl_sf_exprel()` and `gsl_sf_exprel_2()`.
+/// 
 /// The $N$-relative exponential is given by,
 /// 
-/// $$\hbox{exprel}_N(x)
-///             &= N!/x^N \left(\exp(x) - \sum_{k=0}^{N-1} x^k/k!\right)\cr
-///             &= 1 + x/(N+1) + x^2/((N+1)(N+2)) + \dots\cr
-///             &= {}_1F_1(1,1+N,x)\cr$$
+/// $$\hbox{exprel}_N(x) &= N!/x^N \left(\exp(x) - \sum_{k=0}^{N-1} x^k/k!\right)\cr
+/// &= 1 + x/(N+1) + x^2/((N+1)(N+2)) + \dots\cr &= {}_1F_1(1,1+N,x)\cr$$
 /// 
-/// Binds the function [`gsl_sf_exprel_n`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_n).
+/// Binds the function
+/// [`gsl_sf_exprel_n`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_n).
 pub fn exprel_n(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_exprel_n(n, x) }
 }
 
-/// These routines compute the quantity $(\exp(x)-1)/x$ using an
-/// algorithm that is accurate for small `x`.
-/// For small `x` the
-/// algorithm is based on the expansion
-/// $(\exp(x)-1)/x = 1 + x/2 + x^2/(2*3) + x^3/(2*3*4) + \dots$.
+/// These routines compute the quantity $(\exp(x)-1)/x$ using an algorithm that is
+/// accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_exprel`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel).
+/// For small `x` the algorithm is based on the expansion $(\exp(x)-1)/x = 1 + x/2 +
+/// x^2/(2*3) + x^3/(2*3*4) + \dots$.
+/// 
+/// Binds the function
+/// [`gsl_sf_exprel`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel).
 pub fn exprel(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_exprel(x) }
 }
 
-/// These routines compute the quantity $2(\exp(x)-1-x)/x^2$ using an
-/// algorithm that is accurate for small `x`.
-/// For small `x` the
-/// algorithm is based on the expansion
-/// $2(\exp(x)-1-x)/x^2 = 1 + x/3 + x^2/(3*4) + x^3/(3*4*5) + \dots$.
+/// These routines compute the quantity $2(\exp(x)-1-x)/x^2$ using an algorithm that
+/// is accurate for small `x`.
 /// 
-/// Binds the function [`gsl_sf_exprel_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_2).
+/// For small `x` the algorithm is based on the expansion $2(\exp(x)-1-x)/x^2 = 1 +
+/// x/3 + x^2/(3*4) + x^3/(3*4*5) + \dots$.
+/// 
+/// Binds the function
+/// [`gsl_sf_exprel_2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_exprel_2).
 pub fn exprel_2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_exprel_2(x) }
 }

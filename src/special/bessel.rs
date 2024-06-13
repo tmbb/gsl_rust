@@ -25,7 +25,8 @@ use crate::{GSLError, ValWithError, Result};
 /// These routines compute the irregular cylindrical Bessel function of zeroth
 /// order, $Y_0(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Y0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Y0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y0_e).
 pub fn bessel_Y0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -34,10 +35,11 @@ pub fn bessel_Y0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified cylindrical Bessel
-/// function of first order $\exp(x) K_1(x)$ for $x>0$.
+/// These routines compute the scaled irregular modified cylindrical Bessel function
+/// of first order $\exp(x) K_1(x)$ for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_K1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1_scaled_e).
 pub fn bessel_K1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -46,10 +48,11 @@ pub fn bessel_K1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of second order, $\exp(-|x|) i_2(x)$
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// second order, $\exp(-|x|) i_2(x)$
 /// 
-/// Binds the function [`gsl_sf_bessel_i2_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i2_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_i2_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i2_scaled_e).
 pub fn bessel_i2_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -58,10 +61,11 @@ pub fn bessel_i2_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular cylindrical Bessel function of
-/// fractional order $\nu$, $Y_\nu(x)$.
+/// These routines compute the irregular cylindrical Bessel function of fractional
+/// order $\nu$, $Y_\nu(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Ynu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Ynu_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Ynu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Ynu_e).
 pub fn bessel_Ynu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -70,10 +74,11 @@ pub fn bessel_Ynu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular spherical Bessel function of first
-/// order, $y_1(x) = -(\cos(x)/x + \sin(x))/x$.
+/// These routines compute the irregular spherical Bessel function of first order,
+/// $y_1(x) = -(\cos(x)/x + \sin(x))/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_y1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_y1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y1_e).
 pub fn bessel_y1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -82,10 +87,11 @@ pub fn bessel_y1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular spherical Bessel function of second
-/// order, $y_2(x) = (-3/x^3 + 1/x)\cos(x) - (3/x^2)\sin(x)$.
+/// These routines compute the irregular spherical Bessel function of second order,
+/// $y_2(x) = (-3/x^3 + 1/x)\cos(x) - (3/x^2)\sin(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_y2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y2_e).
+/// Binds the function
+/// [`gsl_sf_bessel_y2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y2_e).
 pub fn bessel_y2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -94,10 +100,11 @@ pub fn bessel_y2_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular modified cylindrical Bessel function
-/// of order `n`, $I_n(x)$.
+/// These routines compute the regular modified cylindrical Bessel function of order
+/// `n`, $I_n(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_In_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In_e).
+/// Binds the function
+/// [`gsl_sf_bessel_In_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In_e).
 pub fn bessel_In_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -106,10 +113,11 @@ pub fn bessel_In_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular modified cylindrical Bessel
-/// function of first order, $K_1(x)$, for $x > 0$.
+/// These routines compute the irregular modified cylindrical Bessel function of
+/// first order, $K_1(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_K1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1_e).
 pub fn bessel_K1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -118,10 +126,11 @@ pub fn bessel_K1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular modified cylindrical Bessel
-/// function of order `n`, $K_n(x)$, for $x > 0$.
+/// These routines compute the irregular modified cylindrical Bessel function of
+/// order `n`, $K_n(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Kn_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Kn_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn_e).
 pub fn bessel_Kn_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -130,11 +139,11 @@ pub fn bessel_Kn_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular spherical Bessel function of
-/// order `l`, $j_l(x)$, for
-/// $l \geq 0$ and $x \geq 0$.
+/// These routines compute the regular spherical Bessel function of order `l`,
+/// $j_l(x)$, for $l \geq 0$ and $x \geq 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_jl_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_jl_e).
+/// Binds the function
+/// [`gsl_sf_bessel_jl_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_jl_e).
 pub fn bessel_jl_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -143,10 +152,11 @@ pub fn bessel_jl_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified cylindrical Bessel
-/// function of first order $\exp(-|x|) I_1(x)$.
+/// These routines compute the scaled regular modified cylindrical Bessel function
+/// of first order $\exp(-|x|) I_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_I1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1_scaled_e).
 pub fn bessel_I1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -155,11 +165,11 @@ pub fn bessel_I1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular modified Bessel function of
-/// fractional order $\nu$, $K_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// These routines compute the irregular modified Bessel function of fractional
+/// order $\nu$, $K_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Knu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Knu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu_e).
 pub fn bessel_Knu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -168,10 +178,11 @@ pub fn bessel_Knu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of zeroth order, $\exp(-|x|) i_0(x)$.
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// zeroth order, $\exp(-|x|) i_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_i0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i0_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_i0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i0_scaled_e).
 pub fn bessel_i0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -180,10 +191,11 @@ pub fn bessel_i0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified cylindrical Bessel
-/// function of order `n`, $\exp(-|x|) I_n(x)$
+/// These routines compute the scaled regular modified cylindrical Bessel function
+/// of order `n`, $\exp(-|x|) I_n(x)$
 /// 
-/// Binds the function [`gsl_sf_bessel_In_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_In_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In_scaled_e).
 pub fn bessel_In_scaled_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -192,10 +204,11 @@ pub fn bessel_In_scaled_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of second order, $\exp(x) k_2(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of second order, $\exp(x) k_2(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_k2_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k2_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_k2_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k2_scaled_e).
 pub fn bessel_k2_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -204,12 +217,13 @@ pub fn bessel_k2_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the location of the `s`-th positive zero of
-/// the Bessel function $J_\nu(x)$.
-/// The current implementation does not
-/// support negative values of `nu`.
+/// These routines compute the location of the `s`-th positive zero of the Bessel
+/// function $J_\nu(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_zero_Jnu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_Jnu_e).
+/// The current implementation does not support negative values of `nu`.
+/// 
+/// Binds the function
+/// [`gsl_sf_bessel_zero_Jnu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_Jnu_e).
 pub fn bessel_zero_Jnu_e(nu: f64, s: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -218,10 +232,11 @@ pub fn bessel_zero_Jnu_e(nu: f64, s: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified cylindrical Bessel
-/// function of zeroth order $\exp(-|x|) I_0(x)$.
+/// These routines compute the scaled regular modified cylindrical Bessel function
+/// of zeroth order $\exp(-|x|) I_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_I0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0_scaled_e).
 pub fn bessel_I0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -230,11 +245,11 @@ pub fn bessel_I0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular spherical Bessel function of
-/// order `l`, $y_l(x)$, for
-/// $l \geq 0$.
+/// These routines compute the irregular spherical Bessel function of order `l`,
+/// $y_l(x)$, for $l \geq 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_yl_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_yl_e).
+/// Binds the function
+/// [`gsl_sf_bessel_yl_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_yl_e).
 pub fn bessel_yl_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -243,10 +258,11 @@ pub fn bessel_yl_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular cylindrical Bessel function of first
-/// order, $J_1(x)$.
+/// These routines compute the regular cylindrical Bessel function of first order,
+/// $J_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_J1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_J1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J1_e).
 pub fn bessel_J1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -255,11 +271,11 @@ pub fn bessel_J1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified Bessel function of
-/// fractional order $\nu$, $\exp(-|x|)I_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// These routines compute the scaled regular modified Bessel function of fractional
+/// order $\nu$, $\exp(-|x|)I_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Inu_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Inu_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu_scaled_e).
 pub fn bessel_Inu_scaled_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -268,10 +284,11 @@ pub fn bessel_Inu_scaled_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular cylindrical Bessel function of
-/// fractional order $\nu$, $J_\nu(x)$.
+/// These routines compute the regular cylindrical Bessel function of fractional
+/// order $\nu$, $J_\nu(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Jnu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jnu_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Jnu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jnu_e).
 pub fn bessel_Jnu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -280,10 +297,11 @@ pub fn bessel_Jnu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the location of the `s`-th positive zero of
-/// the Bessel function $J_1(x)$.
+/// These routines compute the location of the `s`-th positive zero of the Bessel
+/// function $J_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_zero_J1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_zero_J1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J1_e).
 pub fn bessel_zero_J1_e(s: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -292,10 +310,11 @@ pub fn bessel_zero_J1_e(s: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular cylindrical Bessel function of zeroth
-/// order, $J_0(x)$.
+/// These routines compute the regular cylindrical Bessel function of zeroth order,
+/// $J_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_J0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_J0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J0_e).
 pub fn bessel_J0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -304,10 +323,11 @@ pub fn bessel_J0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified cylindrical Bessel
-/// function of order `n`, $\exp(x) K_n(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified cylindrical Bessel function
+/// of order `n`, $\exp(x) K_n(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Kn_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Kn_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn_scaled_e).
 pub fn bessel_Kn_scaled_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -316,10 +336,11 @@ pub fn bessel_Kn_scaled_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of order `l`, $\exp(-|x|) i_l(x)$
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// order `l`, $\exp(-|x|) i_l(x)$
 /// 
-/// Binds the function [`gsl_sf_bessel_il_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_il_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_il_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_il_scaled_e).
 pub fn bessel_il_scaled_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -328,10 +349,11 @@ pub fn bessel_il_scaled_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of order `l`, $\exp(x) k_l(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of order `l`, $\exp(x) k_l(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_kl_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_kl_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_kl_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_kl_scaled_e).
 pub fn bessel_kl_scaled_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -340,10 +362,11 @@ pub fn bessel_kl_scaled_e(l: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the location of the `s`-th positive zero of
-/// the Bessel function $J_0(x)$.
+/// These routines compute the location of the `s`-th positive zero of the Bessel
+/// function $J_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_zero_J0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_zero_J0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J0_e).
 pub fn bessel_zero_J0_e(s: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -352,10 +375,11 @@ pub fn bessel_zero_J0_e(s: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of first order, $\exp(x) k_1(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of first order, $\exp(x) k_1(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_k1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k1_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_k1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k1_scaled_e).
 pub fn bessel_k1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -364,11 +388,11 @@ pub fn bessel_k1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the logarithm of the irregular modified Bessel
-/// function of fractional order $\nu$, $\ln(K_\nu(x))$ for
-/// $x>0$, $\nu>0$.
+/// These routines compute the logarithm of the irregular modified Bessel function
+/// of fractional order $\nu$, $\ln(K_\nu(x))$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_lnKnu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_lnKnu_e).
+/// Binds the function
+/// [`gsl_sf_bessel_lnKnu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_lnKnu_e).
 pub fn bessel_ln_Knu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -378,10 +402,10 @@ pub fn bessel_ln_Knu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the scaled irregular modified Bessel function of
-/// fractional order $\nu$, $\exp(+|x|) K_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// fractional order $\nu$, $\exp(+|x|) K_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Knu_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Knu_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu_scaled_e).
 pub fn bessel_Knu_scaled_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -390,10 +414,11 @@ pub fn bessel_Knu_scaled_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular spherical Bessel function of zeroth
-/// order, $y_0(x) = -\cos(x)/x$.
+/// These routines compute the irregular spherical Bessel function of zeroth order,
+/// $y_0(x) = -\cos(x)/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_y0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_y0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y0_e).
 pub fn bessel_y0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -402,10 +427,11 @@ pub fn bessel_y0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified cylindrical Bessel
-/// function of zeroth order $\exp(x) K_0(x)$ for $x>0$.
+/// These routines compute the scaled irregular modified cylindrical Bessel function
+/// of zeroth order $\exp(x) K_0(x)$ for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_K0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0_scaled_e).
 pub fn bessel_K0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -414,10 +440,11 @@ pub fn bessel_K0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular modified cylindrical Bessel function
-/// of first order, $I_1(x)$.
+/// These routines compute the regular modified cylindrical Bessel function of first
+/// order, $I_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_I1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1_e).
 pub fn bessel_I1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -426,10 +453,11 @@ pub fn bessel_I1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular cylindrical Bessel function of
-/// order `n`, $J_n(x)$.
+/// These routines compute the regular cylindrical Bessel function of order `n`,
+/// $J_n(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Jn_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jn_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Jn_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jn_e).
 pub fn bessel_Jn_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -438,10 +466,11 @@ pub fn bessel_Jn_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular modified cylindrical Bessel function
-/// of zeroth order, $I_0(x)$.
+/// These routines compute the regular modified cylindrical Bessel function of
+/// zeroth order, $I_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_I0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0_e).
 pub fn bessel_I0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -450,10 +479,11 @@ pub fn bessel_I0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular spherical Bessel function of second
-/// order, $j_2(x) = ((3/x^2 - 1)\sin(x) - 3\cos(x)/x)/x$.
+/// These routines compute the regular spherical Bessel function of second order,
+/// $j_2(x) = ((3/x^2 - 1)\sin(x) - 3\cos(x)/x)/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_j2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j2_e).
+/// Binds the function
+/// [`gsl_sf_bessel_j2_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j2_e).
 pub fn bessel_j2_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -462,10 +492,11 @@ pub fn bessel_j2_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular modified cylindrical Bessel
-/// function of zeroth order, $K_0(x)$, for $x > 0$.
+/// These routines compute the irregular modified cylindrical Bessel function of
+/// zeroth order, $K_0(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_K0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0_e).
 pub fn bessel_K0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -474,10 +505,11 @@ pub fn bessel_K0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of first order, $\exp(-|x|) i_1(x)$.
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// first order, $\exp(-|x|) i_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_i1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i1_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_i1_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i1_scaled_e).
 pub fn bessel_i1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -486,10 +518,11 @@ pub fn bessel_i1_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular spherical Bessel function of zeroth
-/// order, $j_0(x) = \sin(x)/x$.
+/// These routines compute the regular spherical Bessel function of zeroth order,
+/// $j_0(x) = \sin(x)/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_j0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j0_e).
+/// Binds the function
+/// [`gsl_sf_bessel_j0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j0_e).
 pub fn bessel_j0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -498,11 +531,11 @@ pub fn bessel_j0_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular modified Bessel function of
-/// fractional order $\nu$, $I_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// These routines compute the regular modified Bessel function of fractional order
+/// $\nu$, $I_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Inu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Inu_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu_e).
 pub fn bessel_Inu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -511,10 +544,11 @@ pub fn bessel_Inu_e(nu: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regular spherical Bessel function of first
-/// order, $j_1(x) = (\sin(x)/x - \cos(x))/x$.
+/// These routines compute the regular spherical Bessel function of first order,
+/// $j_1(x) = (\sin(x)/x - \cos(x))/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_j1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_j1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j1_e).
 pub fn bessel_j1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -523,10 +557,11 @@ pub fn bessel_j1_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of zeroth order, $\exp(x) k_0(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of zeroth order, $\exp(x) k_0(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_k0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k0_scaled_e).
+/// Binds the function
+/// [`gsl_sf_bessel_k0_scaled_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k0_scaled_e).
 pub fn bessel_k0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -535,10 +570,11 @@ pub fn bessel_k0_scaled_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular cylindrical Bessel function of
-/// order `n`, $Y_n(x)$, for $x>0$.
+/// These routines compute the irregular cylindrical Bessel function of order `n`,
+/// $Y_n(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Yn_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Yn_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Yn_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Yn_e).
 pub fn bessel_Yn_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -547,10 +583,11 @@ pub fn bessel_Yn_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the irregular cylindrical Bessel function of first
-/// order, $Y_1(x)$, for $x>0$.
+/// These routines compute the irregular cylindrical Bessel function of first order,
+/// $Y_1(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Y1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y1_e).
+/// Binds the function
+/// [`gsl_sf_bessel_Y1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y1_e).
 pub fn bessel_Y1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -560,192 +597,211 @@ pub fn bessel_Y1_e(x: f64) -> Result<ValWithError<f64>> {
 }
 
 
-/// These routines compute the scaled irregular modified cylindrical Bessel
-/// function of order `n`, $\exp(x) K_n(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified cylindrical Bessel function
+/// of order `n`, $\exp(x) K_n(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Kn_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_Kn_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn_scaled).
 pub fn bessel_Kn_scaled(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Kn_scaled(n, x) }
 }
 
-/// These routines compute the irregular modified Bessel function of
-/// fractional order $\nu$, $K_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// These routines compute the irregular modified Bessel function of fractional
+/// order $\nu$, $K_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Knu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu).
+/// Binds the function
+/// [`gsl_sf_bessel_Knu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu).
 pub fn bessel_Knu(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Knu(nu, x) }
 }
 
-/// These routines compute the regular spherical Bessel function of second
-/// order, $j_2(x) = ((3/x^2 - 1)\sin(x) - 3\cos(x)/x)/x$.
+/// These routines compute the regular spherical Bessel function of second order,
+/// $j_2(x) = ((3/x^2 - 1)\sin(x) - 3\cos(x)/x)/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_j2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j2).
+/// Binds the function
+/// [`gsl_sf_bessel_j2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j2).
 pub fn bessel_j2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_j2(x) }
 }
 
-/// These routines compute the regular spherical Bessel function of
-/// order `l`, $j_l(x)$, for
-/// $l \geq 0$ and $x \geq 0$.
+/// These routines compute the regular spherical Bessel function of order `l`,
+/// $j_l(x)$, for $l \geq 0$ and $x \geq 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_jl`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_jl).
+/// Binds the function
+/// [`gsl_sf_bessel_jl`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_jl).
 pub fn bessel_jl(l: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_jl(l, x) }
 }
 
-/// These routines compute the irregular modified cylindrical Bessel
-/// function of first order, $K_1(x)$, for $x > 0$.
+/// These routines compute the irregular modified cylindrical Bessel function of
+/// first order, $K_1(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1).
+/// Binds the function
+/// [`gsl_sf_bessel_K1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1).
 pub fn bessel_K1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_K1(x) }
 }
 
-/// These routines compute the scaled regular modified cylindrical Bessel
-/// function of order `n`, $\exp(-|x|) I_n(x)$
+/// These routines compute the scaled regular modified cylindrical Bessel function
+/// of order `n`, $\exp(-|x|) I_n(x)$
 /// 
-/// Binds the function [`gsl_sf_bessel_In_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_In_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In_scaled).
 pub fn bessel_In_scaled(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_In_scaled(n, x) }
 }
 
-/// These routines compute the scaled regular modified cylindrical Bessel
-/// function of zeroth order $\exp(-|x|) I_0(x)$.
+/// These routines compute the scaled regular modified cylindrical Bessel function
+/// of zeroth order $\exp(-|x|) I_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_I0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0_scaled).
 pub fn bessel_I0_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_I0_scaled(x) }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of first order, $\exp(x) k_1(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of first order, $\exp(x) k_1(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_k1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k1_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_k1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k1_scaled).
 pub fn bessel_k1_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_k1_scaled(x) }
 }
 
-/// These routines compute the regular spherical Bessel function of zeroth
-/// order, $j_0(x) = \sin(x)/x$.
+/// These routines compute the regular spherical Bessel function of zeroth order,
+/// $j_0(x) = \sin(x)/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_j0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j0).
+/// Binds the function
+/// [`gsl_sf_bessel_j0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j0).
 pub fn bessel_j0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_j0(x) }
 }
 
-/// These routines compute the scaled regular modified Bessel function of
-/// fractional order $\nu$, $\exp(-|x|)I_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// These routines compute the scaled regular modified Bessel function of fractional
+/// order $\nu$, $\exp(-|x|)I_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Inu_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_Inu_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu_scaled).
 pub fn bessel_Inu_scaled(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Inu_scaled(nu, x) }
 }
 
-/// These routines compute the regular cylindrical Bessel function of
-/// fractional order $\nu$, $J_\nu(x)$.
+/// These routines compute the regular cylindrical Bessel function of fractional
+/// order $\nu$, $J_\nu(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Jnu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jnu).
+/// Binds the function
+/// [`gsl_sf_bessel_Jnu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jnu).
 pub fn bessel_Jnu(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Jnu(nu, x) }
 }
 
-/// These routines compute the irregular cylindrical Bessel function of first
-/// order, $Y_1(x)$, for $x>0$.
+/// These routines compute the irregular cylindrical Bessel function of first order,
+/// $Y_1(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Y1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y1).
+/// Binds the function
+/// [`gsl_sf_bessel_Y1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y1).
 pub fn bessel_Y1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Y1(x) }
 }
 
-/// These routines compute the irregular cylindrical Bessel function of
-/// order `n`, $Y_n(x)$, for $x>0$.
+/// These routines compute the irregular cylindrical Bessel function of order `n`,
+/// $Y_n(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Yn`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Yn).
+/// Binds the function
+/// [`gsl_sf_bessel_Yn`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Yn).
 pub fn bessel_Yn(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Yn(n, x) }
 }
 
 /// These routines compute the scaled irregular modified Bessel function of
-/// fractional order $\nu$, $\exp(+|x|) K_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// fractional order $\nu$, $\exp(+|x|) K_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Knu_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_Knu_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Knu_scaled).
 pub fn bessel_Knu_scaled(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Knu_scaled(nu, x) }
 }
 
-/// These routines compute the regular spherical Bessel function of first
-/// order, $j_1(x) = (\sin(x)/x - \cos(x))/x$.
+/// These routines compute the regular spherical Bessel function of first order,
+/// $j_1(x) = (\sin(x)/x - \cos(x))/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_j1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j1).
+/// Binds the function
+/// [`gsl_sf_bessel_j1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_j1).
 pub fn bessel_j1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_j1(x) }
 }
 
-/// These routines compute the location of the `s`-th positive zero of
-/// the Bessel function $J_1(x)$.
+/// These routines compute the location of the `s`-th positive zero of the Bessel
+/// function $J_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_zero_J1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J1).
+/// Binds the function
+/// [`gsl_sf_bessel_zero_J1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J1).
 pub fn bessel_zero_J1(s: u32) -> f64 {
     unsafe { bindings::gsl_sf_bessel_zero_J1(s) }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of second order, $\exp(-|x|) i_2(x)$
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// second order, $\exp(-|x|) i_2(x)$
 /// 
-/// Binds the function [`gsl_sf_bessel_i2_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i2_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_i2_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i2_scaled).
 pub fn bessel_i2_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_i2_scaled(x) }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of zeroth order, $\exp(-|x|) i_0(x)$.
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// zeroth order, $\exp(-|x|) i_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_i0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i0_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_i0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i0_scaled).
 pub fn bessel_i0_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_i0_scaled(x) }
 }
 
-/// These routines compute the location of the `s`-th positive zero of
-/// the Bessel function $J_\nu(x)$.
-/// The current implementation does not
-/// support negative values of `nu`.
+/// These routines compute the location of the `s`-th positive zero of the Bessel
+/// function $J_\nu(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_zero_Jnu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_Jnu).
+/// The current implementation does not support negative values of `nu`.
+/// 
+/// Binds the function
+/// [`gsl_sf_bessel_zero_Jnu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_Jnu).
 pub fn bessel_zero_Jnu(nu: f64, s: u32) -> f64 {
     unsafe { bindings::gsl_sf_bessel_zero_Jnu(nu, s) }
 }
 
-/// These routines compute the irregular spherical Bessel function of zeroth
-/// order, $y_0(x) = -\cos(x)/x$.
+/// These routines compute the irregular spherical Bessel function of zeroth order,
+/// $y_0(x) = -\cos(x)/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_y0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y0).
+/// Binds the function
+/// [`gsl_sf_bessel_y0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y0).
 pub fn bessel_y0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_y0(x) }
 }
 
-/// These routines compute the irregular spherical Bessel function of first
-/// order, $y_1(x) = -(\cos(x)/x + \sin(x))/x$.
+/// These routines compute the irregular spherical Bessel function of first order,
+/// $y_1(x) = -(\cos(x)/x + \sin(x))/x$.
 /// 
-/// Binds the function [`gsl_sf_bessel_y1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y1).
+/// Binds the function
+/// [`gsl_sf_bessel_y1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y1).
 pub fn bessel_y1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_y1(x) }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of second order, $\exp(x) k_2(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of second order, $\exp(x) k_2(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_k2_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k2_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_k2_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k2_scaled).
 pub fn bessel_k2_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_k2_scaled(x) }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of order `l`, $\exp(-|x|) i_l(x)$
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// order `l`, $\exp(-|x|) i_l(x)$
 /// 
-/// Binds the function [`gsl_sf_bessel_il_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_il_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_il_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_il_scaled).
 pub fn bessel_il_scaled(l: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_il_scaled(l, x) }
 }
@@ -753,170 +809,188 @@ pub fn bessel_il_scaled(l: i32, x: f64) -> f64 {
 /// These routines compute the irregular cylindrical Bessel function of zeroth
 /// order, $Y_0(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Y0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y0).
+/// Binds the function
+/// [`gsl_sf_bessel_Y0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Y0).
 pub fn bessel_Y0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Y0(x) }
 }
 
-/// These routines compute the regular cylindrical Bessel function of
-/// order `n`, $J_n(x)$.
+/// These routines compute the regular cylindrical Bessel function of order `n`,
+/// $J_n(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Jn`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jn).
+/// Binds the function
+/// [`gsl_sf_bessel_Jn`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Jn).
 pub fn bessel_Jn(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Jn(n, x) }
 }
 
-/// These routines compute the scaled irregular modified cylindrical Bessel
-/// function of zeroth order $\exp(x) K_0(x)$ for $x>0$.
+/// These routines compute the scaled irregular modified cylindrical Bessel function
+/// of zeroth order $\exp(x) K_0(x)$ for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_K0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0_scaled).
 pub fn bessel_K0_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_K0_scaled(x) }
 }
 
-/// These routines compute the scaled regular modified spherical Bessel
-/// function of first order, $\exp(-|x|) i_1(x)$.
+/// These routines compute the scaled regular modified spherical Bessel function of
+/// first order, $\exp(-|x|) i_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_i1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i1_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_i1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_i1_scaled).
 pub fn bessel_i1_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_i1_scaled(x) }
 }
 
-/// These routines compute the location of the `s`-th positive zero of
-/// the Bessel function $J_0(x)$.
+/// These routines compute the location of the `s`-th positive zero of the Bessel
+/// function $J_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_zero_J0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J0).
+/// Binds the function
+/// [`gsl_sf_bessel_zero_J0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_zero_J0).
 pub fn bessel_zero_J0(s: u32) -> f64 {
     unsafe { bindings::gsl_sf_bessel_zero_J0(s) }
 }
 
-/// These routines compute the scaled irregular modified cylindrical Bessel
-/// function of first order $\exp(x) K_1(x)$ for $x>0$.
+/// These routines compute the scaled irregular modified cylindrical Bessel function
+/// of first order $\exp(x) K_1(x)$ for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_K1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K1_scaled).
 pub fn bessel_K1_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_K1_scaled(x) }
 }
 
-/// These routines compute the regular modified cylindrical Bessel function
-/// of zeroth order, $I_0(x)$.
+/// These routines compute the regular modified cylindrical Bessel function of
+/// zeroth order, $I_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0).
+/// Binds the function
+/// [`gsl_sf_bessel_I0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I0).
 pub fn bessel_I0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_I0(x) }
 }
 
-/// These routines compute the irregular modified cylindrical Bessel
-/// function of zeroth order, $K_0(x)$, for $x > 0$.
+/// These routines compute the irregular modified cylindrical Bessel function of
+/// zeroth order, $K_0(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_K0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0).
+/// Binds the function
+/// [`gsl_sf_bessel_K0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_K0).
 pub fn bessel_K0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_K0(x) }
 }
 
-/// These routines compute the regular modified cylindrical Bessel function
-/// of order `n`, $I_n(x)$.
+/// These routines compute the regular modified cylindrical Bessel function of order
+/// `n`, $I_n(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_In`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In).
+/// Binds the function
+/// [`gsl_sf_bessel_In`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_In).
 pub fn bessel_In(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_In(n, x) }
 }
 
-/// These routines compute the logarithm of the irregular modified Bessel
-/// function of fractional order $\nu$, $\ln(K_\nu(x))$ for
-/// $x>0$, $\nu>0$.
+/// These routines compute the logarithm of the irregular modified Bessel function
+/// of fractional order $\nu$, $\ln(K_\nu(x))$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_lnKnu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_lnKnu).
+/// Binds the function
+/// [`gsl_sf_bessel_lnKnu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_lnKnu).
 pub fn bessel_ln_Knu(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_lnKnu(nu, x) }
 }
 
-/// These routines compute the regular modified Bessel function of
-/// fractional order $\nu$, $I_\nu(x)$ for $x>0$,
-/// $\nu>0$.
+/// These routines compute the regular modified Bessel function of fractional order
+/// $\nu$, $I_\nu(x)$ for $x>0$, $\nu>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Inu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu).
+/// Binds the function
+/// [`gsl_sf_bessel_Inu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Inu).
 pub fn bessel_Inu(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Inu(nu, x) }
 }
 
-/// These routines compute the regular modified cylindrical Bessel function
-/// of first order, $I_1(x)$.
+/// These routines compute the regular modified cylindrical Bessel function of first
+/// order, $I_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1).
+/// Binds the function
+/// [`gsl_sf_bessel_I1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1).
 pub fn bessel_I1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_I1(x) }
 }
 
-/// These routines compute the irregular modified cylindrical Bessel
-/// function of order `n`, $K_n(x)$, for $x > 0$.
+/// These routines compute the irregular modified cylindrical Bessel function of
+/// order `n`, $K_n(x)$, for $x > 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Kn`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn).
+/// Binds the function
+/// [`gsl_sf_bessel_Kn`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Kn).
 pub fn bessel_Kn(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Kn(n, x) }
 }
 
-/// These routines compute the irregular spherical Bessel function of
-/// order `l`, $y_l(x)$, for
-/// $l \geq 0$.
+/// These routines compute the irregular spherical Bessel function of order `l`,
+/// $y_l(x)$, for $l \geq 0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_yl`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_yl).
+/// Binds the function
+/// [`gsl_sf_bessel_yl`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_yl).
 pub fn bessel_yl(l: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_yl(l, x) }
 }
 
-/// These routines compute the irregular cylindrical Bessel function of
-/// fractional order $\nu$, $Y_\nu(x)$.
+/// These routines compute the irregular cylindrical Bessel function of fractional
+/// order $\nu$, $Y_\nu(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_Ynu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Ynu).
+/// Binds the function
+/// [`gsl_sf_bessel_Ynu`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_Ynu).
 pub fn bessel_Ynu(nu: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_Ynu(nu, x) }
 }
 
-/// These routines compute the regular cylindrical Bessel function of first
-/// order, $J_1(x)$.
+/// These routines compute the regular cylindrical Bessel function of first order,
+/// $J_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_J1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J1).
+/// Binds the function
+/// [`gsl_sf_bessel_J1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J1).
 pub fn bessel_J1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_J1(x) }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of order `l`, $\exp(x) k_l(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of order `l`, $\exp(x) k_l(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_kl_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_kl_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_kl_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_kl_scaled).
 pub fn bessel_kl_scaled(l: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_kl_scaled(l, x) }
 }
 
-/// These routines compute the irregular spherical Bessel function of second
-/// order, $y_2(x) = (-3/x^3 + 1/x)\cos(x) - (3/x^2)\sin(x)$.
+/// These routines compute the irregular spherical Bessel function of second order,
+/// $y_2(x) = (-3/x^3 + 1/x)\cos(x) - (3/x^2)\sin(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_y2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y2).
+/// Binds the function
+/// [`gsl_sf_bessel_y2`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_y2).
 pub fn bessel_y2(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_y2(x) }
 }
 
-/// These routines compute the regular cylindrical Bessel function of zeroth
-/// order, $J_0(x)$.
+/// These routines compute the regular cylindrical Bessel function of zeroth order,
+/// $J_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_J0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J0).
+/// Binds the function
+/// [`gsl_sf_bessel_J0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_J0).
 pub fn bessel_J0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_J0(x) }
 }
 
-/// These routines compute the scaled regular modified cylindrical Bessel
-/// function of first order $\exp(-|x|) I_1(x)$.
+/// These routines compute the scaled regular modified cylindrical Bessel function
+/// of first order $\exp(-|x|) I_1(x)$.
 /// 
-/// Binds the function [`gsl_sf_bessel_I1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_I1_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_I1_scaled).
 pub fn bessel_I1_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_I1_scaled(x) }
 }
 
-/// These routines compute the scaled irregular modified spherical Bessel
-/// function of zeroth order, $\exp(x) k_0(x)$, for $x>0$.
+/// These routines compute the scaled irregular modified spherical Bessel function
+/// of zeroth order, $\exp(x) k_0(x)$, for $x>0$.
 /// 
-/// Binds the function [`gsl_sf_bessel_k0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k0_scaled).
+/// Binds the function
+/// [`gsl_sf_bessel_k0_scaled`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_bessel_k0_scaled).
 pub fn bessel_k0_scaled(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_bessel_k0_scaled(x) }
 }

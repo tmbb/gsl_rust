@@ -22,11 +22,11 @@
 use crate::bindings;
 use crate::{GSLError, ValWithError, Result};
 
-/// These routines compute the normalized incomplete Gamma Function
-/// $Q(a,x) = 1/\Gamma(a) \int_x^\infty dt t^{(a-1)} \exp(-t)$
-/// for $a > 0$, $x \ge 0$.
+/// These routines compute the normalized incomplete Gamma Function $Q(a,x) =
+/// 1/\Gamma(a) \int_x^\infty dt t^{(a-1)} \exp(-t)$ for $a > 0$, $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_gamma_inc_Q_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_Q_e).
+/// Binds the function
+/// [`gsl_sf_gamma_inc_Q_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_Q_e).
 pub fn gamma_inc_Q_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -35,13 +35,13 @@ pub fn gamma_inc_Q_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the logarithm of the factorial of `n`,
-/// $\log(n!)$.
-/// The algorithm is faster than computing
-/// $\ln(\Gamma(n+1))$ via `gsl_sf_lngamma()` for $n < 170$,
-/// but defers for larger `n`.
+/// These routines compute the logarithm of the factorial of `n`, $\log(n!)$.
 /// 
-/// Binds the function [`gsl_sf_lnfact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnfact_e).
+/// The algorithm is faster than computing $\ln(\Gamma(n+1))$ via `gsl_sf_lngamma()`
+/// for $n < 170$, but defers for larger `n`.
+/// 
+/// Binds the function
+/// [`gsl_sf_lnfact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnfact_e).
 pub fn ln_fact_e(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -51,13 +51,13 @@ pub fn ln_fact_e(n: u32) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the factorial $n!$.
-/// The factorial is
-/// related to the Gamma function by $n! = \Gamma(n+1)$.
-/// The maximum value of $n$ such that $n!$ is not
-/// considered an overflow is given by the macro `GSL_SF_FACT_NMAX`
-/// and is 170.
 /// 
-/// Binds the function [`gsl_sf_fact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_fact_e).
+/// The factorial is related to the Gamma function by $n! = \Gamma(n+1)$. The
+/// maximum value of $n$ such that $n!$ is not considered an overflow is given by
+/// the macro `GSL_SF_FACT_NMAX` and is 170.
+/// 
+/// Binds the function
+/// [`gsl_sf_fact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_fact_e).
 pub fn fact_e(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -66,15 +66,14 @@ pub fn fact_e(n: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the logarithm of the Gamma function,
-/// $\log(\Gamma(x))$, subject to $x$ not being a negative
-/// integer or zero.
-/// For $x < 0$ the real part of $\log(\Gamma(x))$ is
-/// returned, which is equivalent to $\log(|\Gamma(x)|)$.
-/// The function
-/// is computed using the real Lanczos method.
+/// These routines compute the logarithm of the Gamma function, $\log(\Gamma(x))$,
+/// subject to $x$ not being a negative integer or zero.
 /// 
-/// Binds the function [`gsl_sf_lngamma_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lngamma_e).
+/// For $x < 0$ the real part of $\log(\Gamma(x))$ is returned, which is equivalent
+/// to $\log(|\Gamma(x)|)$. The function is computed using the real Lanczos method.
+/// 
+/// Binds the function
+/// [`gsl_sf_lngamma_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lngamma_e).
 pub fn ln_gamma_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -86,7 +85,8 @@ pub fn ln_gamma_e(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the logarithm of the double factorial of `n`,
 /// $\log(n!!)$.
 /// 
-/// Binds the function [`gsl_sf_lndoublefact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lndoublefact_e).
+/// Binds the function
+/// [`gsl_sf_lndoublefact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lndoublefact_e).
 pub fn ln_doublefact_e(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -96,10 +96,11 @@ pub fn ln_doublefact_e(n: u32) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the logarithm of `nchoosem`.
-/// This is
-/// equivalent to the sum $\log(n!) - \log(m!) - \log((n-m)!)$.
 /// 
-/// Binds the function [`gsl_sf_lnchoose_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnchoose_e).
+/// This is equivalent to the sum $\log(n!) - \log(m!) - \log((n-m)!)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_lnchoose_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnchoose_e).
 pub fn ln_choose_e(n: u32, m: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -108,10 +109,12 @@ pub fn ln_choose_e(n: u32, m: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Beta Function, $B(a,b) = \Gamma(a)\Gamma(b)/\Gamma(a+b)$
-/// subject to $a$ and $b$ not being negative integers.
+/// These routines compute the Beta Function, $B(a,b) =
+/// \Gamma(a)\Gamma(b)/\Gamma(a+b)$ subject to $a$ and $b$ not being negative
+/// integers.
 /// 
-/// Binds the function [`gsl_sf_beta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta_e).
+/// Binds the function
+/// [`gsl_sf_beta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta_e).
 pub fn beta_e(a: f64, b: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -121,13 +124,14 @@ pub fn beta_e(a: f64, b: f64) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the complementary normalized incomplete Gamma Function
-/// $P(a,x) = 1 - Q(a,x) = 1/\Gamma(a) \int_0^x dt t^{(a-1)} \exp(-t)$
-/// for $a > 0$, $x \ge 0$.
+/// $P(a,x) = 1 - Q(a,x) = 1/\Gamma(a) \int_0^x dt t^{(a-1)} \exp(-t)$ for $a > 0$,
+/// $x \ge 0$.
 /// 
-/// Note that Abramowitz & Stegun call $P(a,x)$ the incomplete gamma
-/// function (section 6.5).
+/// Note that Abramowitz & Stegun call $P(a,x)$ the incomplete gamma function
+/// (section 6.5).
 /// 
-/// Binds the function [`gsl_sf_gamma_inc_P_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_P_e).
+/// Binds the function
+/// [`gsl_sf_gamma_inc_P_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_P_e).
 pub fn gamma_inc_P_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -136,10 +140,11 @@ pub fn gamma_inc_P_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the logarithm of the Pochhammer symbol,
-/// $\log((a)_x) = \log(\Gamma(a + x)/\Gamma(a))$.
+/// These routines compute the logarithm of the Pochhammer symbol, $\log((a)_x) =
+/// \log(\Gamma(a + x)/\Gamma(a))$.
 /// 
-/// Binds the function [`gsl_sf_lnpoch_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnpoch_e).
+/// Binds the function
+/// [`gsl_sf_lnpoch_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnpoch_e).
 pub fn ln_poch_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -148,11 +153,11 @@ pub fn ln_poch_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These functions compute the unnormalized incomplete Gamma Function
-/// $\Gamma(a,x) = \int_x^\infty dt t^{(a-1)} \exp(-t)$
-/// for $a$ real and $x \ge 0$.
+/// These functions compute the unnormalized incomplete Gamma Function $\Gamma(a,x)
+/// = \int_x^\infty dt t^{(a-1)} \exp(-t)$ for $a$ real and $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_gamma_inc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_e).
+/// Binds the function
+/// [`gsl_sf_gamma_inc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_e).
 pub fn gamma_inc_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -163,7 +168,8 @@ pub fn gamma_inc_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
 
 /// These routines compute the combinatorial factor `nchoosem`$= n!/(m!(n-m)!)$
 /// 
-/// Binds the function [`gsl_sf_choose_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_choose_e).
+/// Binds the function
+/// [`gsl_sf_choose_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_choose_e).
 pub fn choose_e(n: u32, m: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -172,10 +178,11 @@ pub fn choose_e(n: u32, m: u32) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the relative Pochhammer symbol $((a)_x - 1)/x$
-/// where $(a)_x = \Gamma(a + x)/\Gamma(a)$.
+/// These routines compute the relative Pochhammer symbol $((a)_x - 1)/x$ where
+/// $(a)_x = \Gamma(a + x)/\Gamma(a)$.
 /// 
-/// Binds the function [`gsl_sf_pochrel_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pochrel_e).
+/// Binds the function
+/// [`gsl_sf_pochrel_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pochrel_e).
 pub fn pochrel_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -185,11 +192,12 @@ pub fn pochrel_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the double factorial $n!! = n(n-2)(n-4) \dots$.
-/// The maximum value of $n$ such that $n!!$ is not
-/// considered an overflow is given by the macro `GSL_SF_DOUBLEFACT_NMAX`
-/// and is 297.
 /// 
-/// Binds the function [`gsl_sf_doublefact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_doublefact_e).
+/// The maximum value of $n$ such that $n!!$ is not considered an overflow is given
+/// by the macro `GSL_SF_DOUBLEFACT_NMAX` and is 297.
+/// 
+/// Binds the function
+/// [`gsl_sf_doublefact_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_doublefact_e).
 pub fn doublefact_e(n: u32) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -201,7 +209,8 @@ pub fn doublefact_e(n: u32) -> Result<ValWithError<f64>> {
 /// These routines compute the logarithm of the Beta Function, $\log(B(a,b))$
 /// subject to $a$ and $b$ not being negative integers.
 /// 
-/// Binds the function [`gsl_sf_lnbeta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnbeta_e).
+/// Binds the function
+/// [`gsl_sf_lnbeta_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnbeta_e).
 pub fn ln_beta_e(a: f64, b: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -210,10 +219,11 @@ pub fn ln_beta_e(a: f64, b: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Taylor coefficient $x^n / n!$ for
-/// $x \ge 0$, $n \ge 0$
+/// These routines compute the Taylor coefficient $x^n / n!$ for $x \ge 0$, $n \ge
+/// 0$
 /// 
-/// Binds the function [`gsl_sf_taylorcoeff_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_taylorcoeff_e).
+/// Binds the function
+/// [`gsl_sf_taylorcoeff_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_taylorcoeff_e).
 pub fn taylorcoeff_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -223,12 +233,13 @@ pub fn taylorcoeff_e(n: i32, x: f64) -> Result<ValWithError<f64>> {
 }
 
 /// These routines compute the Pochhammer symbol $(a)_x = \Gamma(a + x)/\Gamma(a)$.
-/// The Pochhammer symbol is also known as the Apell symbol and
-/// sometimes written as $(a,x)$.
-/// When $a$ and $a + x$
-/// are negative integers or zero, the limiting value of the ratio is returned.
 /// 
-/// Binds the function [`gsl_sf_poch_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_poch_e).
+/// The Pochhammer symbol is also known as the Apell symbol and sometimes written as
+/// $(a,x)$. When $a$ and $a + x$ are negative integers or zero, the limiting value
+/// of the ratio is returned.
+/// 
+/// Binds the function
+/// [`gsl_sf_poch_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_poch_e).
 pub fn poch_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -237,15 +248,17 @@ pub fn poch_e(a: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the regulated Gamma Function $\Gamma^*(x)$
-/// for $x > 0$. The regulated gamma function is given by,
+/// These routines compute the regulated Gamma Function $\Gamma^*(x)$ for $x > 0$.
 /// 
-/// $$\Gamma^*(x) &= \Gamma(x)/(\sqrt{2\pi} x^{(x-1/2)} \exp(-x))\cr
-///             &= \left(1 + {1 \over 12x} + ...\right) \quad\hbox{for~} x\to \infty\cr$$
+/// The regulated gamma function is given by,
+/// 
+/// $$\Gamma^*(x) &= \Gamma(x)/(\sqrt{2\pi} x^{(x-1/2)} \exp(-x))\cr &= \left(1 + {1
+/// \over 12x} + ...\right) \quad\hbox{for~} x\to \infty\cr$$
 /// 
 /// and is a useful suggestion of Temme.
 /// 
-/// Binds the function [`gsl_sf_gammastar_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammastar_e).
+/// Binds the function
+/// [`gsl_sf_gammastar_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammastar_e).
 pub fn gammastar_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -254,20 +267,20 @@ pub fn gammastar_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the normalized incomplete Beta function
-/// $I_x(a,b) = B_x(a,b) / B(a,b)$ where
+/// These routines compute the normalized incomplete Beta function $I_x(a,b) =
+/// B_x(a,b) / B(a,b)$ where
 /// 
 /// $$B_x(a,b) = \int_0^x t^{a-1} (1-t)^{b-1} dt$$
 /// 
 /// for $0 \le x \le 1$.
-/// For $a > 0$, $b > 0$ the value is computed using
-/// a continued fraction expansion.
-/// For all other values it is computed using
-/// the relation
+/// 
+/// For $a > 0$, $b > 0$ the value is computed using a continued fraction expansion.
+/// For all other values it is computed using the relation
 /// 
 /// $$I_x(a,b,x) = (1/a) x^a {}_2F_1(a,1-b,a+1,x)/B(a,b)$$
 /// 
-/// Binds the function [`gsl_sf_beta_inc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta_inc_e).
+/// Binds the function
+/// [`gsl_sf_beta_inc_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta_inc_e).
 pub fn beta_inc_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -276,10 +289,11 @@ pub fn beta_inc_e(a: f64, b: f64, x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the reciprocal of the gamma function,
-/// $1/\Gamma(x)$ using the real Lanczos method.
+/// These routines compute the reciprocal of the gamma function, $1/\Gamma(x)$ using
+/// the real Lanczos method.
 /// 
-/// Binds the function [`gsl_sf_gammainv_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammainv_e).
+/// Binds the function
+/// [`gsl_sf_gammainv_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammainv_e).
 pub fn gammainv_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -288,14 +302,15 @@ pub fn gammainv_e(x: f64) -> Result<ValWithError<f64>> {
     }
 }
 
-/// These routines compute the Gamma function $\Gamma(x)$, subject to $x$
-/// not being a negative integer or zero.
-/// The function is computed using the real
-/// Lanczos method. The maximum value of $x$ such that $\Gamma(x)$ is not
-/// considered an overflow is given by the macro `GSL_SF_GAMMA_XMAX`
-/// and is 171.0.
+/// These routines compute the Gamma function $\Gamma(x)$, subject to $x$ not being
+/// a negative integer or zero.
 /// 
-/// Binds the function [`gsl_sf_gamma_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_e).
+/// The function is computed using the real Lanczos method. The maximum value of $x$
+/// such that $\Gamma(x)$ is not considered an overflow is given by the macro
+/// `GSL_SF_GAMMA_XMAX` and is 171.0.
+/// 
+/// Binds the function
+/// [`gsl_sf_gamma_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_e).
 pub fn gamma_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -308,44 +323,49 @@ pub fn gamma_e(x: f64) -> Result<ValWithError<f64>> {
 /// These routines compute the logarithm of the double factorial of `n`,
 /// $\log(n!!)$.
 /// 
-/// Binds the function [`gsl_sf_lndoublefact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lndoublefact).
+/// Binds the function
+/// [`gsl_sf_lndoublefact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lndoublefact).
 pub fn ln_doublefact(n: u32) -> f64 {
     unsafe { bindings::gsl_sf_lndoublefact(n) }
 }
 
 /// These routines compute the logarithm of `nchoosem`.
-/// This is
-/// equivalent to the sum $\log(n!) - \log(m!) - \log((n-m)!)$.
 /// 
-/// Binds the function [`gsl_sf_lnchoose`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnchoose).
+/// This is equivalent to the sum $\log(n!) - \log(m!) - \log((n-m)!)$.
+/// 
+/// Binds the function
+/// [`gsl_sf_lnchoose`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnchoose).
 pub fn ln_choose(n: u32, m: u32) -> f64 {
     unsafe { bindings::gsl_sf_lnchoose(n, m) }
 }
 
 /// These routines compute the double factorial $n!! = n(n-2)(n-4) \dots$.
-/// The maximum value of $n$ such that $n!!$ is not
-/// considered an overflow is given by the macro `GSL_SF_DOUBLEFACT_NMAX`
-/// and is 297.
 /// 
-/// Binds the function [`gsl_sf_doublefact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_doublefact).
+/// The maximum value of $n$ such that $n!!$ is not considered an overflow is given
+/// by the macro `GSL_SF_DOUBLEFACT_NMAX` and is 297.
+/// 
+/// Binds the function
+/// [`gsl_sf_doublefact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_doublefact).
 pub fn doublefact(n: u32) -> f64 {
     unsafe { bindings::gsl_sf_doublefact(n) }
 }
 
 /// These routines compute the Pochhammer symbol $(a)_x = \Gamma(a + x)/\Gamma(a)$.
-/// The Pochhammer symbol is also known as the Apell symbol and
-/// sometimes written as $(a,x)$.
-/// When $a$ and $a + x$
-/// are negative integers or zero, the limiting value of the ratio is returned.
 /// 
-/// Binds the function [`gsl_sf_poch`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_poch).
+/// The Pochhammer symbol is also known as the Apell symbol and sometimes written as
+/// $(a,x)$. When $a$ and $a + x$ are negative integers or zero, the limiting value
+/// of the ratio is returned.
+/// 
+/// Binds the function
+/// [`gsl_sf_poch`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_poch).
 pub fn poch(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_poch(a, x) }
 }
 
 /// These routines compute the combinatorial factor `nchoosem`$= n!/(m!(n-m)!)$
 /// 
-/// Binds the function [`gsl_sf_choose`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_choose).
+/// Binds the function
+/// [`gsl_sf_choose`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_choose).
 pub fn choose(n: u32, m: u32) -> f64 {
     unsafe { bindings::gsl_sf_choose(n, m) }
 }
@@ -353,156 +373,166 @@ pub fn choose(n: u32, m: u32) -> f64 {
 /// These routines compute the logarithm of the Beta Function, $\log(B(a,b))$
 /// subject to $a$ and $b$ not being negative integers.
 /// 
-/// Binds the function [`gsl_sf_lnbeta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnbeta).
+/// Binds the function
+/// [`gsl_sf_lnbeta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnbeta).
 pub fn ln_beta(a: f64, b: f64) -> f64 {
     unsafe { bindings::gsl_sf_lnbeta(a, b) }
 }
 
 /// These routines compute the complementary normalized incomplete Gamma Function
-/// $P(a,x) = 1 - Q(a,x) = 1/\Gamma(a) \int_0^x dt t^{(a-1)} \exp(-t)$
-/// for $a > 0$, $x \ge 0$.
+/// $P(a,x) = 1 - Q(a,x) = 1/\Gamma(a) \int_0^x dt t^{(a-1)} \exp(-t)$ for $a > 0$,
+/// $x \ge 0$.
 /// 
-/// Note that Abramowitz & Stegun call $P(a,x)$ the incomplete gamma
-/// function (section 6.5).
+/// Note that Abramowitz & Stegun call $P(a,x)$ the incomplete gamma function
+/// (section 6.5).
 /// 
-/// Binds the function [`gsl_sf_gamma_inc_P`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_P).
+/// Binds the function
+/// [`gsl_sf_gamma_inc_P`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_P).
 pub fn gamma_inc_P(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gamma_inc_P(a, x) }
 }
 
-/// These routines compute the relative Pochhammer symbol $((a)_x - 1)/x$
-/// where $(a)_x = \Gamma(a + x)/\Gamma(a)$.
+/// These routines compute the relative Pochhammer symbol $((a)_x - 1)/x$ where
+/// $(a)_x = \Gamma(a + x)/\Gamma(a)$.
 /// 
-/// Binds the function [`gsl_sf_pochrel`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pochrel).
+/// Binds the function
+/// [`gsl_sf_pochrel`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_pochrel).
 pub fn pochrel(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_pochrel(a, x) }
 }
 
-/// These routines compute the normalized incomplete Beta function
-/// $I_x(a,b) = B_x(a,b) / B(a,b)$ where
+/// These routines compute the normalized incomplete Beta function $I_x(a,b) =
+/// B_x(a,b) / B(a,b)$ where
 /// 
 /// $$B_x(a,b) = \int_0^x t^{a-1} (1-t)^{b-1} dt$$
 /// 
 /// for $0 \le x \le 1$.
-/// For $a > 0$, $b > 0$ the value is computed using
-/// a continued fraction expansion.
-/// For all other values it is computed using
-/// the relation
+/// 
+/// For $a > 0$, $b > 0$ the value is computed using a continued fraction expansion.
+/// For all other values it is computed using the relation
 /// 
 /// $$I_x(a,b,x) = (1/a) x^a {}_2F_1(a,1-b,a+1,x)/B(a,b)$$
 /// 
-/// Binds the function [`gsl_sf_beta_inc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta_inc).
+/// Binds the function
+/// [`gsl_sf_beta_inc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta_inc).
 pub fn beta_inc(a: f64, b: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_beta_inc(a, b, x) }
 }
 
-/// These routines compute the reciprocal of the gamma function,
-/// $1/\Gamma(x)$ using the real Lanczos method.
+/// These routines compute the reciprocal of the gamma function, $1/\Gamma(x)$ using
+/// the real Lanczos method.
 /// 
-/// Binds the function [`gsl_sf_gammainv`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammainv).
+/// Binds the function
+/// [`gsl_sf_gammainv`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammainv).
 pub fn gammainv(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gammainv(x) }
 }
 
 /// These routines compute the factorial $n!$.
-/// The factorial is
-/// related to the Gamma function by $n! = \Gamma(n+1)$.
-/// The maximum value of $n$ such that $n!$ is not
-/// considered an overflow is given by the macro `GSL_SF_FACT_NMAX`
-/// and is 170.
 /// 
-/// Binds the function [`gsl_sf_fact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_fact).
+/// The factorial is related to the Gamma function by $n! = \Gamma(n+1)$. The
+/// maximum value of $n$ such that $n!$ is not considered an overflow is given by
+/// the macro `GSL_SF_FACT_NMAX` and is 170.
+/// 
+/// Binds the function
+/// [`gsl_sf_fact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_fact).
 pub fn fact(n: u32) -> f64 {
     unsafe { bindings::gsl_sf_fact(n) }
 }
 
-/// These routines compute the Beta Function, $B(a,b) = \Gamma(a)\Gamma(b)/\Gamma(a+b)$
-/// subject to $a$ and $b$ not being negative integers.
+/// These routines compute the Beta Function, $B(a,b) =
+/// \Gamma(a)\Gamma(b)/\Gamma(a+b)$ subject to $a$ and $b$ not being negative
+/// integers.
 /// 
-/// Binds the function [`gsl_sf_beta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta).
+/// Binds the function
+/// [`gsl_sf_beta`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_beta).
 pub fn beta(a: f64, b: f64) -> f64 {
     unsafe { bindings::gsl_sf_beta(a, b) }
 }
 
-/// These routines compute the logarithm of the Pochhammer symbol,
-/// $\log((a)_x) = \log(\Gamma(a + x)/\Gamma(a))$.
+/// These routines compute the logarithm of the Pochhammer symbol, $\log((a)_x) =
+/// \log(\Gamma(a + x)/\Gamma(a))$.
 /// 
-/// Binds the function [`gsl_sf_lnpoch`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnpoch).
+/// Binds the function
+/// [`gsl_sf_lnpoch`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnpoch).
 pub fn ln_poch(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_lnpoch(a, x) }
 }
 
-/// These routines compute the Taylor coefficient $x^n / n!$ for
-/// $x \ge 0$, $n \ge 0$
+/// These routines compute the Taylor coefficient $x^n / n!$ for $x \ge 0$, $n \ge
+/// 0$
 /// 
-/// Binds the function [`gsl_sf_taylorcoeff`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_taylorcoeff).
+/// Binds the function
+/// [`gsl_sf_taylorcoeff`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_taylorcoeff).
 pub fn taylorcoeff(n: i32, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_taylorcoeff(n, x) }
 }
 
-/// These routines compute the normalized incomplete Gamma Function
-/// $Q(a,x) = 1/\Gamma(a) \int_x^\infty dt t^{(a-1)} \exp(-t)$
-/// for $a > 0$, $x \ge 0$.
+/// These routines compute the normalized incomplete Gamma Function $Q(a,x) =
+/// 1/\Gamma(a) \int_x^\infty dt t^{(a-1)} \exp(-t)$ for $a > 0$, $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_gamma_inc_Q`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_Q).
+/// Binds the function
+/// [`gsl_sf_gamma_inc_Q`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc_Q).
 pub fn gamma_inc_Q(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gamma_inc_Q(a, x) }
 }
 
-/// These routines compute the regulated Gamma Function $\Gamma^*(x)$
-/// for $x > 0$. The regulated gamma function is given by,
+/// These routines compute the regulated Gamma Function $\Gamma^*(x)$ for $x > 0$.
 /// 
-/// $$\Gamma^*(x) &= \Gamma(x)/(\sqrt{2\pi} x^{(x-1/2)} \exp(-x))\cr
-///             &= \left(1 + {1 \over 12x} + ...\right) \quad\hbox{for~} x\to \infty\cr$$
+/// The regulated gamma function is given by,
+/// 
+/// $$\Gamma^*(x) &= \Gamma(x)/(\sqrt{2\pi} x^{(x-1/2)} \exp(-x))\cr &= \left(1 + {1
+/// \over 12x} + ...\right) \quad\hbox{for~} x\to \infty\cr$$
 /// 
 /// and is a useful suggestion of Temme.
 /// 
-/// Binds the function [`gsl_sf_gammastar`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammastar).
+/// Binds the function
+/// [`gsl_sf_gammastar`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gammastar).
 pub fn gammastar(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gammastar(x) }
 }
 
-/// These routines compute the Gamma function $\Gamma(x)$, subject to $x$
-/// not being a negative integer or zero.
-/// The function is computed using the real
-/// Lanczos method. The maximum value of $x$ such that $\Gamma(x)$ is not
-/// considered an overflow is given by the macro `GSL_SF_GAMMA_XMAX`
-/// and is 171.0.
+/// These routines compute the Gamma function $\Gamma(x)$, subject to $x$ not being
+/// a negative integer or zero.
 /// 
-/// Binds the function [`gsl_sf_gamma`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma).
+/// The function is computed using the real Lanczos method. The maximum value of $x$
+/// such that $\Gamma(x)$ is not considered an overflow is given by the macro
+/// `GSL_SF_GAMMA_XMAX` and is 171.0.
+/// 
+/// Binds the function
+/// [`gsl_sf_gamma`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma).
 pub fn gamma(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gamma(x) }
 }
 
-/// These routines compute the logarithm of the Gamma function,
-/// $\log(\Gamma(x))$, subject to $x$ not being a negative
-/// integer or zero.
-/// For $x < 0$ the real part of $\log(\Gamma(x))$ is
-/// returned, which is equivalent to $\log(|\Gamma(x)|)$.
-/// The function
-/// is computed using the real Lanczos method.
+/// These routines compute the logarithm of the Gamma function, $\log(\Gamma(x))$,
+/// subject to $x$ not being a negative integer or zero.
 /// 
-/// Binds the function [`gsl_sf_lngamma`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lngamma).
+/// For $x < 0$ the real part of $\log(\Gamma(x))$ is returned, which is equivalent
+/// to $\log(|\Gamma(x)|)$. The function is computed using the real Lanczos method.
+/// 
+/// Binds the function
+/// [`gsl_sf_lngamma`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lngamma).
 pub fn ln_gamma(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_lngamma(x) }
 }
 
-/// These routines compute the logarithm of the factorial of `n`,
-/// $\log(n!)$.
-/// The algorithm is faster than computing
-/// $\ln(\Gamma(n+1))$ via `gsl_sf_lngamma()` for $n < 170$,
-/// but defers for larger `n`.
+/// These routines compute the logarithm of the factorial of `n`, $\log(n!)$.
 /// 
-/// Binds the function [`gsl_sf_lnfact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnfact).
+/// The algorithm is faster than computing $\ln(\Gamma(n+1))$ via `gsl_sf_lngamma()`
+/// for $n < 170$, but defers for larger `n`.
+/// 
+/// Binds the function
+/// [`gsl_sf_lnfact`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lnfact).
 pub fn ln_fact(n: u32) -> f64 {
     unsafe { bindings::gsl_sf_lnfact(n) }
 }
 
-/// These functions compute the unnormalized incomplete Gamma Function
-/// $\Gamma(a,x) = \int_x^\infty dt t^{(a-1)} \exp(-t)$
-/// for $a$ real and $x \ge 0$.
+/// These functions compute the unnormalized incomplete Gamma Function $\Gamma(a,x)
+/// = \int_x^\infty dt t^{(a-1)} \exp(-t)$ for $a$ real and $x \ge 0$.
 /// 
-/// Binds the function [`gsl_sf_gamma_inc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc).
+/// Binds the function
+/// [`gsl_sf_gamma_inc`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_gamma_inc).
 pub fn gamma_inc(a: f64, x: f64) -> f64 {
     unsafe { bindings::gsl_sf_gamma_inc(a, x) }
 }

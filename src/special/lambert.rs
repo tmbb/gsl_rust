@@ -25,7 +25,8 @@ use crate::{GSLError, ValWithError, Result};
 /// These compute the secondary real-valued branch of the Lambert W function,
 /// $W_{-1}(x)$.
 /// 
-/// Binds the function [`gsl_sf_lambert_Wm1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_Wm1_e).
+/// Binds the function
+/// [`gsl_sf_lambert_Wm1_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_Wm1_e).
 pub fn lambert_Wm1_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -36,7 +37,8 @@ pub fn lambert_Wm1_e(x: f64) -> Result<ValWithError<f64>> {
 
 /// These compute the principal branch of the Lambert W function, $W_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_lambert_W0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_W0_e).
+/// Binds the function
+/// [`gsl_sf_lambert_W0_e`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_W0_e).
 pub fn lambert_W0_e(x: f64) -> Result<ValWithError<f64>> {
     unsafe {
         let mut result = bindings::gsl_sf_result { val: 0.0, err: 0.0 };
@@ -49,14 +51,16 @@ pub fn lambert_W0_e(x: f64) -> Result<ValWithError<f64>> {
 /// These compute the secondary real-valued branch of the Lambert W function,
 /// $W_{-1}(x)$.
 /// 
-/// Binds the function [`gsl_sf_lambert_Wm1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_Wm1).
+/// Binds the function
+/// [`gsl_sf_lambert_Wm1`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_Wm1).
 pub fn lambert_Wm1(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_lambert_Wm1(x) }
 }
 
 /// These compute the principal branch of the Lambert W function, $W_0(x)$.
 /// 
-/// Binds the function [`gsl_sf_lambert_W0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_W0).
+/// Binds the function
+/// [`gsl_sf_lambert_W0`](https://www.gnu.org/software/gsl/doc/html//specfunc.html#c.gsl_sf_lambert_W0).
 pub fn lambert_W0(x: f64) -> f64 {
     unsafe { bindings::gsl_sf_lambert_W0(x) }
 }
