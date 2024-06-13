@@ -51,7 +51,6 @@ mod trig;
 mod zeta;
 
 
-pub use airy::*;
 pub use bessel::*;
 pub use clausen::*;
 pub use coupling::*;
@@ -60,8 +59,6 @@ pub use dawson::*;
 pub use debye::*;
 pub use dilog::*;
 pub use elementary::*;
-pub use ellint::*;
-pub use elljac::*;
 pub use erf::*;
 pub use exp::*;
 pub use expint::*;
@@ -77,8 +74,15 @@ pub use log::*;
 pub use mathieu::*;
 pub use pow_int::*;
 pub use psi::*;
-pub use sincos_pi::*;
 pub use synchrotron::*;
 pub use transport::*;
 pub use trig::*;
 pub use zeta::*;
+
+// The following modules don't contain any functions yet.
+// They will be exported as soon as we have filled them with something.
+
+// pub use ellint::*;
+// pub use elljac::*;
+// pub use airy::*;
+// pub use sincos_pi::*;
